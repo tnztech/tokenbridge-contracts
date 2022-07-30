@@ -45,13 +45,17 @@ async function deployContract(contractJson, args, { from, network, nonce }) {
   const options = {
     from
   }
+  console.log("Start deployment...")
+  console.log("RPC URL: " + url)
   const instance = new web3.eth.Contract(contractJson.abi, options)
+  console.log("got instance")
   const result = await instance
     .deploy({
       data: contractJson.bytecode,
       arguments: args
     })
     .encodeABI()
+  console.log('Send raw tx...')
   const tx = await sendRawTx({
     data: result,
     nonce: Web3Utils.toHex(nonce),
@@ -65,8 +69,10 @@ async function deployContract(contractJson, args, { from, network, nonce }) {
   }
   instance.options.address = tx.contractAddress
   instance.deployedBlockNumber = tx.blockNumber
+  console.log('Deployed contract address: ' + tx.contractAddress)
 
   if (apiUrl) {
+    console.log("API URL is set, I'll try to verify the contracts...")
     let constructorArguments
     if (args.length) {
       constructorArguments = result.substring(contractJson.bytecode.length)
@@ -128,7 +134,7 @@ async function sendRawTx({ data, nonce, to, privateKey, url, gasPrice, value }) 
     tx.sign(privateKey)
     const serializedTx = tx.serialize()
     const txHash = await sendNodeRequest(url, 'eth_sendRawTransaction', `0x${serializedTx.toString('hex')}`)
-    console.log('pending txHash', txHash)
+    console.log('Pending txHash', txHash)
     return await getReceipt(txHash, url)
   } catch (e) {
     console.error(e)
@@ -167,7 +173,9 @@ function timeout(ms) {
 
 async function getReceipt(txHash, url) {
   await timeout(GET_RECEIPT_INTERVAL_IN_MILLISECONDS)
+  console.log("Ask for tx receipt...")
   let receipt = await sendNodeRequest(url, 'eth_getTransactionReceipt', txHash)
+  console.log(receipt)
   if (receipt === null || receipt.blockNumber === null) {
     receipt = await getReceipt(txHash, url)
   }
