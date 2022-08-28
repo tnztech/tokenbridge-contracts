@@ -15,7 +15,7 @@ contract CompoundConnector is InterestConnector {
      * @dev Tells the address of the DAI token in the Ethereum Mainnet.
      */
     function daiToken() public pure returns (ERC20) {
-        return ERC20(0x6B175474E89094C44Da98b954EedeAC495271d0F);
+        return ERC20(0xdc31ee1784292379fbb2964b3b9c4124d8f89c60);
     }
 
     /**
