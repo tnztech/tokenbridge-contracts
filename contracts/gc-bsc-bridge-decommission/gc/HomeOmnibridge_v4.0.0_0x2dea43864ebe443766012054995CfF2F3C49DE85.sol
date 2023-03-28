@@ -3,6 +3,10 @@ This is the code of the HomeOmnibridge implementation that
 blocks bridging of native tokens
 
 Address is 0x2dea43864ebe443766012054995CfF2F3C49DE85, version 4.0.0
+
+The difference with version 3.0.3 is in the `bridgeSpecificActionsOnTokenTransfer` function:
+added `require(nativeToken != address(0), "Bridging of native tokens is forbidden")`
+which enforces that the token is not native with respect to this side of the bridge
 */
 
 
