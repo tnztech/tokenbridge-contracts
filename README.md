@@ -2,6 +2,14 @@
 [![Build Status](https://github.com/poanetwork/tokenbridge-contracts/workflows/tokenbridge-contracts/badge.svg?branch=master)](https://github.com/poanetwork/tokenbridge-contracts/workflows/tokenbridge-contracts/badge.svg?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/poanetwork/tokenbridge-contracts/badge.svg?branch=master)](https://coveralls.io/github/poanetwork/tokenbridge-contracts?branch=master)
 
+---
+
+# The `gc-bsc-bridge-decommission` branch was created to only store the differences of versions of the contracts of BSC<->GC bridge through the decommission process of this bridge.
+# Current stage of decommission process is `bridging of tokens that are native with respect to current side of the bridge is forbidden`.
+# For more details please refer to the `tokenbridge-contracts/contracts/gc-bsc-bridge-decommission`.
+
+---
+
 # POA Bridge Smart Contracts
 These contracts provide the core functionality for the POA bridge. They implement the logic to relay assests between two EVM-based blockchain networks. The contracts collect bridge validator's signatures to approve and facilitate relay operations.
 
