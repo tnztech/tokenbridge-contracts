@@ -134,6 +134,7 @@ contract InterestConnector is Ownable, ERC20Bridge {
      * Requires interest for the given token to be enabled.
      * @param _token address of the token contract.
      */
+     //TODO
     function payInterest(address _token) external onlyEOA interestEnabled(_token) {
         uint256 interest = interestAmount(_token);
         require(interest >= minInterestPaid(_token));

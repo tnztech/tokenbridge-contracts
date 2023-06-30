@@ -37,7 +37,7 @@ contract XDaiForeignBridge is ForeignBridgeErcToNative, CompoundConnector, GSNFo
     function erc20token() public view returns (ERC20) {
         return daiToken();
     }
-
+    /*
     function upgradeTo530(address _interestReceiver) external {
         require(msg.sender == address(this));
 
@@ -53,6 +53,7 @@ contract XDaiForeignBridge is ForeignBridgeErcToNative, CompoundConnector, GSNFo
 
         invest(dai);
     }
+    */
 
     function investDai() external {
         invest(address(daiToken()));
