@@ -130,17 +130,17 @@ contract InterestConnector is Ownable, ERC20Bridge {
     }
 
     /**
-     * @dev Pays collected interest for the specific underlying token.
+     * @dev Pays collected interest for the specific underlying token to _reveicer contract on Gnosis Chain
      * Requires interest for the given token to be enabled.
      * @param _token address of the token contract.
      */
-     //TODO
     function payInterest(address _token) external onlyEOA interestEnabled(_token) {
         uint256 interest = interestAmount(_token);
-        require(interest >= minInterestPaid(_token));
+        require(interest >= minInterestPaid(_token),"Collectable interest too low");
 
         uint256 redeemed = _safeWithdrawTokens(_token, interest);
-        _transferInterest(_token, redeemed);
+        ERC20(_token).approve(address(this), redeemed);
+        relayTokens(_receiver, redeemed);
     }
 
     /**
@@ -170,7 +170,7 @@ contract InterestConnector is Ownable, ERC20Bridge {
     }
 
     /**
-     * @dev Internal function for transferring interest.
+     * @dev Internal function for transferring interest. Deprecated
      * Calls a callback on the receiver, if it is a contract.
      * @param _token address of the underlying token contract.
      * @param _amount amount of collected tokens that should be sent.

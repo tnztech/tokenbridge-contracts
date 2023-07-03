@@ -2,7 +2,6 @@ pragma solidity 0.4.24;
 
 import "./InterestConnector.sol";
 import "../../interfaces/ISavingsDai.sol";
-import "../../interfaces/IComptroller.sol";
 
 /**
  * @title SavingsDaiConnector
@@ -47,8 +46,8 @@ contract SavingsDaiConnector is InterestConnector {
     }
 
     /**
-     * @dev Invests the given amount of tokens to the Compound protocol.
-     * Converts _amount of TOKENs into X cTOKENs.
+     * @dev Invests the given amount of DAI to the sDAI Vault.
+     * Deposits _amount of _token into the sDAI vault.
      * @param _token address of the token contract.
      * @param _amount amount of tokens to invest.
      */
@@ -59,8 +58,8 @@ contract SavingsDaiConnector is InterestConnector {
     }
 
     /**
-     * @dev Withdraws at least the given amount of tokens from the Compound protocol.
-     * Converts X cTOKENs into _amount of TOKENs.
+     * @dev Withdraws at least the given amount of DAI from the sDAI vault contract.
+     * Withdraws the _amount of _token from the sDAI vault.
      * @param _token address of the token contract.
      * @param _amount minimal amount of tokens to withdraw.
      */
