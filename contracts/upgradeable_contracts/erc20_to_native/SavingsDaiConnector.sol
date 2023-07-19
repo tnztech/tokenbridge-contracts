@@ -20,7 +20,7 @@ contract SavingsDaiConnector is InterestConnector {
     /**
      * @dev Tells the address of the sDAI token in the Ethereum Mainnet.
      */
-    function sDaiToken() public pure returns (sDaiToken) {
+    function sDaiToken() public pure returns (ISavingsDai) {
         return ISavingsDai(0x83F20F44975D03b1b09e64809B757c47f942BEeA);
     }
 
@@ -65,6 +65,6 @@ contract SavingsDaiConnector is InterestConnector {
      */
     function _withdrawTokens(address _token, uint256 _amount) internal {
         (_token);
-        require(sDaiToken().withdraw(_amount, address(this)) == SUCCESS,  "Failed to withdraw");
+        require(sDaiToken().withdraw(_amount, address(this), address(this)) == SUCCESS,  "Failed to withdraw");
     }
 }

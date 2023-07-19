@@ -19,6 +19,14 @@ module.exports = {
       gas: 10000000,
       disableConfirmationListener: true
     },
+    gnosis: {
+      host: 'nethermind-xdai.dappnode',
+      port: 8545,
+      network_id: '100', // eslint-disable-line camelcase
+      gasPrice: 100000000000,
+      gas: 10000000,
+      disableConfirmationListener: true
+    },
     ganache: {
       host: '127.0.0.1',
       port: 8545,

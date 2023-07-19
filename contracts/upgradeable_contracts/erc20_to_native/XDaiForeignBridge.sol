@@ -4,7 +4,7 @@ import "./ForeignBridgeErcToNative.sol";
 import "./SavingsDaiConnector.sol";
 import "../GSNForeignERC20Bridge.sol";
 
-contract XDaiForeignBridge is ForeignBridgeErcToNative, CompoundConnector, GSNForeignERC20Bridge {
+contract XDaiForeignBridge is ForeignBridgeErcToNative, SavingsDaiConnector, GSNForeignERC20Bridge {
     function initialize(
         address _validatorContract,
         address _erc20token,
@@ -59,7 +59,6 @@ contract XDaiForeignBridge is ForeignBridgeErcToNative, CompoundConnector, GSNFo
         address bridgedToken = address(daiToken());
         require(_token != address(bridgedToken));
         require(_token != address(sDaiToken()) || !isInterestEnabled(bridgedToken));
-        require(_token != address(compToken()) || !isInterestEnabled(bridgedToken));
         claimValues(_token, _to);
     }
 

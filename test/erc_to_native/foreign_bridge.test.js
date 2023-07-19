@@ -3,7 +3,7 @@ const BridgeValidators = artifacts.require('BridgeValidators.sol')
 const EternalStorageProxy = artifacts.require('EternalStorageProxy.sol')
 const ERC677BridgeToken = artifacts.require('ERC677BridgeToken.sol')
 const ERC20Mock = artifacts.require('ERC20Mock.sol')
-const XDaiForeignBridgeMock = artifacts.require('XDaiForeignBridgeMock.sol')
+const XDaiForeignBridge = artifacts.require('XDaiForeignBridge.sol')
 
 const { expect } = require('chai')
 const { ERROR_MSG, ZERO_ADDRESS, toBN } = require('../setup')
@@ -16,7 +16,7 @@ const {
   createFullAccounts,
   packSignatures
 } = require('../helpers/helpers')
-const getCompoundContracts = require('../compound/contracts')
+const getSavingsDaiContracts = require('../sDAI/contracts')
 
 const halfEther = ether('0.5')
 const requireBlockConfirmations = 8
@@ -844,44 +844,32 @@ contract('ForeignBridge_ERC20_to_Native', async accounts => {
     })
   })
 
-  describe('compound connector', () => {
-    const faucet = accounts[6] // account where all Compound-related DAIs where minted
-
+  describe('sDAI connector', () => {
     let dai
-    let cDai
-    let comptroller
-    let comp
+    let sDai
     let foreignBridge
+    let owner
 
     before(async () => {
-      const contracts = await getCompoundContracts()
+      const contracts = await getSavingsDaiContracts()
       dai = contracts.dai
-      cDai = contracts.cDai
-      comptroller = contracts.comptroller
-      comp = contracts.comp
+      sDai = contracts.sDai
+      foreignBridge = await EternalStorageProxy.at(0x4aa42145Aa6Ebf72e164C9bBC74fbD3788045016)
+      owner = 0x42F38ec5A75acCEc50054671233dfAC9C0E7A3F6
+      user = accounts[10];
     })
 
     beforeEach(async () => {
-      foreignBridge = await XDaiForeignBridgeMock.new()
-      await foreignBridge.initialize(
-        validatorContract.address,
-        dai.address,
-        requireBlockConfirmations,
-        gasPrice,
-        [ether('1000000'), ether('100000'), minPerTx],
-        [homeDailyLimit, homeMaxPerTx],
-        owner,
-        decimalShiftZero,
-        otherSideBridge.address
-      )
-      await dai.approve(foreignBridge.address, ether('100'), { from: faucet })
-      await foreignBridge.relayTokens(faucet, ether('10'), { from: faucet })
+      // Deploy V2
+      const foreignImplV2 = await XDaiForeignBridge.new()
+      const foreignBridgeProxyUpgrade = await EternalStorageProxy.at(foreignBridgeProxy.address)
+      await foreignBridgeProxyUpgrade.upgradeTo('8', foreignImplV2.address, { from: user }).should.be.rejected
+      await foreignBridgeProxyUpgrade.upgradeTo('8', foreignImplV2.address, { from: owner }).should.be.fulfilled
+      foreignImplV2.address.should.be.equal(await foreignBridgeProxyUpgrade.implementation())
     })
 
     async function generateInterest() {
-      await cDai.borrow(ether('10'), { from: faucet }).should.be.fulfilled
-      await comptroller.fastForward(200000).should.be.fulfilled
-      await cDai.repayBorrow(ether('20'), { from: faucet }).should.be.fulfilled
+      await sDAI.fastForward(200000).should.be.fulfilled
     }
 
     it('should initialize interest', async () => {
@@ -893,7 +881,7 @@ contract('ForeignBridge_ERC20_to_Native', async accounts => {
       await foreignBridge.initializeInterest(...args, { from: owner }).should.be.fulfilled
 
       expect(await dai.balanceOf(foreignBridge.address)).to.be.bignumber.equal(ether('10'))
-      expect(await cDai.balanceOf(foreignBridge.address)).to.be.bignumber.equal(ZERO)
+      expect(await sDai.balanceOf(foreignBridge.address)).to.be.bignumber.equal(ZERO)
       expect(await foreignBridge.isInterestEnabled(dai.address)).to.be.equal(true)
       expect(await foreignBridge.minCashThreshold(dai.address)).to.be.bignumber.equal(oneEther)
       expect(await foreignBridge.minInterestPaid(dai.address)).to.be.bignumber.equal(ether('0.01'))
@@ -908,7 +896,7 @@ contract('ForeignBridge_ERC20_to_Native', async accounts => {
 
       expect(await dai.balanceOf(foreignBridge.address)).to.be.bignumber.equal(ether('1'))
       expect(await dai.balanceOf(accounts[2])).to.be.bignumber.equal(initialBalance)
-      expect(await cDai.balanceOf(foreignBridge.address)).to.be.bignumber.gt(ZERO)
+      expect(await sDai.balanceOf(foreignBridge.address)).to.be.bignumber.gt(ZERO)
       expect(await foreignBridge.interestAmount(dai.address)).to.be.bignumber.equal(ZERO)
 
       await generateInterest()
@@ -928,7 +916,7 @@ contract('ForeignBridge_ERC20_to_Native', async accounts => {
 
       expect(await dai.balanceOf(foreignBridge.address)).to.be.bignumber.equal(ether('1'))
       expect(await dai.balanceOf(accounts[2])).to.be.bignumber.gt(initialBalance)
-      expect(await cDai.balanceOf(foreignBridge.address)).to.be.bignumber.gt(ZERO)
+      expect(await sDai.balanceOf(foreignBridge.address)).to.be.bignumber.gt(ZERO)
       expect(await foreignBridge.interestAmount(dai.address)).to.be.bignumber.lt(ether('0.01'))
     })
 
@@ -944,7 +932,7 @@ contract('ForeignBridge_ERC20_to_Native', async accounts => {
       await foreignBridge.disableInterest(dai.address, { from: owner }).should.be.fulfilled
 
       expect(await dai.balanceOf(foreignBridge.address)).to.be.bignumber.equal(ether('10'))
-      expect(await cDai.balanceOf(foreignBridge.address)).to.be.bignumber.gt(ZERO)
+      expect(await sDai.balanceOf(foreignBridge.address)).to.be.bignumber.gt(ZERO)
     })
 
     it('configuration', async () => {
@@ -961,18 +949,6 @@ contract('ForeignBridge_ERC20_to_Native', async accounts => {
       await foreignBridge.setInterestReceiver(dai.address, accounts[1], { from: user }).should.be.rejected
       await foreignBridge.setInterestReceiver(dai.address, accounts[1], { from: owner }).should.be.fulfilled
       expect(await foreignBridge.interestReceiver(dai.address)).to.be.equal(accounts[1])
-    })
-
-    it('should claim comp', async () => {
-      await foreignBridge.initializeInterest(dai.address, oneEther, ether('0.01'), accounts[2])
-      await foreignBridge.setMinInterestPaid(comp.address, 1)
-      await foreignBridge.setInterestReceiver(comp.address, accounts[2])
-      await foreignBridge.invest(dai.address)
-      await generateInterest()
-
-      const initialBalance = await comp.balanceOf(accounts[2])
-      await foreignBridge.claimCompAndPay()
-      expect(await comp.balanceOf(accounts[2])).to.be.bignumber.gt(initialBalance)
     })
   })
 })

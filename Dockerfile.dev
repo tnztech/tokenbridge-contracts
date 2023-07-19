@@ -1,6 +1,6 @@
-FROM node:10
+FROM node:10-buster
 
-RUN apt-get update
+RUN apt-get update -y
 RUN apt-get install -y netcat
 RUN apt-get clean
 
@@ -33,3 +33,5 @@ COPY ./test ./test
 
 ENV PATH="/contracts/:${PATH}"
 ENV NOFLAT=true
+
+RUN npm run test

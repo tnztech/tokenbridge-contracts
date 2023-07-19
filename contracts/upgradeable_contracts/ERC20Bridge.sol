@@ -16,7 +16,7 @@ contract ERC20Bridge is BasicForeignBridge {
         addressStorage[ERC20_TOKEN] = _token;
     }
 
-    function relayTokens(address _receiver, uint256 _amount) external {
+    function relayTokens(address _receiver, uint256 _amount) public {
         require(_receiver != address(0));
         require(_receiver != address(this));
         require(_amount > 0);

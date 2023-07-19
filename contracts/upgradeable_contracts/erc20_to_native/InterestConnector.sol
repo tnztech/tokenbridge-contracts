@@ -135,12 +135,15 @@ contract InterestConnector is Ownable, ERC20Bridge {
      * @param _token address of the token contract.
      */
     function payInterest(address _token) external onlyEOA interestEnabled(_token) {
+        address receiver = interestReceiver(_token);
+        require(receiver != address(0));
         uint256 interest = interestAmount(_token);
         require(interest >= minInterestPaid(_token),"Collectable interest too low");
 
         uint256 redeemed = _safeWithdrawTokens(_token, interest);
         ERC20(_token).approve(address(this), redeemed);
-        relayTokens(_receiver, redeemed);
+        relayTokens(receiver, redeemed);
+        emit PaidInterest(_token, receiver, redeemed);
     }
 
     /**
@@ -187,6 +190,7 @@ contract InterestConnector is Ownable, ERC20Bridge {
 
         emit PaidInterest(_token, receiver, _amount);
     }
+
 
     /**
      * @dev Internal function for setting interest enabled flag for some token.

@@ -61,7 +61,7 @@ contract ForeignBridgeErcToNative is ERC20Bridge, OtherSideBridgeStorage {
         revert();
     }
 
-    function relayTokens(address _receiver, uint256 _amount) external {
+    function relayTokens(address _receiver, uint256 _amount) public {
         require(_receiver != bridgeContractOnOtherSide());
         require(_receiver != address(0));
         require(_receiver != address(this));
