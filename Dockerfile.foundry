@@ -1,0 +1,20 @@
+FROM node:10-buster
+
+RUN apt-get update -y
+RUN apt-get install -y netcat
+RUN apt-get clean
+
+COPY package.json .
+COPY package-lock.json .
+RUN npm install
+
+# Use the latest foundry image
+FROM ghcr.io/foundry-rs/foundry
+
+# Build and test the source code
+COPY . .
+
+
+##COPY ./script/deployInFork.sh  ./script/
+RUN anvil --fork-url https://rpc.mevblocker.io
+RUN forge script script/XDaiForeignBridge.s.sol:XDaiForeignBridgeDeployer --fork-url http://localhost:8545 --broadcast
