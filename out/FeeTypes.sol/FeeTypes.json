@@ -1,0 +1,391 @@
+{
+  "abi": [],
+  "bytecode": {
+    "object": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a7230582059593b5492c7df759c9b56cb5d202c6a220b73bbc60ccfc15f64aa896317e0d70029",
+    "sourceMap": "25:557:85:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:557:85;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x6080604052600080fd00a165627a7a7230582059593b5492c7df759c9b56cb5d202c6a220b73bbc60ccfc15f64aa896317e0d70029",
+    "sourceMap": "25:557:85:-;;;;;",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {},
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.4.24+commit.e67f0147\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"contracts/upgradeable_contracts/FeeTypes.sol\":\"FeeTypes\"},\"evmVersion\":\"constantinople\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":openzeppelin-solidity/=node_modules/openzeppelin-solidity/\"]},\"sources\":{\"contracts/upgradeable_contracts/FeeTypes.sol\":{\"keccak256\":\"0x616a31f082774642c463dd50b180ce659663dfb317ffc4983d41821b2b6f230a\",\"urls\":[\"bzzr://abc13bd945f3332fe35c4e5cd3ff0b5ce06640427cf66753711b15ad8d659b5f\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.4.24+commit.e67f0147"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [],
+      "devdoc": {
+        "methods": {}
+      },
+      "userdoc": {
+        "methods": {}
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":openzeppelin-solidity/=node_modules/openzeppelin-solidity/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "compilationTarget": {
+        "contracts/upgradeable_contracts/FeeTypes.sol": "FeeTypes"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/upgradeable_contracts/FeeTypes.sol": {
+        "keccak256": "0x616a31f082774642c463dd50b180ce659663dfb317ffc4983d41821b2b6f230a",
+        "urls": [
+          "bzzr://abc13bd945f3332fe35c4e5cd3ff0b5ce06640427cf66753711b15ad8d659b5f"
+        ],
+        "license": null
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/upgradeable_contracts/FeeTypes.sol",
+    "id": 11059,
+    "exportedSymbols": {
+      "FeeTypes": [
+        11058
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "0:583:85",
+    "nodes": [
+      {
+        "id": 11035,
+        "nodeType": "PragmaDirective",
+        "src": "0:23:85",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.4",
+          ".24"
+        ]
+      },
+      {
+        "id": 11058,
+        "nodeType": "ContractDefinition",
+        "src": "25:557:85",
+        "nodes": [
+          {
+            "id": 11038,
+            "nodeType": "VariableDeclaration",
+            "src": "49:103:85",
+            "nodes": [],
+            "constant": true,
+            "name": "HOME_FEE",
+            "scope": 11058,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 11036,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "49:7:85",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "307838396439336535653932663765333765343930633235663065353066376634616164376363393462333038613536363535333238303936376265333862636631",
+              "id": 11037,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "86:66:85",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_62350696526950462391445864696591770365306552556878692940723925369097779985649_by_1",
+                "typeString": "int_const 6235...(69 digits omitted)...5649"
+              },
+              "value": "0x89d93e5e92f7e37e490c25f0e50f7f4aad7cc94b308a566553280967be38bcf1"
+            },
+            "visibility": "internal"
+          },
+          {
+            "id": 11041,
+            "nodeType": "VariableDeclaration",
+            "src": "201:106:85",
+            "nodes": [],
+            "constant": true,
+            "name": "FOREIGN_FEE",
+            "scope": 11058,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 11039,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "201:7:85",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "307864656237663361646361303764366431663730386331373734333839646235333261326232663138666430356136326239353765343038396634363936656435",
+              "id": 11040,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "241:66:85",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_100738467208048933827989597080663695451141399442046530548227697194183353265877_by_1",
+                "typeString": "int_const 1007...(70 digits omitted)...5877"
+              },
+              "value": "0xdeb7f3adca07d6d1f708c1774389db532a2b2f18fd05a62b957e4089f4696ed5"
+            },
+            "visibility": "internal"
+          },
+          {
+            "id": 11057,
+            "nodeType": "ModifierDefinition",
+            "src": "423:157:85",
+            "nodes": [],
+            "body": {
+              "id": 11056,
+              "nodeType": "Block",
+              "src": "463:117:85",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 11052,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          },
+                          "id": 11048,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "id": 11046,
+                            "name": "_feeType",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 11043,
+                            "src": "481:8:85",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "==",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "id": 11047,
+                            "name": "HOME_FEE",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 11038,
+                            "src": "493:8:85",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          },
+                          "src": "481:20:85",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "||",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          },
+                          "id": 11051,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "id": 11049,
+                            "name": "_feeType",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 11043,
+                            "src": "505:8:85",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "==",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "id": 11050,
+                            "name": "FOREIGN_FEE",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 11041,
+                            "src": "517:11:85",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          },
+                          "src": "505:23:85",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "src": "481:47:85",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 11045,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        19969,
+                        19970
+                      ],
+                      "referencedDeclaration": 19969,
+                      "src": "473:7:85",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 11053,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "473:56:85",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 11054,
+                  "nodeType": "ExpressionStatement",
+                  "src": "473:56:85"
+                },
+                {
+                  "id": 11055,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "572:1:85"
+                }
+              ]
+            },
+            "documentation": "@dev Throws if given fee type is unknown.",
+            "name": "validFeeType",
+            "parameters": {
+              "id": 11044,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11043,
+                  "name": "_feeType",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 11057,
+                  "src": "445:16:85",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 11042,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "445:7:85",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "444:18:85"
+            },
+            "visibility": "internal"
+          }
+        ],
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          11058
+        ],
+        "name": "FeeTypes",
+        "scope": 11059
+      }
+    ]
+  },
+  "id": 85
+}

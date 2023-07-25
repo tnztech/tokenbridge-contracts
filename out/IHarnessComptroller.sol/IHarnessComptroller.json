@@ -1,0 +1,129 @@
+{
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "blocks",
+          "type": "uint256"
+        }
+      ],
+      "name": "fastForward",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "fastForward(uint256)": "fccbe7f6"
+  },
+  "ast": {
+    "absolutePath": "contracts/mocks/IHarnessComptroller.sol",
+    "id": 6979,
+    "exportedSymbols": {
+      "IHarnessComptroller": [
+        6978
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "0:110:52",
+    "nodes": [
+      {
+        "id": 6972,
+        "nodeType": "PragmaDirective",
+        "src": "0:23:52",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.4",
+          ".24"
+        ]
+      },
+      {
+        "id": 6978,
+        "nodeType": "ContractDefinition",
+        "src": "25:84:52",
+        "nodes": [
+          {
+            "id": 6977,
+            "nodeType": "FunctionDefinition",
+            "src": "61:46:52",
+            "nodes": [],
+            "documentation": null,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "fastForward",
+            "parameters": {
+              "id": 6975,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6974,
+                  "name": "blocks",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6977,
+                  "src": "82:14:52",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6973,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "82:7:52",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "81:16:52"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6976,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "106:0:52"
+            },
+            "scope": 6978,
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          6978
+        ],
+        "name": "IHarnessComptroller",
+        "scope": 6979
+      }
+    ]
+  },
+  "id": 52
+}

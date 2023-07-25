@@ -1,0 +1,358 @@
+{
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "isInitialized",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "deployedAtBlock",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x608060405234801561001057600080fd5b5061014f806100206000396000f30060806040526004361061002f5760003560e01c63ffffffff168063392e53cd146100345780639a454b991461005d575b600080fd5b34801561004057600080fd5b50610049610084565b604080519115158252519081900360200190f35b34801561006957600080fd5b506100726100d5565b60408051918252519081900360200190f35b7f0a6f646cd611241d8073675e00d1a1ff700fbf1b53fcf473de56d1e6e4b714ba60005260046020527f078d888f9b66f3f8bfa10909e31f1e16240db73449f0500afdbbe3a70da457cc5460ff1690565b7fb120ceec05576ad0c710bc6e85f1768535e27554458f05dcbb5c65b8c7a749b060009081526020527fe66bef0282a446f9848e2903380099bb6e431483ee78778868f33b4a154c818b54905600a165627a7a723058209318edc932d079e5d513507c7aed16087fc6bcccaf96da7c4fe230a73ca480b80029",
+    "sourceMap": "56:336:20:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;56:336:20;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x60806040526004361061002f5760003560e01c63ffffffff168063392e53cd146100345780639a454b991461005d575b600080fd5b34801561004057600080fd5b50610049610084565b604080519115158252519081900360200190f35b34801561006957600080fd5b506100726100d5565b60408051918252519081900360200190f35b7f0a6f646cd611241d8073675e00d1a1ff700fbf1b53fcf473de56d1e6e4b714ba60005260046020527f078d888f9b66f3f8bfa10909e31f1e16240db73449f0500afdbbe3a70da457cc5460ff1690565b7fb120ceec05576ad0c710bc6e85f1768535e27554458f05dcbb5c65b8c7a749b060009081526020527fe66bef0282a446f9848e2903380099bb6e431483ee78778868f33b4a154c818b54905600a165627a7a723058209318edc932d079e5d513507c7aed16087fc6bcccaf96da7c4fe230a73ca480b80029",
+    "sourceMap": "56:336:20:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;369:100:19;;8:9:-1;5:2;;;30:1;27;20:12;5:2;369:100:19;;;;;;;;;;;;;;;;;;;;;;277:113:20;;8:9:-1;5:2;;;30:1;27;20:12;5:2;277:113:20;;;;;;;;;;;;;;;;;;;;369:100:19;160:66;415:4;438:24;:11;:24;;;;;;369:100;:::o;277:113:20:-;154:66;327:7;353:30;;;;;;;277:113;:::o",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "deployedAtBlock()": "9a454b99",
+    "isInitialized()": "392e53cd"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.4.24+commit.e67f0147\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"isInitialized\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"deployedAtBlock\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"contracts/upgradeable_contracts/InitializableBridge.sol\":\"InitializableBridge\"},\"evmVersion\":\"constantinople\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":openzeppelin-solidity/=node_modules/openzeppelin-solidity/\"]},\"sources\":{\"contracts/upgradeability/EternalStorage.sol\":{\"keccak256\":\"0x8f2df79a1cda812d4be25da8f2b138f9b7492e76da1dfba21d87012e649cc51c\",\"urls\":[\"bzzr://0846d08e1b7a84e541ae31c91d2c0b34d88cf3abbd18891ec6eedeea7e958af2\"]},\"contracts/upgradeable_contracts/Initializable.sol\":{\"keccak256\":\"0xed94c4128ada87141d6c640d5bf4d0a5227cd68fad16be6304a121847fe6494f\",\"urls\":[\"bzzr://2dfbb776af73c3cfe3b6d3dd4545dc7cc55694d4636c0d1043d46ace7dd42ab2\"]},\"contracts/upgradeable_contracts/InitializableBridge.sol\":{\"keccak256\":\"0xe016ecc4c96c1a587156a8b2f87c15c4b208d5e2a348cbe95d1df18b285d8067\",\"urls\":[\"bzzr://0acb420d4c3a5fd5fe498221a579faa6e45aadd1af22f440aca4da500c734bee\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.4.24+commit.e67f0147"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "isInitialized",
+          "outputs": [
+            {
+              "internalType": null,
+              "name": "",
+              "type": "bool"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "deployedAtBlock",
+          "outputs": [
+            {
+              "internalType": null,
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "methods": {}
+      },
+      "userdoc": {
+        "methods": {}
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":openzeppelin-solidity/=node_modules/openzeppelin-solidity/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "compilationTarget": {
+        "contracts/upgradeable_contracts/InitializableBridge.sol": "InitializableBridge"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/upgradeability/EternalStorage.sol": {
+        "keccak256": "0x8f2df79a1cda812d4be25da8f2b138f9b7492e76da1dfba21d87012e649cc51c",
+        "urls": [
+          "bzzr://0846d08e1b7a84e541ae31c91d2c0b34d88cf3abbd18891ec6eedeea7e958af2"
+        ],
+        "license": null
+      },
+      "contracts/upgradeable_contracts/Initializable.sol": {
+        "keccak256": "0xed94c4128ada87141d6c640d5bf4d0a5227cd68fad16be6304a121847fe6494f",
+        "urls": [
+          "bzzr://2dfbb776af73c3cfe3b6d3dd4545dc7cc55694d4636c0d1043d46ace7dd42ab2"
+        ],
+        "license": null
+      },
+      "contracts/upgradeable_contracts/InitializableBridge.sol": {
+        "keccak256": "0xe016ecc4c96c1a587156a8b2f87c15c4b208d5e2a348cbe95d1df18b285d8067",
+        "urls": [
+          "bzzr://0acb420d4c3a5fd5fe498221a579faa6e45aadd1af22f440aca4da500c734bee"
+        ],
+        "license": null
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/upgradeable_contracts/InitializableBridge.sol",
+    "id": 2383,
+    "exportedSymbols": {
+      "InitializableBridge": [
+        2382
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "0:393:20",
+    "nodes": [
+      {
+        "id": 2365,
+        "nodeType": "PragmaDirective",
+        "src": "0:23:20",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.4",
+          ".24"
+        ]
+      },
+      {
+        "id": 2366,
+        "nodeType": "ImportDirective",
+        "src": "25:29:20",
+        "nodes": [],
+        "absolutePath": "contracts/upgradeable_contracts/Initializable.sol",
+        "file": "./Initializable.sol",
+        "scope": 2383,
+        "sourceUnit": 2364,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 2382,
+        "nodeType": "ContractDefinition",
+        "src": "56:336:20",
+        "nodes": [
+          {
+            "id": 2371,
+            "nodeType": "VariableDeclaration",
+            "src": "108:112:20",
+            "nodes": [],
+            "constant": true,
+            "name": "DEPLOYED_AT_BLOCK",
+            "scope": 2382,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 2369,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "108:7:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "307862313230636565633035353736616430633731306263366538356631373638353335653237353534343538663035646362623563363562386337613734396230",
+              "id": 2370,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "154:66:20",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_80117341428168434172731688351453871988180076250752728305650008192657350150576_by_1",
+                "typeString": "int_const 8011...(69 digits omitted)...0576"
+              },
+              "value": "0xb120ceec05576ad0c710bc6e85f1768535e27554458f05dcbb5c65b8c7a749b0"
+            },
+            "visibility": "internal"
+          },
+          {
+            "id": 2381,
+            "nodeType": "FunctionDefinition",
+            "src": "277:113:20",
+            "nodes": [],
+            "body": {
+              "id": 2380,
+              "nodeType": "Block",
+              "src": "336:54:20",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 2376,
+                      "name": "uintStorage",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 954,
+                      "src": "353:11:20",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_bytes32_$_t_uint256_$",
+                        "typeString": "mapping(bytes32 => uint256)"
+                      }
+                    },
+                    "id": 2378,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 2377,
+                      "name": "DEPLOYED_AT_BLOCK",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2371,
+                      "src": "365:17:20",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "353:30:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 2375,
+                  "id": 2379,
+                  "nodeType": "Return",
+                  "src": "346:37:20"
+                }
+              ]
+            },
+            "documentation": null,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "deployedAtBlock",
+            "parameters": {
+              "id": 2372,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "301:2:20"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 2375,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2374,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2381,
+                  "src": "327:7:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2373,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "327:7:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "326:9:20"
+            },
+            "scope": 2382,
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 2367,
+              "name": "Initializable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 2363,
+              "src": "88:13:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Initializable_$2363",
+                "typeString": "contract Initializable"
+              }
+            },
+            "id": 2368,
+            "nodeType": "InheritanceSpecifier",
+            "src": "88:13:20"
+          }
+        ],
+        "contractDependencies": [
+          975,
+          2363
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          2382,
+          2363,
+          975
+        ],
+        "name": "InitializableBridge",
+        "scope": 2383
+      }
+    ]
+  },
+  "id": 20
+}

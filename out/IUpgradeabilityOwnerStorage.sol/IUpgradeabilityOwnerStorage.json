@@ -1,0 +1,129 @@
+{
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "upgradeabilityOwner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "upgradeabilityOwner()": "6fde8202"
+  },
+  "ast": {
+    "absolutePath": "contracts/interfaces/IUpgradeabilityOwnerStorage.sol",
+    "id": 488,
+    "exportedSymbols": {
+      "IUpgradeabilityOwnerStorage": [
+        487
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "0:135:7",
+    "nodes": [
+      {
+        "id": 481,
+        "nodeType": "PragmaDirective",
+        "src": "0:23:7",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.4",
+          ".24"
+        ]
+      },
+      {
+        "id": 487,
+        "nodeType": "ContractDefinition",
+        "src": "25:109:7",
+        "nodes": [
+          {
+            "id": 486,
+            "nodeType": "FunctionDefinition",
+            "src": "69:63:7",
+            "nodes": [],
+            "documentation": null,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "upgradeabilityOwner",
+            "parameters": {
+              "id": 482,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "97:2:7"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 485,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 484,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 486,
+                  "src": "123:7:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 483,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "123:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "122:9:7"
+            },
+            "scope": 487,
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          487
+        ],
+        "name": "IUpgradeabilityOwnerStorage",
+        "scope": 488
+      }
+    ]
+  },
+  "id": 7
+}

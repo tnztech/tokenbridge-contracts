@@ -1,0 +1,577 @@
+{
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "distributeFeeFromAffirmation",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "setForeignFee",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "setHomeFee",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "distributeFeeFromSignatures",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getHomeFee",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_value",
+          "type": "uint256"
+        },
+        {
+          "name": "_recover",
+          "type": "bool"
+        },
+        {
+          "name": "_feeType",
+          "type": "bytes32"
+        }
+      ],
+      "name": "calculateFee",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getFeeManagerMode",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getForeignFee",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "HomeFeeUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "ForeignFeeUpdated",
+      "type": "event"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "calculateFee(uint256,bool,bytes32)": "9862f26f",
+    "distributeFeeFromAffirmation(uint256)": "054d46ec",
+    "distributeFeeFromSignatures(uint256)": "59d78464",
+    "getFeeManagerMode()": "f2ba9561",
+    "getForeignFee()": "ffd66196",
+    "getHomeFee()": "94da17cd",
+    "setForeignFee(uint256)": "286c4066",
+    "setHomeFee(uint256)": "34a9e148"
+  },
+  "ast": {
+    "absolutePath": "contracts/upgradeable_contracts/BlockRewardFeeManager.sol",
+    "id": 10441,
+    "exportedSymbols": {
+      "BlockRewardFeeManager": [
+        10440
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "0:493:78",
+    "nodes": [
+      {
+        "id": 10408,
+        "nodeType": "PragmaDirective",
+        "src": "0:23:78",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.4",
+          ".24"
+        ]
+      },
+      {
+        "id": 10409,
+        "nodeType": "ImportDirective",
+        "src": "25:30:78",
+        "nodes": [],
+        "absolutePath": "contracts/upgradeable_contracts/BaseFeeManager.sol",
+        "file": "./BaseFeeManager.sol",
+        "scope": 10441,
+        "sourceUnit": 8529,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 10410,
+        "nodeType": "ImportDirective",
+        "src": "56:33:78",
+        "nodes": [],
+        "absolutePath": "contracts/upgradeable_contracts/BlockRewardBridge.sol",
+        "file": "./BlockRewardBridge.sol",
+        "scope": 10441,
+        "sourceUnit": 10407,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 10440,
+        "nodeType": "ContractDefinition",
+        "src": "91:401:78",
+        "nodes": [
+          {
+            "id": 10424,
+            "nodeType": "FunctionDefinition",
+            "src": "165:112:78",
+            "nodes": [],
+            "body": {
+              "id": 10423,
+              "nodeType": "Block",
+              "src": "226:51:78",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 10420,
+                        "name": "_fee",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 10416,
+                        "src": "265:4:78",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 10419,
+                      "name": "distributeFeeFromBlockReward",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 10439,
+                      "src": "236:28:78",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 10421,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "236:34:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 10422,
+                  "nodeType": "ExpressionStatement",
+                  "src": "236:34:78"
+                }
+              ]
+            },
+            "documentation": null,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "distributeFeeFromAffirmation",
+            "parameters": {
+              "id": 10417,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10416,
+                  "name": "_fee",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10424,
+                  "src": "203:12:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10415,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "203:7:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "202:14:78"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 10418,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "226:0:78"
+            },
+            "scope": 10440,
+            "stateMutability": "nonpayable",
+            "superFunction": 8497,
+            "visibility": "external"
+          },
+          {
+            "id": 10434,
+            "nodeType": "FunctionDefinition",
+            "src": "283:111:78",
+            "nodes": [],
+            "body": {
+              "id": 10433,
+              "nodeType": "Block",
+              "src": "343:51:78",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 10430,
+                        "name": "_fee",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 10426,
+                        "src": "382:4:78",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 10429,
+                      "name": "distributeFeeFromBlockReward",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 10439,
+                      "src": "353:28:78",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 10431,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "353:34:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 10432,
+                  "nodeType": "ExpressionStatement",
+                  "src": "353:34:78"
+                }
+              ]
+            },
+            "documentation": null,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "distributeFeeFromSignatures",
+            "parameters": {
+              "id": 10427,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10426,
+                  "name": "_fee",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10434,
+                  "src": "320:12:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10425,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "320:7:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "319:14:78"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 10428,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "343:0:78"
+            },
+            "scope": 10440,
+            "stateMutability": "nonpayable",
+            "superFunction": 8502,
+            "visibility": "external"
+          },
+          {
+            "id": 10439,
+            "nodeType": "FunctionDefinition",
+            "src": "429:61:78",
+            "nodes": [],
+            "documentation": null,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "distributeFeeFromBlockReward",
+            "parameters": {
+              "id": 10437,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10436,
+                  "name": "_fee",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10439,
+                  "src": "467:12:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10435,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "467:7:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "466:14:78"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 10438,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "489:0:78"
+            },
+            "scope": 10440,
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 10411,
+              "name": "BaseFeeManager",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 8528,
+              "src": "125:14:78",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_BaseFeeManager_$8528",
+                "typeString": "contract BaseFeeManager"
+              }
+            },
+            "id": 10412,
+            "nodeType": "InheritanceSpecifier",
+            "src": "125:14:78"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 10413,
+              "name": "BlockRewardBridge",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 10406,
+              "src": "141:17:78",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_BlockRewardBridge_$10406",
+                "typeString": "contract BlockRewardBridge"
+              }
+            },
+            "id": 10414,
+            "nodeType": "InheritanceSpecifier",
+            "src": "141:17:78"
+          }
+        ],
+        "contractDependencies": [
+          7519,
+          8528,
+          10406,
+          11058
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          10440,
+          10406,
+          8528,
+          11058,
+          7519
+        ],
+        "name": "BlockRewardFeeManager",
+        "scope": 10441
+      }
+    ]
+  },
+  "id": 78
+}

@@ -3,16 +3,18 @@ pragma solidity 0.4.24;
 
 //import 'forge-std/Script.sol';
 //import 'forge-std/console.sol';
-import 'src/upgradeable_contracts/erc20_to_native/XDaiForeignBridge.sol';
+import "contracts/upgradeable_contracts/erc20_to_native/XDaiForeignBridge.sol";
 
-contract XDaiForeignBridgeDeployer is Script {
+contract XDaiForeignBridgeDeployer /*is Script */{
+
+    event NewDeployment(address);
 
     function run() external {
 
         /*//////////////////////////////////////////////////////////////
                                 KEY MANAGEMENT
         //////////////////////////////////////////////////////////////*/
-
+/*
         uint256 deployerPrivateKey = 0;
         string memory mnemonic = vm.envString('MNEMONIC');
 
@@ -24,7 +26,8 @@ contract XDaiForeignBridgeDeployer is Script {
 
         vm.startBroadcast(deployerPrivateKey);
         address deployer = vm.rememberKey(deployerPrivateKey);
-   //     console.log('Deployer: %s', deployer);
+        console.log('Deployer: %s', deployer);
+   */
 
         /*//////////////////////////////////////////////////////////////
                                 DEPLOYMENTS
@@ -32,7 +35,7 @@ contract XDaiForeignBridgeDeployer is Script {
 
         XDaiForeignBridge xdaiBridge = new XDaiForeignBridge();
    //     console.log('Deployed XDaiForeignBridge: %s', address(xdaiBridge));
-
-        vm.stopBroadcast();
+        emit NewDeployment(xdaiBridge);
+    //    vm.stopBroadcast();
     }
 }

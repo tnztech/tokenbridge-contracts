@@ -1,0 +1,214 @@
+{
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "bridgesAllowedLength",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x6080604052348015600f57600080fd5b50607c8061001e6000396000f30060806040526004361060225760003560e01c63ffffffff16806310f2ee7c146027575b600080fd5b348015603257600080fd5b506039604b565b60408051918252519081900360200190f35b6003905600a165627a7a72305820b85e4bb2c70c4c3381f5ddda02dc09c632a90144ed95a225b48a2623c9c63b600029",
+    "sourceMap": "25:121:56:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:121:56;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x60806040526004361060225760003560e01c63ffffffff16806310f2ee7c146027575b600080fd5b348015603257600080fd5b506039604b565b60408051918252519081900360200190f35b6003905600a165627a7a72305820b85e4bb2c70c4c3381f5ddda02dc09c632a90144ed95a225b48a2623c9c63b600029",
+    "sourceMap": "25:121:56:-;;;;;;;;;;;;;;;;;;;;;;;55:89;;8:9:-1;5:2;;;30:1;27;20:12;5:2;55:89:56;;;;;;;;;;;;;;;;;;;;;136:1;55:89;:::o",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "bridgesAllowedLength()": "10f2ee7c"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.4.24+commit.e67f0147\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"bridgesAllowedLength\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"contracts/mocks/OldBlockReward.sol\":\"OldBlockReward\"},\"evmVersion\":\"constantinople\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":openzeppelin-solidity/=node_modules/openzeppelin-solidity/\"]},\"sources\":{\"contracts/mocks/OldBlockReward.sol\":{\"keccak256\":\"0x430888ca1de71f593b5e8437e37a6b988c6be4a78a78c504ff9334577df19421\",\"urls\":[\"bzzr://f1a486c625d7ff9894452736dead356b4c0fa2d5cd5d76e94c43d086add006a1\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.4.24+commit.e67f0147"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "bridgesAllowedLength",
+          "outputs": [
+            {
+              "internalType": null,
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "methods": {}
+      },
+      "userdoc": {
+        "methods": {}
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":openzeppelin-solidity/=node_modules/openzeppelin-solidity/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "compilationTarget": {
+        "contracts/mocks/OldBlockReward.sol": "OldBlockReward"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/mocks/OldBlockReward.sol": {
+        "keccak256": "0x430888ca1de71f593b5e8437e37a6b988c6be4a78a78c504ff9334577df19421",
+        "urls": [
+          "bzzr://f1a486c625d7ff9894452736dead356b4c0fa2d5cd5d76e94c43d086add006a1"
+        ],
+        "license": null
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/mocks/OldBlockReward.sol",
+    "id": 7281,
+    "exportedSymbols": {
+      "OldBlockReward": [
+        7280
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "0:147:56",
+    "nodes": [
+      {
+        "id": 7271,
+        "nodeType": "PragmaDirective",
+        "src": "0:23:56",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.4",
+          ".24"
+        ]
+      },
+      {
+        "id": 7280,
+        "nodeType": "ContractDefinition",
+        "src": "25:121:56",
+        "nodes": [
+          {
+            "id": 7279,
+            "nodeType": "FunctionDefinition",
+            "src": "55:89:56",
+            "nodes": [],
+            "body": {
+              "id": 7278,
+              "nodeType": "Block",
+              "src": "119:25:56",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "33",
+                    "id": 7276,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "136:1:56",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_3_by_1",
+                      "typeString": "int_const 3"
+                    },
+                    "value": "3"
+                  },
+                  "functionReturnParameters": 7275,
+                  "id": 7277,
+                  "nodeType": "Return",
+                  "src": "129:8:56"
+                }
+              ]
+            },
+            "documentation": null,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "bridgesAllowedLength",
+            "parameters": {
+              "id": 7272,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "84:2:56"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 7275,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7274,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7279,
+                  "src": "110:7:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7273,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "110:7:56",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "109:9:56"
+            },
+            "scope": 7280,
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          7280
+        ],
+        "name": "OldBlockReward",
+        "scope": 7281
+      }
+    ]
+  },
+  "id": 56
+}

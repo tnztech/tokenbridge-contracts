@@ -1,0 +1,2759 @@
+{
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_bridgeContract",
+          "type": "address"
+        }
+      ],
+      "name": "setBridgeContract",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_mediatorContract",
+          "type": "address"
+        }
+      ],
+      "name": "setMediatorContractOnOtherSide",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "mediatorContractOnOtherSide",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "requestGasLimit",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "bridgeContract",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_requestGasLimit",
+          "type": "uint256"
+        }
+      ],
+      "name": "setRequestGasLimit",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    }
+  ],
+  "bytecode": {
+    "object": "0x608060405234801561001057600080fd5b50610642806100206000396000f3006080604052600436106100715760003560e01c63ffffffff1680630b26cf66146100765780636e5d6bea14610099578063871c0760146100ba5780638da5cb5b146100eb578063be3b625b14610100578063cd59658314610127578063f2fde38b1461013c578063f3b837911461015d575b600080fd5b34801561008257600080fd5b50610097600160a060020a0360043516610175565b005b3480156100a557600080fd5b50610097600160a060020a036004351661019d565b3480156100c657600080fd5b506100cf6101c2565b60408051600160a060020a039092168252519081900360200190f35b3480156100f757600080fd5b506100cf610219565b34801561010c57600080fd5b50610115610270565b60408051918252519081900360200190f35b34801561013357600080fd5b506100cf6102be565b34801561014857600080fd5b50610097600160a060020a0360043516610315565b34801561016957600080fd5b5061009760043561033a565b61017d610219565b600160a060020a0316331461019157600080fd5b61019a8161035f565b50565b6101a5610219565b600160a060020a031633146101b957600080fd5b61019a816103ea565b7f98aa806e31e94a687a31c65769cb99670064dd7f5a87526da075c5fb4eab988060005260026020527f0c1206883be66049a02d4937078367c00b3d71dd1a9465df969363c6ddeac96d54600160a060020a031690565b7f02016836a56b71f0d02689e69e326f4f4c1b9057164ef592671cf0d37c8040c060005260026020527fb7802e97e87ef2842a6cce7da7ffaeaedaa2f61a6a7870b23d9d01fc9b73712e54600160a060020a031690565b7f2dfd6c9f781bb6bbb5369c114e949b69ebb440ef3d4dd6b2836225eb1dc3a2be60009081526020527f2de0d2cdc19d356cb53b5984f91bfd3b31fe0c678a0d190a6db39274bb34753f5490565b7f811bbb11e8899da471f0e69a3ed55090fc90215227fc5fb1cb0d6e962ea7b74f60005260026020527fb4ed64697d3ef8518241966f7c6f28b0d72f20f51198717d198d2d55076c593d54600160a060020a031690565b61031d610219565b600160a060020a0316331461033157600080fd5b61019a81610461565b610342610219565b600160a060020a0316331461035657600080fd5b61019a81610538565b61036881610599565b151561037357600080fd5b7f811bbb11e8899da471f0e69a3ed55090fc90215227fc5fb1cb0d6e962ea7b74f60005260026020527fb4ed64697d3ef8518241966f7c6f28b0d72f20f51198717d198d2d55076c593d805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b7f98aa806e31e94a687a31c65769cb99670064dd7f5a87526da075c5fb4eab988060005260026020527f0c1206883be66049a02d4937078367c00b3d71dd1a9465df969363c6ddeac96d805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b600160a060020a038116151561047657600080fd5b7f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e061049f610219565b60408051600160a060020a03928316815291841660208301528051918290030190a17f02016836a56b71f0d02689e69e326f4f4c1b9057164ef592671cf0d37c8040c060005260026020527fb7802e97e87ef2842a6cce7da7ffaeaedaa2f61a6a7870b23d9d01fc9b73712e805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b6105406105a1565b81111561054c57600080fd5b7f2dfd6c9f781bb6bbb5369c114e949b69ebb440ef3d4dd6b2836225eb1dc3a2be60009081526020527f2de0d2cdc19d356cb53b5984f91bfd3b31fe0c678a0d190a6db39274bb34753f55565b6000903b1190565b60006105ab6102be565b600160a060020a031663e5789d036040518163ffffffff1660e01b8152600401602060405180830381600087803b1580156105e557600080fd5b505af11580156105f9573d6000803e3d6000fd5b505050506040513d602081101561060f57600080fd5b50519050905600a165627a7a723058208d3ea60be9a8ce7cc522218f2e9dbbe3cc361f0db5eed0137613705808659b8f0029",
+    "sourceMap": "290:4621:72:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;290:4621:72;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x6080604052600436106100715760003560e01c63ffffffff1680630b26cf66146100765780636e5d6bea14610099578063871c0760146100ba5780638da5cb5b146100eb578063be3b625b14610100578063cd59658314610127578063f2fde38b1461013c578063f3b837911461015d575b600080fd5b34801561008257600080fd5b50610097600160a060020a0360043516610175565b005b3480156100a557600080fd5b50610097600160a060020a036004351661019d565b3480156100c657600080fd5b506100cf6101c2565b60408051600160a060020a039092168252519081900360200190f35b3480156100f757600080fd5b506100cf610219565b34801561010c57600080fd5b50610115610270565b60408051918252519081900360200190f35b34801561013357600080fd5b506100cf6102be565b34801561014857600080fd5b50610097600160a060020a0360043516610315565b34801561016957600080fd5b5061009760043561033a565b61017d610219565b600160a060020a0316331461019157600080fd5b61019a8161035f565b50565b6101a5610219565b600160a060020a031633146101b957600080fd5b61019a816103ea565b7f98aa806e31e94a687a31c65769cb99670064dd7f5a87526da075c5fb4eab988060005260026020527f0c1206883be66049a02d4937078367c00b3d71dd1a9465df969363c6ddeac96d54600160a060020a031690565b7f02016836a56b71f0d02689e69e326f4f4c1b9057164ef592671cf0d37c8040c060005260026020527fb7802e97e87ef2842a6cce7da7ffaeaedaa2f61a6a7870b23d9d01fc9b73712e54600160a060020a031690565b7f2dfd6c9f781bb6bbb5369c114e949b69ebb440ef3d4dd6b2836225eb1dc3a2be60009081526020527f2de0d2cdc19d356cb53b5984f91bfd3b31fe0c678a0d190a6db39274bb34753f5490565b7f811bbb11e8899da471f0e69a3ed55090fc90215227fc5fb1cb0d6e962ea7b74f60005260026020527fb4ed64697d3ef8518241966f7c6f28b0d72f20f51198717d198d2d55076c593d54600160a060020a031690565b61031d610219565b600160a060020a0316331461033157600080fd5b61019a81610461565b610342610219565b600160a060020a0316331461035657600080fd5b61019a81610538565b61036881610599565b151561037357600080fd5b7f811bbb11e8899da471f0e69a3ed55090fc90215227fc5fb1cb0d6e962ea7b74f60005260026020527fb4ed64697d3ef8518241966f7c6f28b0d72f20f51198717d198d2d55076c593d805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b7f98aa806e31e94a687a31c65769cb99670064dd7f5a87526da075c5fb4eab988060005260026020527f0c1206883be66049a02d4937078367c00b3d71dd1a9465df969363c6ddeac96d805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b600160a060020a038116151561047657600080fd5b7f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e061049f610219565b60408051600160a060020a03928316815291841660208301528051918290030190a17f02016836a56b71f0d02689e69e326f4f4c1b9057164ef592671cf0d37c8040c060005260026020527fb7802e97e87ef2842a6cce7da7ffaeaedaa2f61a6a7870b23d9d01fc9b73712e805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b6105406105a1565b81111561054c57600080fd5b7f2dfd6c9f781bb6bbb5369c114e949b69ebb440ef3d4dd6b2836225eb1dc3a2be60009081526020527f2de0d2cdc19d356cb53b5984f91bfd3b31fe0c678a0d190a6db39274bb34753f55565b6000903b1190565b60006105ab6102be565b600160a060020a031663e5789d036040518163ffffffff1660e01b8152600401602060405180830381600087803b1580156105e557600080fd5b505af11580156105f9573d6000803e3d6000fd5b505050506040513d602081101561060f57600080fd5b50519050905600a165627a7a723058208d3ea60be9a8ce7cc522218f2e9dbbe3cc361f0db5eed0137613705808659b8f0029",
+    "sourceMap": "290:4621:72:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1265:123;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;1265:123:72;-1:-1:-1;;;;;1265:123:72;;;;;;;1585:153;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;1585:153:72;-1:-1:-1;;;;;1585:153:72;;;;;2593:126;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2593:126:72;;;;;;;;-1:-1:-1;;;;;2593:126:72;;;;;;;;;;;;;;1732:92:97;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1732:92:97;;;;2902:111:72;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2902:111:72;;;;;;;;;;;;;;;;;;;;2335:114;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2335:114:72;;;;1992:100:97;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;1992:100:97;-1:-1:-1;;;;;1992:100:97;;;;;2062:127:72;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;2062:127:72;;;;;1265:123;783:7:97;:5;:7::i;:::-;-1:-1:-1;;;;;769:21:97;:10;:21;761:30;;;;;;1346:35:72;1365:15;1346:18;:35::i;:::-;1265:123;:::o;1585:153::-;783:7:97;:5;:7::i;:::-;-1:-1:-1;;;;;769:21:97;:10;:21;761:30;;;;;;1681:50:72;1713:17;1681:31;:50::i;2593:126::-;544:66;2653:7;2679:33;:14;:33;;;;-1:-1:-1;;;;;2679:33:72;2593:126;:::o;1732:92:97:-;1523:66;1770:7;1796:21;:14;:21;;;;-1:-1:-1;;;;;1796:21:97;1732:92;:::o;2902:111:72:-;713:66;2950:7;2976:30;;;;;;;2902:111;:::o;2335:114::-;377:66;2382:4;2410:31;:14;:31;;;;-1:-1:-1;;;;;2410:31:72;2335:114;:::o;1992:100:97:-;783:7;:5;:7::i;:::-;-1:-1:-1;;;;;769:21:97;:10;:21;761:30;;;;;;2066:19;2076:8;2066:9;:19::i;2062:127:72:-;783:7:97;:5;:7::i;:::-;-1:-1:-1;;;;;769:21:97;:10;:21;761:30;;;;;;2145:37:72;2165:16;2145:19;:37::i;3154:187::-;3234:40;3258:15;3234:23;:40::i;:::-;3226:49;;;;;;;;377:66;3285:31;;:14;:31;;;:49;;-1:-1:-1;;3285:49:72;-1:-1:-1;;;;;3285:49:72;;;;;;;;;;3154:187::o;3503:147::-;544:66;3590:33;;:14;:33;;;:53;;-1:-1:-1;;3590:53:72;-1:-1:-1;;;;;3590:53:72;;;;;;;;;;3503:147::o;2149:190:97:-;-1:-1:-1;;;;;2213:22:97;;;;2205:31;;;;;;2251:39;2272:7;:5;:7::i;:::-;2251:39;;;-1:-1:-1;;;;;2251:39:97;;;;;;;;;;;;;;;;;;;;;1523:66;2300:21;;:14;:21;;;:32;;-1:-1:-1;;2300:32:97;-1:-1:-1;;;;;2300:32:97;;;;;;;;;;2149:190::o;3850:182:72:-;3952:13;:11;:13::i;:::-;3932:33;;;3924:42;;;;;;713:66;3976:11;:30;;;;;;:49;3850:182::o;438:578:131:-;496:4;971:18;;1003:8;;438:578::o;4800:109:72:-;4846:7;4872:16;:14;:16::i;:::-;-1:-1:-1;;;;;4872:28:72;;:30;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;4872:30:72;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;4872:30:72;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;4872:30:72;;-1:-1:-1;4800:109:72;:::o",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "bridgeContract()": "cd596583",
+    "mediatorContractOnOtherSide()": "871c0760",
+    "owner()": "8da5cb5b",
+    "requestGasLimit()": "be3b625b",
+    "setBridgeContract(address)": "0b26cf66",
+    "setMediatorContractOnOtherSide(address)": "6e5d6bea",
+    "setRequestGasLimit(uint256)": "f3b83791",
+    "transferOwnership(address)": "f2fde38b"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.4.24+commit.e67f0147\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"_bridgeContract\",\"type\":\"address\"}],\"name\":\"setBridgeContract\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_mediatorContract\",\"type\":\"address\"}],\"name\":\"setMediatorContractOnOtherSide\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"mediatorContractOnOtherSide\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"requestGasLimit\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"bridgeContract\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_requestGasLimit\",\"type\":\"uint256\"}],\"name\":\"setRequestGasLimit\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{\"bridgeContract()\":{\"details\":\"Get the AMB interface for the bridge contract address\",\"return\":\"AMB interface for the bridge contract address\"},\"mediatorContractOnOtherSide()\":{\"details\":\"Tells the mediator contract address from the other network.\",\"return\":\"the address of the mediator contract.\"},\"owner()\":{\"details\":\"Tells the address of the owner\",\"return\":\"the address of the owner\"},\"requestGasLimit()\":{\"details\":\"Tells the gas limit to be used in the message execution by the AMB bridge on the other network.\",\"return\":\"the gas limit for the message execution.\"},\"setBridgeContract(address)\":{\"details\":\"Sets the AMB bridge contract address. Only the owner can call this method.\",\"params\":{\"_bridgeContract\":\"the address of the bridge contract.\"}},\"setMediatorContractOnOtherSide(address)\":{\"details\":\"Sets the mediator contract address from the other network. Only the owner can call this method.\",\"params\":{\"_mediatorContract\":\"the address of the mediator contract.\"}},\"setRequestGasLimit(uint256)\":{\"details\":\"Sets the gas limit to be used in the message execution by the AMB bridge on the other network. This value can't exceed the parameter maxGasPerTx defined on the AMB bridge. Only the owner can call this method.\",\"params\":{\"_requestGasLimit\":\"the gas limit for the message execution.\"}},\"transferOwnership(address)\":{\"details\":\"Allows the current owner to transfer control of the contract to a newOwner.\",\"params\":{\"newOwner\":\"the address to transfer ownership to.\"}}},\"title\":\"BasicAMBMediator\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"contracts/upgradeable_contracts/BasicAMBMediator.sol\":\"BasicAMBMediator\"},\"evmVersion\":\"constantinople\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":openzeppelin-solidity/=node_modules/openzeppelin-solidity/\"]},\"sources\":{\"contracts/interfaces/IAMB.sol\":{\"keccak256\":\"0x5036335c047f31bb1c74634f59ec8fe1236f30a75f4a6a4853582243f4ee30cb\",\"urls\":[\"bzzr://24e5ba29da5b52d927dbd245d31d2e08597b27eed6eca28fa716a27be3ca563a\"]},\"contracts/interfaces/IUpgradeabilityOwnerStorage.sol\":{\"keccak256\":\"0xa6b5c96c8165d49676d227a9b7070faffdb7325906a598797fe66ca5917e76ef\",\"urls\":[\"bzzr://14c7b605baba9012f1386dce78e5b2665c682ec6a5bae3f4a6ec15f98ba40aa9\"]},\"contracts/libraries/Bytes.sol\":{\"keccak256\":\"0xaac87fcac1962e29a85f577dafccf09d06b413fcc5bf97e821dca0b25183c310\",\"urls\":[\"bzzr://e1a3e3f8d13a8009d505b4d20029adbbcaf4c20a92ee10a223767fbb6d093dd2\"]},\"contracts/upgradeability/EternalStorage.sol\":{\"keccak256\":\"0x8f2df79a1cda812d4be25da8f2b138f9b7492e76da1dfba21d87012e649cc51c\",\"urls\":[\"bzzr://0846d08e1b7a84e541ae31c91d2c0b34d88cf3abbd18891ec6eedeea7e958af2\"]},\"contracts/upgradeable_contracts/BasicAMBMediator.sol\":{\"keccak256\":\"0x817cdf39d46eed56fdf6fc124b7163d1dc296b8b02fbc0fd34ee1948d8816eab\",\"urls\":[\"bzzr://02cf31c071d2a58a929d0fa1dae4d647ae1ce881221695a0730b66f6098cfa4a\"]},\"contracts/upgradeable_contracts/Ownable.sol\":{\"keccak256\":\"0xa61d31759a177fc38a5dcf34387cfc9870bbe64f946c14c380d13ddcd9aa6113\",\"urls\":[\"bzzr://7d8b5611ce1d97b28de5d10d5569fe2bd710e851f55b02d628b7a881ca9a9b40\"]},\"node_modules/openzeppelin-solidity/contracts/AddressUtils.sol\":{\"keccak256\":\"0x5ed3dc711dbb34917afff3c753adf3b0580514d1339cfedaa5a73645d8ac9b56\",\"urls\":[\"bzzr://d597eeb695a3d64766453239e973ddd65994c258ab8d5cab0d90103033ce85fc\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.4.24+commit.e67f0147"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": null,
+              "name": "_bridgeContract",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setBridgeContract"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": null,
+              "name": "_mediatorContract",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setMediatorContractOnOtherSide"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "mediatorContractOnOtherSide",
+          "outputs": [
+            {
+              "internalType": null,
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "owner",
+          "outputs": [
+            {
+              "internalType": null,
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "requestGasLimit",
+          "outputs": [
+            {
+              "internalType": null,
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "bridgeContract",
+          "outputs": [
+            {
+              "internalType": null,
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": null,
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferOwnership"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": null,
+              "name": "_requestGasLimit",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setRequestGasLimit"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": null,
+              "name": "previousOwner",
+              "type": "address",
+              "indexed": false
+            },
+            {
+              "internalType": null,
+              "name": "newOwner",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "OwnershipTransferred",
+          "anonymous": false
+        }
+      ],
+      "devdoc": {
+        "methods": {
+          "bridgeContract()": {
+            "details": "Get the AMB interface for the bridge contract address",
+            "return": "AMB interface for the bridge contract address"
+          },
+          "mediatorContractOnOtherSide()": {
+            "details": "Tells the mediator contract address from the other network.",
+            "return": "the address of the mediator contract."
+          },
+          "owner()": {
+            "details": "Tells the address of the owner",
+            "return": "the address of the owner"
+          },
+          "requestGasLimit()": {
+            "details": "Tells the gas limit to be used in the message execution by the AMB bridge on the other network.",
+            "return": "the gas limit for the message execution."
+          },
+          "setBridgeContract(address)": {
+            "details": "Sets the AMB bridge contract address. Only the owner can call this method.",
+            "params": {
+              "_bridgeContract": "the address of the bridge contract."
+            }
+          },
+          "setMediatorContractOnOtherSide(address)": {
+            "details": "Sets the mediator contract address from the other network. Only the owner can call this method.",
+            "params": {
+              "_mediatorContract": "the address of the mediator contract."
+            }
+          },
+          "setRequestGasLimit(uint256)": {
+            "details": "Sets the gas limit to be used in the message execution by the AMB bridge on the other network. This value can't exceed the parameter maxGasPerTx defined on the AMB bridge. Only the owner can call this method.",
+            "params": {
+              "_requestGasLimit": "the gas limit for the message execution."
+            }
+          },
+          "transferOwnership(address)": {
+            "details": "Allows the current owner to transfer control of the contract to a newOwner.",
+            "params": {
+              "newOwner": "the address to transfer ownership to."
+            }
+          }
+        }
+      },
+      "userdoc": {
+        "methods": {}
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":openzeppelin-solidity/=node_modules/openzeppelin-solidity/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "compilationTarget": {
+        "contracts/upgradeable_contracts/BasicAMBMediator.sol": "BasicAMBMediator"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/interfaces/IAMB.sol": {
+        "keccak256": "0x5036335c047f31bb1c74634f59ec8fe1236f30a75f4a6a4853582243f4ee30cb",
+        "urls": [
+          "bzzr://24e5ba29da5b52d927dbd245d31d2e08597b27eed6eca28fa716a27be3ca563a"
+        ],
+        "license": null
+      },
+      "contracts/interfaces/IUpgradeabilityOwnerStorage.sol": {
+        "keccak256": "0xa6b5c96c8165d49676d227a9b7070faffdb7325906a598797fe66ca5917e76ef",
+        "urls": [
+          "bzzr://14c7b605baba9012f1386dce78e5b2665c682ec6a5bae3f4a6ec15f98ba40aa9"
+        ],
+        "license": null
+      },
+      "contracts/libraries/Bytes.sol": {
+        "keccak256": "0xaac87fcac1962e29a85f577dafccf09d06b413fcc5bf97e821dca0b25183c310",
+        "urls": [
+          "bzzr://e1a3e3f8d13a8009d505b4d20029adbbcaf4c20a92ee10a223767fbb6d093dd2"
+        ],
+        "license": null
+      },
+      "contracts/upgradeability/EternalStorage.sol": {
+        "keccak256": "0x8f2df79a1cda812d4be25da8f2b138f9b7492e76da1dfba21d87012e649cc51c",
+        "urls": [
+          "bzzr://0846d08e1b7a84e541ae31c91d2c0b34d88cf3abbd18891ec6eedeea7e958af2"
+        ],
+        "license": null
+      },
+      "contracts/upgradeable_contracts/BasicAMBMediator.sol": {
+        "keccak256": "0x817cdf39d46eed56fdf6fc124b7163d1dc296b8b02fbc0fd34ee1948d8816eab",
+        "urls": [
+          "bzzr://02cf31c071d2a58a929d0fa1dae4d647ae1ce881221695a0730b66f6098cfa4a"
+        ],
+        "license": null
+      },
+      "contracts/upgradeable_contracts/Ownable.sol": {
+        "keccak256": "0xa61d31759a177fc38a5dcf34387cfc9870bbe64f946c14c380d13ddcd9aa6113",
+        "urls": [
+          "bzzr://7d8b5611ce1d97b28de5d10d5569fe2bd710e851f55b02d628b7a881ca9a9b40"
+        ],
+        "license": null
+      },
+      "node_modules/openzeppelin-solidity/contracts/AddressUtils.sol": {
+        "keccak256": "0x5ed3dc711dbb34917afff3c753adf3b0580514d1339cfedaa5a73645d8ac9b56",
+        "urls": [
+          "bzzr://d597eeb695a3d64766453239e973ddd65994c258ab8d5cab0d90103033ce85fc"
+        ],
+        "license": null
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/upgradeable_contracts/BasicAMBMediator.sol",
+    "id": 8867,
+    "exportedSymbols": {
+      "BasicAMBMediator": [
+        8866
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "0:4912:72",
+    "nodes": [
+      {
+        "id": 8677,
+        "nodeType": "PragmaDirective",
+        "src": "0:23:72",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.4",
+          ".24"
+        ]
+      },
+      {
+        "id": 8678,
+        "nodeType": "ImportDirective",
+        "src": "25:23:72",
+        "nodes": [],
+        "absolutePath": "contracts/upgradeable_contracts/Ownable.sol",
+        "file": "./Ownable.sol",
+        "scope": 8867,
+        "sourceUnit": 12219,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 8679,
+        "nodeType": "ImportDirective",
+        "src": "49:32:72",
+        "nodes": [],
+        "absolutePath": "contracts/interfaces/IAMB.sol",
+        "file": "../interfaces/IAMB.sol",
+        "scope": 8867,
+        "sourceUnit": 3834,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 8680,
+        "nodeType": "ImportDirective",
+        "src": "82:32:72",
+        "nodes": [],
+        "absolutePath": "contracts/libraries/Bytes.sol",
+        "file": "../libraries/Bytes.sol",
+        "scope": 8867,
+        "sourceUnit": 4578,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 8681,
+        "nodeType": "ImportDirective",
+        "src": "115:58:72",
+        "nodes": [],
+        "absolutePath": "node_modules/openzeppelin-solidity/contracts/AddressUtils.sol",
+        "file": "openzeppelin-solidity/contracts/AddressUtils.sol",
+        "scope": 8867,
+        "sourceUnit": 19129,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 8866,
+        "nodeType": "ContractDefinition",
+        "src": "290:4621:72",
+        "nodes": [
+          {
+            "id": 8686,
+            "nodeType": "VariableDeclaration",
+            "src": "333:110:72",
+            "nodes": [],
+            "constant": true,
+            "name": "BRIDGE_CONTRACT",
+            "scope": 8866,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 8684,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "333:7:72",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "307838313162626231316538383939646134373166306536396133656435353039306663393032313532323766633566623163623064366539363265613762373466",
+              "id": 8685,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "377:66:72",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_58397353447365387173751670041134285710087346745216472083595775031126809622351_by_1",
+                "typeString": "int_const 5839...(69 digits omitted)...2351"
+              },
+              "value": "0x811bbb11e8899da471f0e69a3ed55090fc90215227fc5fb1cb0d6e962ea7b74f"
+            },
+            "visibility": "internal"
+          },
+          {
+            "id": 8689,
+            "nodeType": "VariableDeclaration",
+            "src": "498:112:72",
+            "nodes": [],
+            "constant": true,
+            "name": "MEDIATOR_CONTRACT",
+            "scope": 8866,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 8687,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "498:7:72",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "307839386161383036653331653934613638376133316336353736396362393936373030363464643766356138373532366461303735633566623465616239383830",
+              "id": 8688,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "544:66:72",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_69052803380051611448962918803519209080668811177668675186667959837647576995968_by_1",
+                "typeString": "int_const 6905...(69 digits omitted)...5968"
+              },
+              "value": "0x98aa806e31e94a687a31c65769cb99670064dd7f5a87526da075c5fb4eab9880"
+            },
+            "visibility": "internal"
+          },
+          {
+            "id": 8692,
+            "nodeType": "VariableDeclaration",
+            "src": "667:112:72",
+            "nodes": [],
+            "constant": true,
+            "name": "REQUEST_GAS_LIMIT",
+            "scope": 8866,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 8690,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "667:7:72",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "307832646664366339663738316262366262623533363963313134653934396236396562623434306566336434646436623238333632323565623164633361326265",
+              "id": 8691,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "713:66:72",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_20801840181521767966999129630630633399251189849383603609438566914287877726910_by_1",
+                "typeString": "int_const 2080...(69 digits omitted)...6910"
+              },
+              "value": "0x2dfd6c9f781bb6bbb5369c114e949b69ebb440ef3d4dd6b2836225eb1dc3a2be"
+            },
+            "visibility": "internal"
+          },
+          {
+            "id": 8714,
+            "nodeType": "ModifierDefinition",
+            "src": "928:165:72",
+            "nodes": [],
+            "body": {
+              "id": 8713,
+              "nodeType": "Block",
+              "src": "950:143:72",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 8701,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 8695,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 19966,
+                            "src": "968:3:72",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 8696,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "968:10:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "arguments": [],
+                              "expression": {
+                                "argumentTypes": [],
+                                "id": 8698,
+                                "name": "bridgeContract",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 8762,
+                                "src": "990:14:72",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_internal_view$__$returns$_t_contract$_IAMB_$3833_$",
+                                  "typeString": "function () view returns (contract IAMB)"
+                                }
+                              },
+                              "id": 8699,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "990:16:72",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_IAMB_$3833",
+                                "typeString": "contract IAMB"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_contract$_IAMB_$3833",
+                                "typeString": "contract IAMB"
+                              }
+                            ],
+                            "id": 8697,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "982:7:72",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_address_$",
+                              "typeString": "type(address)"
+                            },
+                            "typeName": "address"
+                          },
+                          "id": 8700,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "982:25:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "968:39:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 8694,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        19969,
+                        19970
+                      ],
+                      "referencedDeclaration": 19969,
+                      "src": "960:7:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 8702,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "960:48:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 8703,
+                  "nodeType": "ExpressionStatement",
+                  "src": "960:48:72"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 8709,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "arguments": [],
+                          "expression": {
+                            "argumentTypes": [],
+                            "id": 8705,
+                            "name": "messageSender",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 8843,
+                            "src": "1026:13:72",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
+                              "typeString": "function () view returns (address)"
+                            }
+                          },
+                          "id": 8706,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1026:15:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "arguments": [],
+                          "expression": {
+                            "argumentTypes": [],
+                            "id": 8707,
+                            "name": "mediatorContractOnOtherSide",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 8772,
+                            "src": "1045:27:72",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
+                              "typeString": "function () view returns (address)"
+                            }
+                          },
+                          "id": 8708,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1045:29:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "1026:48:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 8704,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        19969,
+                        19970
+                      ],
+                      "referencedDeclaration": 19969,
+                      "src": "1018:7:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 8710,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1018:57:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 8711,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1018:57:72"
+                },
+                {
+                  "id": 8712,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "1085:1:72"
+                }
+              ]
+            },
+            "documentation": "@dev Throws if caller on the other side is not an associated mediator.",
+            "name": "onlyMediator",
+            "parameters": {
+              "id": 8693,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "950:0:72"
+            },
+            "visibility": "internal"
+          },
+          {
+            "id": 8726,
+            "nodeType": "FunctionDefinition",
+            "src": "1265:123:72",
+            "nodes": [],
+            "body": {
+              "id": 8725,
+              "nodeType": "Block",
+              "src": "1336:52:72",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 8722,
+                        "name": "_bridgeContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8716,
+                        "src": "1365:15:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 8721,
+                      "name": "_setBridgeContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8801,
+                      "src": "1346:18:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 8723,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1346:35:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 8724,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1346:35:72"
+                }
+              ]
+            },
+            "documentation": "@dev Sets the AMB bridge contract address. Only the owner can call this method.\n@param _bridgeContract the address of the bridge contract.",
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 8719,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 8718,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 12133,
+                  "src": "1326:9:72",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1326:9:72"
+              }
+            ],
+            "name": "setBridgeContract",
+            "parameters": {
+              "id": 8717,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8716,
+                  "name": "_bridgeContract",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8726,
+                  "src": "1292:23:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 8715,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1292:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1291:25:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 8720,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1336:0:72"
+            },
+            "scope": 8866,
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "id": 8738,
+            "nodeType": "FunctionDefinition",
+            "src": "1585:153:72",
+            "nodes": [],
+            "body": {
+              "id": 8737,
+              "nodeType": "Block",
+              "src": "1671:67:72",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 8734,
+                        "name": "_mediatorContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8728,
+                        "src": "1713:17:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 8733,
+                      "name": "_setMediatorContractOnOtherSide",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8813,
+                      "src": "1681:31:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 8735,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1681:50:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 8736,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1681:50:72"
+                }
+              ]
+            },
+            "documentation": "@dev Sets the mediator contract address from the other network. Only the owner can call this method.\n@param _mediatorContract the address of the mediator contract.",
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 8731,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 8730,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 12133,
+                  "src": "1661:9:72",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1661:9:72"
+              }
+            ],
+            "name": "setMediatorContractOnOtherSide",
+            "parameters": {
+              "id": 8729,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8728,
+                  "name": "_mediatorContract",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8738,
+                  "src": "1625:25:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 8727,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1625:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1624:27:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 8732,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1671:0:72"
+            },
+            "scope": 8866,
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "id": 8750,
+            "nodeType": "FunctionDefinition",
+            "src": "2062:127:72",
+            "nodes": [],
+            "body": {
+              "id": 8749,
+              "nodeType": "Block",
+              "src": "2135:54:72",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 8746,
+                        "name": "_requestGasLimit",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8740,
+                        "src": "2165:16:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 8745,
+                      "name": "_setRequestGasLimit",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8832,
+                      "src": "2145:19:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 8747,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2145:37:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 8748,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2145:37:72"
+                }
+              ]
+            },
+            "documentation": "@dev Sets the gas limit to be used in the message execution by the AMB bridge on the other network.\nThis value can't exceed the parameter maxGasPerTx defined on the AMB bridge.\nOnly the owner can call this method.\n@param _requestGasLimit the gas limit for the message execution.",
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 8743,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 8742,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 12133,
+                  "src": "2125:9:72",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "2125:9:72"
+              }
+            ],
+            "name": "setRequestGasLimit",
+            "parameters": {
+              "id": 8741,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8740,
+                  "name": "_requestGasLimit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8750,
+                  "src": "2090:24:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 8739,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2090:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2089:26:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 8744,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2135:0:72"
+            },
+            "scope": 8866,
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "id": 8762,
+            "nodeType": "FunctionDefinition",
+            "src": "2335:114:72",
+            "nodes": [],
+            "body": {
+              "id": 8761,
+              "nodeType": "Block",
+              "src": "2388:61:72",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 8756,
+                          "name": "addressStorage",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 7506,
+                          "src": "2410:14:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_address_$",
+                            "typeString": "mapping(bytes32 => address)"
+                          }
+                        },
+                        "id": 8758,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 8757,
+                          "name": "BRIDGE_CONTRACT",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 8686,
+                          "src": "2425:15:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "2410:31:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 8755,
+                      "name": "IAMB",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3833,
+                      "src": "2405:4:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_contract$_IAMB_$3833_$",
+                        "typeString": "type(contract IAMB)"
+                      }
+                    },
+                    "id": 8759,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2405:37:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IAMB_$3833",
+                      "typeString": "contract IAMB"
+                    }
+                  },
+                  "functionReturnParameters": 8754,
+                  "id": 8760,
+                  "nodeType": "Return",
+                  "src": "2398:44:72"
+                }
+              ]
+            },
+            "documentation": "@dev Get the AMB interface for the bridge contract address\n@return AMB interface for the bridge contract address",
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "bridgeContract",
+            "parameters": {
+              "id": 8751,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2358:2:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 8754,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8753,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8762,
+                  "src": "2382:4:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IAMB_$3833",
+                    "typeString": "contract IAMB"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8752,
+                    "name": "IAMB",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 3833,
+                    "src": "2382:4:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IAMB_$3833",
+                      "typeString": "contract IAMB"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2381:6:72"
+            },
+            "scope": 8866,
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "id": 8772,
+            "nodeType": "FunctionDefinition",
+            "src": "2593:126:72",
+            "nodes": [],
+            "body": {
+              "id": 8771,
+              "nodeType": "Block",
+              "src": "2662:57:72",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 8767,
+                      "name": "addressStorage",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7506,
+                      "src": "2679:14:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_bytes32_$_t_address_$",
+                        "typeString": "mapping(bytes32 => address)"
+                      }
+                    },
+                    "id": 8769,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 8768,
+                      "name": "MEDIATOR_CONTRACT",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8689,
+                      "src": "2694:17:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "2679:33:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 8766,
+                  "id": 8770,
+                  "nodeType": "Return",
+                  "src": "2672:40:72"
+                }
+              ]
+            },
+            "documentation": "@dev Tells the mediator contract address from the other network.\n@return the address of the mediator contract.",
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "mediatorContractOnOtherSide",
+            "parameters": {
+              "id": 8763,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2629:2:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 8766,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8765,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8772,
+                  "src": "2653:7:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 8764,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2653:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2652:9:72"
+            },
+            "scope": 8866,
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "id": 8782,
+            "nodeType": "FunctionDefinition",
+            "src": "2902:111:72",
+            "nodes": [],
+            "body": {
+              "id": 8781,
+              "nodeType": "Block",
+              "src": "2959:54:72",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 8777,
+                      "name": "uintStorage",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7498,
+                      "src": "2976:11:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_bytes32_$_t_uint256_$",
+                        "typeString": "mapping(bytes32 => uint256)"
+                      }
+                    },
+                    "id": 8779,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 8778,
+                      "name": "REQUEST_GAS_LIMIT",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8692,
+                      "src": "2988:17:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "2976:30:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 8776,
+                  "id": 8780,
+                  "nodeType": "Return",
+                  "src": "2969:37:72"
+                }
+              ]
+            },
+            "documentation": "@dev Tells the gas limit to be used in the message execution by the AMB bridge on the other network.\n@return the gas limit for the message execution.",
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "requestGasLimit",
+            "parameters": {
+              "id": 8773,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2926:2:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 8776,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8775,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8782,
+                  "src": "2950:7:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 8774,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2950:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2949:9:72"
+            },
+            "scope": 8866,
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "id": 8801,
+            "nodeType": "FunctionDefinition",
+            "src": "3154:187:72",
+            "nodes": [],
+            "body": {
+              "id": 8800,
+              "nodeType": "Block",
+              "src": "3216:125:72",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 8790,
+                            "name": "_bridgeContract",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 8784,
+                            "src": "3258:15:72",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 8788,
+                            "name": "AddressUtils",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 19128,
+                            "src": "3234:12:72",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_contract$_AddressUtils_$19128_$",
+                              "typeString": "type(library AddressUtils)"
+                            }
+                          },
+                          "id": 8789,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "isContract",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 19127,
+                          "src": "3234:23:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_bool_$",
+                            "typeString": "function (address) view returns (bool)"
+                          }
+                        },
+                        "id": 8791,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "3234:40:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 8787,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        19969,
+                        19970
+                      ],
+                      "referencedDeclaration": 19969,
+                      "src": "3226:7:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 8792,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "3226:49:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 8793,
+                  "nodeType": "ExpressionStatement",
+                  "src": "3226:49:72"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8798,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 8794,
+                        "name": "addressStorage",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7506,
+                        "src": "3285:14:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_address_$",
+                          "typeString": "mapping(bytes32 => address)"
+                        }
+                      },
+                      "id": 8796,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 8795,
+                        "name": "BRIDGE_CONTRACT",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8686,
+                        "src": "3300:15:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "3285:31:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 8797,
+                      "name": "_bridgeContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8784,
+                      "src": "3319:15:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "3285:49:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 8799,
+                  "nodeType": "ExpressionStatement",
+                  "src": "3285:49:72"
+                }
+              ]
+            },
+            "documentation": "@dev Stores a valid AMB bridge contract address.\n@param _bridgeContract the address of the bridge contract.",
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "_setBridgeContract",
+            "parameters": {
+              "id": 8785,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8784,
+                  "name": "_bridgeContract",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8801,
+                  "src": "3182:23:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 8783,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3182:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3181:25:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 8786,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3216:0:72"
+            },
+            "scope": 8866,
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "id": 8813,
+            "nodeType": "FunctionDefinition",
+            "src": "3503:147:72",
+            "nodes": [],
+            "body": {
+              "id": 8812,
+              "nodeType": "Block",
+              "src": "3580:70:72",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8810,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 8806,
+                        "name": "addressStorage",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7506,
+                        "src": "3590:14:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_address_$",
+                          "typeString": "mapping(bytes32 => address)"
+                        }
+                      },
+                      "id": 8808,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 8807,
+                        "name": "MEDIATOR_CONTRACT",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8689,
+                        "src": "3605:17:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "3590:33:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 8809,
+                      "name": "_mediatorContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8803,
+                      "src": "3626:17:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "3590:53:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 8811,
+                  "nodeType": "ExpressionStatement",
+                  "src": "3590:53:72"
+                }
+              ]
+            },
+            "documentation": "@dev Stores the mediator contract address from the other network.\n@param _mediatorContract the address of the mediator contract.",
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "_setMediatorContractOnOtherSide",
+            "parameters": {
+              "id": 8804,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8803,
+                  "name": "_mediatorContract",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8813,
+                  "src": "3544:25:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 8802,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3544:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3543:27:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 8805,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3580:0:72"
+            },
+            "scope": 8866,
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "id": 8832,
+            "nodeType": "FunctionDefinition",
+            "src": "3850:182:72",
+            "nodes": [],
+            "body": {
+              "id": 8831,
+              "nodeType": "Block",
+              "src": "3914:118:72",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 8822,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 8819,
+                          "name": "_requestGasLimit",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 8815,
+                          "src": "3932:16:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "<=",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "arguments": [],
+                          "expression": {
+                            "argumentTypes": [],
+                            "id": 8820,
+                            "name": "maxGasPerTx",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 8865,
+                            "src": "3952:11:72",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_internal_view$__$returns$_t_uint256_$",
+                              "typeString": "function () view returns (uint256)"
+                            }
+                          },
+                          "id": 8821,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "3952:13:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "3932:33:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 8818,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        19969,
+                        19970
+                      ],
+                      "referencedDeclaration": 19969,
+                      "src": "3924:7:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 8823,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "3924:42:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 8824,
+                  "nodeType": "ExpressionStatement",
+                  "src": "3924:42:72"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8829,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 8825,
+                        "name": "uintStorage",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7498,
+                        "src": "3976:11:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_uint256_$",
+                          "typeString": "mapping(bytes32 => uint256)"
+                        }
+                      },
+                      "id": 8827,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 8826,
+                        "name": "REQUEST_GAS_LIMIT",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8692,
+                        "src": "3988:17:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "3976:30:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 8828,
+                      "name": "_requestGasLimit",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8815,
+                      "src": "4009:16:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "3976:49:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 8830,
+                  "nodeType": "ExpressionStatement",
+                  "src": "3976:49:72"
+                }
+              ]
+            },
+            "documentation": "@dev Stores the gas limit to be used in the message execution by the AMB bridge on the other network.\n@param _requestGasLimit the gas limit for the message execution.",
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "_setRequestGasLimit",
+            "parameters": {
+              "id": 8816,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8815,
+                  "name": "_requestGasLimit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8832,
+                  "src": "3879:24:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 8814,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3879:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3878:26:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 8817,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3914:0:72"
+            },
+            "scope": 8866,
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "id": 8843,
+            "nodeType": "FunctionDefinition",
+            "src": "4237:113:72",
+            "nodes": [],
+            "body": {
+              "id": 8842,
+              "nodeType": "Block",
+              "src": "4294:56:72",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "argumentTypes": null,
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "id": 8837,
+                          "name": "bridgeContract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 8762,
+                          "src": "4311:14:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$__$returns$_t_contract$_IAMB_$3833_$",
+                            "typeString": "function () view returns (contract IAMB)"
+                          }
+                        },
+                        "id": 8838,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "4311:16:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IAMB_$3833",
+                          "typeString": "contract IAMB"
+                        }
+                      },
+                      "id": 8839,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "messageSender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3743,
+                      "src": "4311:30:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$__$returns$_t_address_$",
+                        "typeString": "function () view external returns (address)"
+                      }
+                    },
+                    "id": 8840,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "4311:32:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 8836,
+                  "id": 8841,
+                  "nodeType": "Return",
+                  "src": "4304:39:72"
+                }
+              ]
+            },
+            "documentation": "@dev Tells the address that generated the message on the other network that is currently being executed by\nthe AMB bridge.\n@return the address of the message sender.",
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "messageSender",
+            "parameters": {
+              "id": 8833,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4259:2:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 8836,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8835,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8843,
+                  "src": "4285:7:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 8834,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4285:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4284:9:72"
+            },
+            "scope": 8866,
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "id": 8854,
+            "nodeType": "FunctionDefinition",
+            "src": "4512:105:72",
+            "nodes": [],
+            "body": {
+              "id": 8853,
+              "nodeType": "Block",
+              "src": "4565:52:72",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "argumentTypes": null,
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "id": 8848,
+                          "name": "bridgeContract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 8762,
+                          "src": "4582:14:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$__$returns$_t_contract$_IAMB_$3833_$",
+                            "typeString": "function () view returns (contract IAMB)"
+                          }
+                        },
+                        "id": 8849,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "4582:16:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IAMB_$3833",
+                          "typeString": "contract IAMB"
+                        }
+                      },
+                      "id": 8850,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "messageId",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3758,
+                      "src": "4582:26:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$__$returns$_t_bytes32_$",
+                        "typeString": "function () view external returns (bytes32)"
+                      }
+                    },
+                    "id": 8851,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "4582:28:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 8847,
+                  "id": 8852,
+                  "nodeType": "Return",
+                  "src": "4575:35:72"
+                }
+              ]
+            },
+            "documentation": "@dev Tells the id of the message originated on the other network.\n@return the id of the message originated on the other network.",
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "messageId",
+            "parameters": {
+              "id": 8844,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4530:2:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 8847,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8846,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8854,
+                  "src": "4556:7:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 8845,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4556:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4555:9:72"
+            },
+            "scope": 8866,
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "id": 8865,
+            "nodeType": "FunctionDefinition",
+            "src": "4800:109:72",
+            "nodes": [],
+            "body": {
+              "id": 8864,
+              "nodeType": "Block",
+              "src": "4855:54:72",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "argumentTypes": null,
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "id": 8859,
+                          "name": "bridgeContract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 8762,
+                          "src": "4872:14:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$__$returns$_t_contract$_IAMB_$3833_$",
+                            "typeString": "function () view returns (contract IAMB)"
+                          }
+                        },
+                        "id": 8860,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "4872:16:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IAMB_$3833",
+                          "typeString": "contract IAMB"
+                        }
+                      },
+                      "id": 8861,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "maxGasPerTx",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3748,
+                      "src": "4872:28:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$__$returns$_t_uint256_$",
+                        "typeString": "function () view external returns (uint256)"
+                      }
+                    },
+                    "id": 8862,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "4872:30:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 8858,
+                  "id": 8863,
+                  "nodeType": "Return",
+                  "src": "4865:37:72"
+                }
+              ]
+            },
+            "documentation": "@dev Tells the maximum gas limit that a message can use on its execution by the AMB bridge on the other network.\n@return the maximum gas limit value.",
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "maxGasPerTx",
+            "parameters": {
+              "id": 8855,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4820:2:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 8858,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8857,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8865,
+                  "src": "4846:7:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 8856,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4846:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4845:9:72"
+            },
+            "scope": 8866,
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 8682,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 12218,
+              "src": "319:7:72",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$12218",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 8683,
+            "nodeType": "InheritanceSpecifier",
+            "src": "319:7:72"
+          }
+        ],
+        "contractDependencies": [
+          7519,
+          12218
+        ],
+        "contractKind": "contract",
+        "documentation": "@title BasicAMBMediator\n@dev Basic storage and methods needed by mediators to interact with AMB bridge.",
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          8866,
+          12218,
+          7519
+        ],
+        "name": "BasicAMBMediator",
+        "scope": 8867
+      }
+    ]
+  },
+  "id": 72
+}

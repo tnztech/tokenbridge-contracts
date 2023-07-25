@@ -1,0 +1,161 @@
+{
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "calculateFee",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "calculateFee(uint256)": "99a5d747"
+  },
+  "ast": {
+    "absolutePath": "contracts/interfaces/IMediatorFeeManager.sol",
+    "id": 4058,
+    "exportedSymbols": {
+      "IMediatorFeeManager": [
+        4057
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "0:127:30",
+    "nodes": [
+      {
+        "id": 4049,
+        "nodeType": "PragmaDirective",
+        "src": "0:23:30",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.4",
+          ".24"
+        ]
+      },
+      {
+        "id": 4057,
+        "nodeType": "ContractDefinition",
+        "src": "25:101:30",
+        "nodes": [
+          {
+            "id": 4056,
+            "nodeType": "FunctionDefinition",
+            "src": "61:63:30",
+            "nodes": [],
+            "documentation": null,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "calculateFee",
+            "parameters": {
+              "id": 4052,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4051,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4056,
+                  "src": "83:7:30",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4050,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "83:7:30",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "82:9:30"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 4055,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4054,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4056,
+                  "src": "115:7:30",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4053,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "115:7:30",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "114:9:30"
+            },
+            "scope": 4057,
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          4057
+        ],
+        "name": "IMediatorFeeManager",
+        "scope": 4058
+      }
+    ]
+  },
+  "id": 30
+}

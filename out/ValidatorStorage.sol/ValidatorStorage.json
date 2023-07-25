@@ -1,0 +1,139 @@
+{
+  "abi": [],
+  "bytecode": {
+    "object": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820933d8be38de7424a8f1a60729da1ad4b00c8629d6fee0e60476537e66aa610ea0029",
+    "sourceMap": "25:200:27:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:200:27;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x6080604052600080fd00a165627a7a72305820933d8be38de7424a8f1a60729da1ad4b00c8629d6fee0e60476537e66aa610ea0029",
+    "sourceMap": "25:200:27:-;;;;;",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {},
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.4.24+commit.e67f0147\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"contracts/upgradeable_contracts/ValidatorStorage.sol\":\"ValidatorStorage\"},\"evmVersion\":\"constantinople\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":openzeppelin-solidity/=node_modules/openzeppelin-solidity/\"]},\"sources\":{\"contracts/upgradeable_contracts/ValidatorStorage.sol\":{\"keccak256\":\"0xace2caccabb9193728e70637b354934711181633e9c9e3cbb73d00a275337974\",\"urls\":[\"bzzr://7af22b5dc84f2ba32bc9a580f1e568d846a5a75edc4a617dbbecd7877ab706ed\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.4.24+commit.e67f0147"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [],
+      "devdoc": {
+        "methods": {}
+      },
+      "userdoc": {
+        "methods": {}
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":openzeppelin-solidity/=node_modules/openzeppelin-solidity/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "compilationTarget": {
+        "contracts/upgradeable_contracts/ValidatorStorage.sol": "ValidatorStorage"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/upgradeable_contracts/ValidatorStorage.sol": {
+        "keccak256": "0xace2caccabb9193728e70637b354934711181633e9c9e3cbb73d00a275337974",
+        "urls": [
+          "bzzr://7af22b5dc84f2ba32bc9a580f1e568d846a5a75edc4a617dbbecd7877ab706ed"
+        ],
+        "license": null
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/upgradeable_contracts/ValidatorStorage.sol",
+    "id": 2662,
+    "exportedSymbols": {
+      "ValidatorStorage": [
+        2661
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "0:226:27",
+    "nodes": [
+      {
+        "id": 2657,
+        "nodeType": "PragmaDirective",
+        "src": "0:23:27",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.4",
+          ".24"
+        ]
+      },
+      {
+        "id": 2661,
+        "nodeType": "ContractDefinition",
+        "src": "25:200:27",
+        "nodes": [
+          {
+            "id": 2660,
+            "nodeType": "VariableDeclaration",
+            "src": "57:113:27",
+            "nodes": [],
+            "constant": true,
+            "name": "VALIDATOR_CONTRACT",
+            "scope": 2661,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 2658,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "57:7:27",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "307835613734626237653230326662386534626633313138343163376436346563313964663139356665653737643765376165373439623237393231623664646665",
+              "id": 2659,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "104:66:27",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_40914404658918022556649403538380372276948994691906753693999034884071773101566_by_1",
+                "typeString": "int_const 4091...(69 digits omitted)...1566"
+              },
+              "value": "0x5a74bb7e202fb8e4bf311841c7d64ec19df195fee77d7e7ae749b27921b6ddfe"
+            },
+            "visibility": "internal"
+          }
+        ],
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          2661
+        ],
+        "name": "ValidatorStorage",
+        "scope": 2662
+      }
+    ]
+  },
+  "id": 27
+}

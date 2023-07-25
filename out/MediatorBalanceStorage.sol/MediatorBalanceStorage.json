@@ -1,0 +1,463 @@
+{
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "mediatorBalance",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x6080604052348015600f57600080fd5b5060c48061001e6000396000f30060806040526004361060225760003560e01c63ffffffff1680634b94f815146027575b600080fd5b348015603257600080fd5b506039604b565b60408051918252519081900360200190f35b7f3db340e280667ee926fa8c51e8f9fcf88a0ff221a66d84d63b4778127d97d13960009081526020527ef98556deae64bbaa11436ee534ae029e85ed112aff9b71330af4c2d320eac954905600a165627a7a723058202a43ff6b4827600c19e19814b172123ae01aca1fd2e21832a38d98989a06c5470029",
+    "sourceMap": "173:718:94:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;173:718:94;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x60806040526004361060225760003560e01c63ffffffff1680634b94f815146027575b600080fd5b348015603257600080fd5b506039604b565b60408051918252519081900360200190f35b7f3db340e280667ee926fa8c51e8f9fcf88a0ff221a66d84d63b4778127d97d13960009081526020527ef98556deae64bbaa11436ee534ae029e85ed112aff9b71330af4c2d320eac954905600a165627a7a723058202a43ff6b4827600c19e19814b172123ae01aca1fd2e21832a38d98989a06c5470029",
+    "sourceMap": "173:718:94:-;;;;;;;;;;;;;;;;;;;;;;;516:110;;8:9:-1;5:2;;;30:1;27;20:12;5:2;516:110:94;;;;;;;;;;;;;;;;;;;;;274:66;564:7;590:29;;;;;;;516:110;:::o",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "mediatorBalance()": "4b94f815"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.4.24+commit.e67f0147\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"mediatorBalance\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"mediatorBalance()\":{\"details\":\"Tells the expected mediator balance.\",\"return\":\"the current expected mediator balance.\"}},\"title\":\"MediatorBalanceStorage\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"contracts/upgradeable_contracts/MediatorBalanceStorage.sol\":\"MediatorBalanceStorage\"},\"evmVersion\":\"constantinople\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":openzeppelin-solidity/=node_modules/openzeppelin-solidity/\"]},\"sources\":{\"contracts/upgradeability/EternalStorage.sol\":{\"keccak256\":\"0x8f2df79a1cda812d4be25da8f2b138f9b7492e76da1dfba21d87012e649cc51c\",\"urls\":[\"bzzr://0846d08e1b7a84e541ae31c91d2c0b34d88cf3abbd18891ec6eedeea7e958af2\"]},\"contracts/upgradeable_contracts/MediatorBalanceStorage.sol\":{\"keccak256\":\"0xb16525d6dccf2b475cacae2bdad8450839da218cbc410070146a49a14cd57972\",\"urls\":[\"bzzr://378c34999997ed44ce1b737d3e20ccc1afb31a530798c3a543e2bd5d54d8e8c1\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.4.24+commit.e67f0147"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "mediatorBalance",
+          "outputs": [
+            {
+              "internalType": null,
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "methods": {
+          "mediatorBalance()": {
+            "details": "Tells the expected mediator balance.",
+            "return": "the current expected mediator balance."
+          }
+        }
+      },
+      "userdoc": {
+        "methods": {}
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":openzeppelin-solidity/=node_modules/openzeppelin-solidity/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "compilationTarget": {
+        "contracts/upgradeable_contracts/MediatorBalanceStorage.sol": "MediatorBalanceStorage"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/upgradeability/EternalStorage.sol": {
+        "keccak256": "0x8f2df79a1cda812d4be25da8f2b138f9b7492e76da1dfba21d87012e649cc51c",
+        "urls": [
+          "bzzr://0846d08e1b7a84e541ae31c91d2c0b34d88cf3abbd18891ec6eedeea7e958af2"
+        ],
+        "license": null
+      },
+      "contracts/upgradeable_contracts/MediatorBalanceStorage.sol": {
+        "keccak256": "0xb16525d6dccf2b475cacae2bdad8450839da218cbc410070146a49a14cd57972",
+        "urls": [
+          "bzzr://378c34999997ed44ce1b737d3e20ccc1afb31a530798c3a543e2bd5d54d8e8c1"
+        ],
+        "license": null
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/upgradeable_contracts/MediatorBalanceStorage.sol",
+    "id": 12024,
+    "exportedSymbols": {
+      "MediatorBalanceStorage": [
+        12023
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "0:892:94",
+    "nodes": [
+      {
+        "id": 11994,
+        "nodeType": "PragmaDirective",
+        "src": "0:23:94",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.4",
+          ".24"
+        ]
+      },
+      {
+        "id": 11995,
+        "nodeType": "ImportDirective",
+        "src": "25:46:94",
+        "nodes": [],
+        "absolutePath": "contracts/upgradeability/EternalStorage.sol",
+        "file": "../upgradeability/EternalStorage.sol",
+        "scope": 12024,
+        "sourceUnit": 7520,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 12023,
+        "nodeType": "ContractDefinition",
+        "src": "173:718:94",
+        "nodes": [
+          {
+            "id": 12000,
+            "nodeType": "VariableDeclaration",
+            "src": "229:111:94",
+            "nodes": [],
+            "constant": true,
+            "name": "MEDIATOR_BALANCE",
+            "scope": 12023,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 11998,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "229:7:94",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "307833646233343065323830363637656539323666613863353165386639666366383861306666323231613636643834643633623437373831323764393764313339",
+              "id": 11999,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "274:66:94",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_27907797206410859495396220104237654156100807545698154566983893084112982364473_by_1",
+                "typeString": "int_const 2790...(69 digits omitted)...4473"
+              },
+              "value": "0x3db340e280667ee926fa8c51e8f9fcf88a0ff221a66d84d63b4778127d97d139"
+            },
+            "visibility": "internal"
+          },
+          {
+            "id": 12010,
+            "nodeType": "FunctionDefinition",
+            "src": "516:110:94",
+            "nodes": [],
+            "body": {
+              "id": 12009,
+              "nodeType": "Block",
+              "src": "573:53:94",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 12005,
+                      "name": "uintStorage",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7498,
+                      "src": "590:11:94",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_bytes32_$_t_uint256_$",
+                        "typeString": "mapping(bytes32 => uint256)"
+                      }
+                    },
+                    "id": 12007,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 12006,
+                      "name": "MEDIATOR_BALANCE",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12000,
+                      "src": "602:16:94",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "590:29:94",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 12004,
+                  "id": 12008,
+                  "nodeType": "Return",
+                  "src": "583:36:94"
+                }
+              ]
+            },
+            "documentation": "@dev Tells the expected mediator balance.\n@return the current expected mediator balance.",
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "mediatorBalance",
+            "parameters": {
+              "id": 12001,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "540:2:94"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 12004,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 12003,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12010,
+                  "src": "564:7:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 12002,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "564:7:94",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "563:9:94"
+            },
+            "scope": 12023,
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "id": 12022,
+            "nodeType": "FunctionDefinition",
+            "src": "776:113:94",
+            "nodes": [],
+            "body": {
+              "id": 12021,
+              "nodeType": "Block",
+              "src": "832:57:94",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 12019,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 12015,
+                        "name": "uintStorage",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7498,
+                        "src": "842:11:94",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_uint256_$",
+                          "typeString": "mapping(bytes32 => uint256)"
+                        }
+                      },
+                      "id": 12017,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 12016,
+                        "name": "MEDIATOR_BALANCE",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 12000,
+                        "src": "854:16:94",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "842:29:94",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 12018,
+                      "name": "_balance",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12012,
+                      "src": "874:8:94",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "842:40:94",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 12020,
+                  "nodeType": "ExpressionStatement",
+                  "src": "842:40:94"
+                }
+              ]
+            },
+            "documentation": "@dev Sets the expected mediator balance of the contract.\n@param _balance the new expected mediator balance value.",
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "_setMediatorBalance",
+            "parameters": {
+              "id": 12013,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 12012,
+                  "name": "_balance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12022,
+                  "src": "805:16:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 12011,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "805:7:94",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "804:18:94"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 12014,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "832:0:94"
+            },
+            "scope": 12023,
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 11996,
+              "name": "EternalStorage",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7519,
+              "src": "208:14:94",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_EternalStorage_$7519",
+                "typeString": "contract EternalStorage"
+              }
+            },
+            "id": 11997,
+            "nodeType": "InheritanceSpecifier",
+            "src": "208:14:94"
+          }
+        ],
+        "contractDependencies": [
+          7519
+        ],
+        "contractKind": "contract",
+        "documentation": "@title MediatorBalanceStorage\n@dev Storage helpers for the mediator balance tracking.",
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          12023,
+          7519
+        ],
+        "name": "MediatorBalanceStorage",
+        "scope": 12024
+      }
+    ]
+  },
+  "id": 94
+}
