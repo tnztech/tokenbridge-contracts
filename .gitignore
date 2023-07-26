@@ -12,3 +12,4 @@ deploy/*.env*
 !deploy/.env.example
 .vscode
 .env
+out

@@ -17,13 +17,23 @@ contract ERC20Bridge is BasicForeignBridge {
     }
 
     function relayTokens(address _receiver, uint256 _amount) public {
-        require(_receiver != address(0));
-        require(_receiver != address(this));
-        require(_amount > 0);
-        require(withinLimit(_amount));
+        require(_receiver != address(0), "Receiver can't be Null");
+        require(_receiver != address(this), "Receiver can't be the Bridge");
+        require(_amount > 0, "Relayed zero tokens");
+        require(withinLimit(_amount), "Relayed above limit");
         addTotalSpentPerDay(getCurrentDay(), _amount);
 
         erc20token().transferFrom(msg.sender, address(this), _amount);
+        emit UserRequestForAffirmation(_receiver, _amount);
+    }
+
+    function _relayInterest(address _receiver, uint256 _amount) internal {
+        require(_receiver != address(0), "Receiver can't be Null");
+        require(_receiver != address(this), "Receiver can't be the Bridge");
+        require(_amount > 0, "Relayed zero tokens");
+        require(withinLimit(_amount), "Relayed above limit");
+        require(erc20token().balanceOf(address(this)) > _amount , "Not enough Balance");
+        addTotalSpentPerDay(getCurrentDay(), _amount);
         emit UserRequestForAffirmation(_receiver, _amount);
     }
 }

@@ -1,6 +1,6 @@
 pragma solidity ^0.8.10;
 
-interface Interface {
+interface IEternalStorageProxy {
     event ProxyOwnershipTransferred(address previousOwner, address newOwner);
     event Upgraded(uint256 version, address indexed implementation);
 

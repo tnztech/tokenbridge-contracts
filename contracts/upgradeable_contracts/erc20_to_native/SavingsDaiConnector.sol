@@ -54,7 +54,7 @@ contract SavingsDaiConnector is InterestConnector {
     function _invest(address _token, uint256 _amount) internal {
         (_token);
         daiToken().approve(address(sDaiToken()), _amount);
-        require(sDaiToken().deposit(_amount, address(this)) == SUCCESS, "Failed to deposit");
+        require(sDaiToken().deposit(_amount, address(this)) > 0, "Failed to deposit");
     }
 
     /**
@@ -65,6 +65,6 @@ contract SavingsDaiConnector is InterestConnector {
      */
     function _withdrawTokens(address _token, uint256 _amount) internal {
         (_token);
-        require(sDaiToken().withdraw(_amount, address(this), address(this)) == SUCCESS,  "Failed to withdraw");
+        require(sDaiToken().withdraw(_amount, address(this), address(this)) > 0, "Failed to withdraw");
     }
 }

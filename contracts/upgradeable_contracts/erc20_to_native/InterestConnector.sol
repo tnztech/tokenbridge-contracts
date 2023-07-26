@@ -16,7 +16,7 @@ contract InterestConnector is Ownable, ERC20Bridge {
      * @param token address, for which interest should be enabled.
      */
     modifier interestEnabled(address token) {
-        require(isInterestEnabled(token));
+        require(isInterestEnabled(token), "Interest not Enabled");
         /* solcov ignore next */
         _;
     }
@@ -27,7 +27,7 @@ contract InterestConnector is Ownable, ERC20Bridge {
      */
     modifier onlyEOA {
         // solhint-disable-next-line avoid-tx-origin
-        require(msg.sender == tx.origin);
+        require(msg.sender == tx.origin, "Not EOA");
         /* solcov ignore next */
         _;
     }
@@ -53,8 +53,8 @@ contract InterestConnector is Ownable, ERC20Bridge {
         uint256 _minInterestPaid,
         address _interestReceiver
     ) external onlyOwner {
-        require(_isInterestSupported(_token));
-        require(!isInterestEnabled(_token));
+        require(_isInterestSupported(_token), "Token not supported");
+        require(!isInterestEnabled(_token), "Interest already enabled");
 
         _setInterestEnabled(_token, true);
         _setMinCashThreshold(_token, _minCashThreshold);
@@ -134,15 +134,14 @@ contract InterestConnector is Ownable, ERC20Bridge {
      * Requires interest for the given token to be enabled.
      * @param _token address of the token contract.
      */
-    function payInterest(address _token) external onlyEOA interestEnabled(_token) {
+    function payInterest(address _token) external interestEnabled(_token) {
         address receiver = interestReceiver(_token);
-        require(receiver != address(0));
+        require(receiver != address(0), "Receiver not set");
         uint256 interest = interestAmount(_token);
-        require(interest >= minInterestPaid(_token),"Collectable interest too low");
+        require(interest >= minInterestPaid(_token), "Collectable interest too low");
 
         uint256 redeemed = _safeWithdrawTokens(_token, interest);
-        ERC20(_token).approve(address(this), redeemed);
-        relayTokens(receiver, redeemed);
+        _relayInterest(receiver, redeemed);
         emit PaidInterest(_token, receiver, redeemed);
     }
 
@@ -164,7 +163,7 @@ contract InterestConnector is Ownable, ERC20Bridge {
         uint256 balance = _selfBalance(_token);
         uint256 minCash = minCashThreshold(_token);
 
-        require(balance > minCash);
+        require(balance > minCash, "Balance too Low");
         uint256 amount = balance - minCash;
 
         _setInvestedAmount(_token, investedAmount(_token).add(amount));
@@ -180,7 +179,7 @@ contract InterestConnector is Ownable, ERC20Bridge {
      */
     function _transferInterest(address _token, uint256 _amount) internal {
         address receiver = interestReceiver(_token);
-        require(receiver != address(0));
+        require(receiver != address(0), "Receiver can't be Null");
 
         ERC20(_token).transfer(receiver, _amount);
 
@@ -190,7 +189,6 @@ contract InterestConnector is Ownable, ERC20Bridge {
 
         emit PaidInterest(_token, receiver, _amount);
     }
-
 
     /**
      * @dev Internal function for setting interest enabled flag for some token.
@@ -217,10 +215,9 @@ contract InterestConnector is Ownable, ERC20Bridge {
      * @param _amount amount of requested tokens to be withdrawn.
      */
     function _withdraw(address _token, uint256 _amount) internal {
-        if (_amount == 0) return;
-
         uint256 invested = investedAmount(_token);
         uint256 withdrawal = _amount > invested ? invested : _amount;
+        if (withdrawal == 0) return;
         uint256 redeemed = _safeWithdrawTokens(_token, withdrawal);
 
         _setInvestedAmount(_token, invested > redeemed ? invested - redeemed : 0);
@@ -240,7 +237,7 @@ contract InterestConnector is Ownable, ERC20Bridge {
 
         uint256 redeemed = _selfBalance(_token) - balance;
 
-        require(redeemed >= _amount);
+        require(redeemed >= _amount, "Withdrawn less than Amount");
 
         return redeemed;
     }
@@ -269,7 +266,7 @@ contract InterestConnector is Ownable, ERC20Bridge {
      * @param _receiver address of the interest receiver.
      */
     function _setInterestReceiver(address _token, address _receiver) internal {
-        require(_receiver != address(this));
+        require(_receiver != address(this), "Receiver can't be the Bridge");
         addressStorage[keccak256(abi.encodePacked("interestReceiver", _token))] = _receiver;
     }
 

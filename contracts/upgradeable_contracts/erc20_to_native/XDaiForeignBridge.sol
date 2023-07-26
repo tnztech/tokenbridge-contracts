@@ -39,10 +39,10 @@ contract XDaiForeignBridge is ForeignBridgeErcToNative, SavingsDaiConnector, GSN
     }
 
     function refillBridge() external {
-            uint256 currentBalance = daiToken().balanceOf(address(this));
-            require(currentBalance < minCashThreshold(address(daiToken())), "Bridge is Filled");
-            uint256 withdrawAmount = minCashThreshold(address(daiToken())) - currentBalance;
-            _withdraw(address(daiToken()), withdrawAmount);
+        uint256 currentBalance = daiToken().balanceOf(address(this));
+        require(currentBalance < minCashThreshold(address(daiToken())), "Bridge is Filled");
+        uint256 withdrawAmount = minCashThreshold(address(daiToken())) - currentBalance;
+        _withdraw(address(daiToken()), withdrawAmount);
     }
 
     function investDai() external {
