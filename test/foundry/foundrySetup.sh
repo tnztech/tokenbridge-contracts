@@ -9,3 +9,5 @@ DEPLOYED_TO=$(jq -r '.deployedTo' <<< "$JSON_OUTPUT")
 sed -i "s/^NEW_IMPLEMENTATION=.*/NEW_IMPLEMENTATION=$DEPLOYED_TO/" .env
 
 forge test --fork-url "http://localhost:8545" -vvv
+forge snapshot --fork-url "http://localhost:8545" --silent
+cat .gas-snapshot

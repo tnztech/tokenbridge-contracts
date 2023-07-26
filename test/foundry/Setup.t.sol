@@ -96,7 +96,11 @@ contract SetupTest is Test {
         assertEq(initialVersion + 1, bridgeProxy.version());
         assertEq(address(newImpl), bridgeProxy.implementation());
         console.log("upgraded bridge to version %s", initialVersion + 1);
-
+      
+        bridge.initializeInterest(address(dai), 1000 ether, 1 ether, gnosisInterestReceiver);
+        bridge.investDai();
+        bridge.setMinCashThreshold(address(dai), 10000000 ether);
+        skipTime(5000);
         vm.stopPrank();
         }
     }

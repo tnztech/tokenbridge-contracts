@@ -3534,7 +3534,7 @@
       }
     },
     "contracts/upgradeable_contracts/BasicTokenBridge.sol": {
-      "lastModificationDate": 1687424585038,
+      "lastModificationDate": 1690373684439,
       "contentHash": "e97e3eddf332f9e21acaeb102741a2fb",
       "sourceName": "contracts/upgradeable_contracts/BasicTokenBridge.sol",
       "solcConfig": {
@@ -6243,7 +6243,7 @@
       }
     },
     "contracts/upgradeable_contracts/erc20_to_native/InterestConnector.sol": {
-      "lastModificationDate": 1690390059320,
+      "lastModificationDate": 1690392757566,
       "contentHash": "f97ab48508c8218686cfa3fbee3ada35",
       "sourceName": "contracts/upgradeable_contracts/erc20_to_native/InterestConnector.sol",
       "solcConfig": {
@@ -6358,7 +6358,7 @@
       }
     },
     "contracts/upgradeable_contracts/erc20_to_native/SavingsDaiConnector.sol": {
-      "lastModificationDate": 1690388852477,
+      "lastModificationDate": 1690392545020,
       "contentHash": "0c6fb3ba487bba132d80e80c4a791fbe",
       "sourceName": "contracts/upgradeable_contracts/erc20_to_native/SavingsDaiConnector.sol",
       "solcConfig": {
@@ -7742,8 +7742,8 @@
       }
     },
     "test/foundry/Setup.t.sol": {
-      "lastModificationDate": 1690379470730,
-      "contentHash": "7e1e78225bc8caf13025078867f25c30",
+      "lastModificationDate": 1690393330217,
+      "contentHash": "051de4af80ea79d1d0b64d8196497d99",
       "sourceName": "test/foundry/Setup.t.sol",
       "solcConfig": {
         "settings": {
@@ -7805,8 +7805,8 @@
       }
     },
     "test/foundry/XDaiForeignBridge.t.sol": {
-      "lastModificationDate": 1690391010180,
-      "contentHash": "a711958d7566261553c535f76fb8a057",
+      "lastModificationDate": 1690393173881,
+      "contentHash": "69a95c893d6bb0ffc0367849f2e7c622",
       "sourceName": "test/foundry/XDaiForeignBridge.t.sol",
       "solcConfig": {
         "settings": {
@@ -7949,7 +7949,7 @@
       }
     },
     "test/foundry/interfaces/IXDaiForeignBridge.sol": {
-      "lastModificationDate": 1690303511275,
+      "lastModificationDate": 1690390597345,
       "contentHash": "262e2f59ca84c689cd91d25699ba848c",
       "sourceName": "test/foundry/interfaces/IXDaiForeignBridge.sol",
       "solcConfig": {
