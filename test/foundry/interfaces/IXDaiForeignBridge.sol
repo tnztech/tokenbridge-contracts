@@ -58,6 +58,7 @@ interface IXDaiForeignBridge {
     function minPerTx() external view returns (uint256);
     function owner() external view returns (address);
     function payInterest(address _token) external;
+    function previewWithdraw(address _token, uint256 _amount) external view returns (uint256);
     function refillBridge() external;
     function relayTokens(address _receiver, uint256 _amount) external;
     function relayedMessages(bytes32 _txHash) external view returns (bool);

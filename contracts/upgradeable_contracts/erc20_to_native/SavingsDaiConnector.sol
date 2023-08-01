@@ -67,4 +67,15 @@ contract SavingsDaiConnector is InterestConnector {
         (_token);
         require(sDaiToken().withdraw(_amount, address(this), address(this)) > 0, "Failed to withdraw");
     }
+
+    /**
+     * @dev Previews a withdraw of the given amount of DAI from the sDAI vault contract.
+     * Previews withdrawing the _amount of _token from the sDAI vault.
+     * @param _token address of the token contract.
+     * @param _amount minimal amount of tokens to withdraw.
+     */
+    function previewWithdraw(address _token, uint256 _amount) public view returns(uint256){
+        (_token);
+        return sDaiToken().previewWithdraw(_amount);
+    }
 }

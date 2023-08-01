@@ -25,7 +25,7 @@ contract InterestConnector is Ownable, ERC20Bridge {
      * @dev Ensures that caller is an EOA.
      * Functions with such modifier cannot be called from other contract (as well as from GSN-like approaches)
      */
-    modifier onlyEOA {
+    modifier onlyEOA() {
         // solhint-disable-next-line avoid-tx-origin
         require(msg.sender == tx.origin, "Not EOA");
         /* solcov ignore next */
@@ -140,9 +140,18 @@ contract InterestConnector is Ownable, ERC20Bridge {
         uint256 interest = interestAmount(_token);
         require(interest >= minInterestPaid(_token), "Collectable interest too low");
 
-        uint256 redeemed = _safeWithdrawTokens(_token, interest);
-        _relayInterest(receiver, redeemed);
-        emit PaidInterest(_token, receiver, redeemed);
+        uint256 balance = _selfBalance(_token);
+        uint256 minCash = minCashThreshold(_token);
+        if (balance >= minCash) {
+            _setInvestedAmount(_token, investedAmount(_token).add(interest));
+        } else if (balance + interest >= minCash && minCash + interest - balance >= minInterestPaid(_token)) {
+            _safeWithdrawTokens(_token, minCash - balance);
+            _setInvestedAmount(_token, investedAmount(_token).add(balance + interest - minCash));
+        } else {
+            _safeWithdrawTokens(_token, interest);
+        }
+        _relayInterest(receiver, interest);
+        emit PaidInterest(_token, receiver, interest);
     }
 
     /**
@@ -284,6 +293,8 @@ contract InterestConnector is Ownable, ERC20Bridge {
     function _invest(address _token, uint256 _amount) internal;
 
     function _withdrawTokens(address _token, uint256 _amount) internal;
+
+    function previewWithdraw(address _token, uint256 _amount) public view returns (uint256);
 
     function interestAmount(address _token) public view returns (uint256);
 }

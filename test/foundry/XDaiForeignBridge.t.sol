@@ -10,7 +10,6 @@ import "./interfaces/IXDaiForeignBridge.sol";
 import "./Setup.t.sol";
 
 contract XDaiForeignBridgeTest is SetupTest {
-
     event DailyLimitChanged(uint256 newLimit);
     event ExecutionDailyLimitChanged(uint256 newLimit);
     event GasPriceChanged(uint256 gasPrice);
@@ -34,62 +33,154 @@ contract XDaiForeignBridgeTest is SetupTest {
     function testFuzzRefillBridge(uint256 minCashThreshold) public {
         vm.assume(minCashThreshold > 0);
         setMinCashThreshold(address(dai), minCashThreshold);
+
         uint256 initialBalance = dai.balanceOf(bridgeAddress);
+        uint256 initialInvested = bridge.investedAmount(address(dai));
+        uint256 initialCollectable = bridge.interestAmount(address(dai));
+
         if (initialBalance < minCashThreshold) {
             bridge.refillBridge();
+
+            uint256 afterBalance = dai.balanceOf(bridgeAddress);
+            uint256 afterInvested = bridge.investedAmount(address(dai));
+            uint256 afterCollectable = bridge.interestAmount(address(dai));
+
+            assertLt(initialBalance, minCashThreshold);
+            assertGe(afterBalance, initialBalance);
+            assertLt(afterInvested, initialInvested);
+
+            //Aproximately the same - slightly lower ue to ERC4626 math rounding
+            assertLe(afterCollectable, initialCollectable);
+            assertGt(afterCollectable, initialCollectable - 100);
+
+            if (minCashThreshold > initialBalance + initialInvested) {
+                assertLt(afterBalance, minCashThreshold);
+                if (initialInvested > 0) {
+                    assertGt(afterBalance, initialBalance);
+                } else {
+                    assertEq(afterBalance, initialBalance);
+                }
+            } else {
+                //Aproximately the same - slightly off due to ERC4626 math rounding
+                assertGt(afterBalance, minCashThreshold - 100);
+                assertLe(afterBalance, minCashThreshold);
+            }
         } else {
             vm.expectRevert(bytes("Bridge is Filled"));
             bridge.refillBridge();
         }
-        if (minCashThreshold > (dai.balanceOf(bridgeAddress) + bridge.investedAmount(address(dai)))) {
-            assertLt(dai.balanceOf(bridgeAddress), bridge.minCashThreshold(address(dai)));
-        } else {
-            assertGe(dai.balanceOf(bridgeAddress), bridge.minCashThreshold(address(dai)));
-        }
-        assertGe(dai.balanceOf(bridgeAddress), initialBalance);
     }
 
     function testFuzzInvestDai(uint256 minCashThreshold, uint256 minInterestPaid) public {
         vm.assume(minCashThreshold > 1 ether);
         vm.assume(minInterestPaid > 1 ether);
-        initializeInterest(minCashThreshold, minInterestPaid);
         setMinCashThreshold(address(dai), minCashThreshold);
         setMinInterestPaid(address(dai), minInterestPaid);
         uint256 initialBalance = dai.balanceOf(bridgeAddress);
         uint256 initialInvested = bridge.investedAmount(address(dai));
+        uint256 initialCollectable = bridge.interestAmount(address(dai));
 
         if (initialBalance > minCashThreshold) {
             bridge.investDai();
-            assertLt(dai.balanceOf(bridgeAddress), initialBalance);
-            assertGt(bridge.investedAmount(address(dai)), initialInvested);
+
+            uint256 afterBalance = dai.balanceOf(bridgeAddress);
+            uint256 afterInvested = bridge.investedAmount(address(dai));
+            uint256 afterCollectable = bridge.interestAmount(address(dai));
+
+            assertLt(afterBalance, initialBalance);
+            assertGt(afterInvested, initialInvested);
+            //Aproximately the same - slightly lower ue to ERC4626 math rounding
+            assertGt(afterCollectable, initialCollectable - 50);
+            assertLt(afterCollectable, initialCollectable + 50);
         } else {
             vm.expectRevert(bytes("Balance too Low"));
             bridge.investDai();
         }
-        
     }
 
-    function testFuzzPayInterest(uint256 minCashThreshold, uint256 minInterestPaid) public {
+    function testPayInterest(uint256 minCashThreshold, uint256 minInterestPaid) public {
         address token = address(dai);
-        vm.assume(minCashThreshold > 0);
-        vm.assume(minInterestPaid > 0);
 
-        testFuzzInvestDai(minCashThreshold, minInterestPaid);
+        vm.assume(minCashThreshold > 100 ether);
+        vm.assume(minInterestPaid > 100 ether);
+        setMinCashThreshold(token, minCashThreshold);
+        setMinInterestPaid(token, minInterestPaid);
+
         uint256 initialBalance = dai.balanceOf(bridgeAddress);
         uint256 initialInvested = bridge.investedAmount(token);
-        skip(1000);
-        uint256 collectable = bridge.interestAmount(token);
-
-        if (collectable >= bridge.minInterestPaid(token)) {
-            vm.expectEmit(); 
-            emit UserRequestForAffirmation(gnosisInterestReceiver, collectable); 
+        uint256 initialCollectable = bridge.interestAmount(token);
+        uint256 initialWithdrawable = bridge.previewWithdraw(token, initialCollectable);
+        console.log("Bal:%e Inv:%e Col:%e", initialBalance, initialInvested, initialCollectable);
+        if (initialCollectable >= minInterestPaid) {
+            vm.expectEmit();
+            emit UserRequestForAffirmation(gnosisInterestReceiver, initialCollectable);
             bridge.payInterest(token);
-            assertGt(dai.balanceOf(bridgeAddress), initialBalance);
-            assertLt(bridge.interestAmount(token), collectable);
+
+            uint256 afterBalance = dai.balanceOf(bridgeAddress);
+            uint256 afterInvested = bridge.investedAmount(token);
+            uint256 afterCollectable = bridge.interestAmount(token);
+            uint256 afterWithdrawable = bridge.previewWithdraw(token, afterCollectable);
+            assertGe(initialCollectable, initialWithdrawable);
+            assertLt(afterCollectable, initialCollectable);
+            assertLe(afterWithdrawable, initialWithdrawable);
+            if (initialBalance >= minCashThreshold) {
+                assertEq(afterBalance, initialBalance);
+                assertGt(afterInvested, initialInvested);
+                assertEq(afterInvested, initialInvested + initialCollectable);
+            } else if (initialBalance + initialCollectable >= minCashThreshold) {
+                assertGe(afterBalance, initialBalance);
+                assertGe(afterInvested, initialInvested);
+                if (minCashThreshold + initialCollectable - initialBalance >= bridge.minInterestPaid(token)) {
+                    assertEq(afterInvested, initialInvested + initialCollectable + initialBalance - minCashThreshold);
+                    assertEq(afterBalance - initialBalance, minCashThreshold - initialBalance);
+                }
+                else{
+                    assertEq(afterInvested, initialInvested);
+                }
+            } else {
+                assertGt(afterBalance, initialBalance);
+                assertEq(afterBalance, initialBalance + initialCollectable);
+                assertEq(afterInvested, initialInvested);
+            }
+            
+        console.log("Bal:%e Inv:%e Col:%e", afterBalance, afterInvested, afterCollectable);
+        console.log("initWith:%e afterWith:%e", initialWithdrawable, afterWithdrawable);
         } else {
             vm.expectRevert(bytes("Collectable interest too low"));
             bridge.payInterest(token);
-        }     
+        }
+    }
+
+    function testDisableInterest() public {
+        address token = address(dai);
+        skipTime(6 hours);
+        uint256 initialBalance = dai.balanceOf(bridgeAddress);
+        uint256 initialInvested = bridge.investedAmount(token);
+        uint256 initialCollectable = bridge.interestAmount(token);
+        uint256 initialWithdrawable = bridge.previewWithdraw(token, initialInvested);
+
+        vm.startPrank(bridgeOwner);
+        bridge.disableInterest(address(dai));
+        vm.stopPrank();
+
+        uint256 afterBalance = dai.balanceOf(bridgeAddress);
+        uint256 afterInvested = bridge.investedAmount(token);
+        uint256 afterCollectable = bridge.interestAmount(token);
+        uint256 afterWithdrawable = bridge.previewWithdraw(token, afterInvested);
+        if (initialInvested > 0) {
+            assertGt(afterBalance, initialBalance);
+            assertEq(afterBalance, initialBalance + initialInvested);
+            assertLt(afterInvested, initialInvested);
+            if (afterWithdrawable > 0) {
+                assertLt(afterCollectable, afterWithdrawable);
+            }
+        } else {
+            assertEq(afterBalance, initialBalance);
+        }
+        assertEq(afterInvested, 0);
+        assertEq(afterWithdrawable, 0);
+        assertGe(afterCollectable, afterWithdrawable);
+        assertGe(initialInvested, initialWithdrawable);
     }
 
     /*//////////////////////////////////////////////////////////////
@@ -125,29 +216,19 @@ contract XDaiForeignBridgeTest is SetupTest {
         vm.stopPrank();
     }
 
-    function initializeInterest(
-        uint256 _minCashThreshold,
-        uint256 _minInterestPaid
-    ) public {
+    function initializeInterest(uint256 _minCashThreshold, uint256 _minInterestPaid) public {
         vm.startPrank(bridgeOwner);
 
         vm.expectRevert(bytes("Token not supported"));
         bridge.initializeInterest(address(sDAI), _minCashThreshold, _minInterestPaid, gnosisInterestReceiver);
 
-        if (bridge.isInterestEnabled(address(dai)) == false){
+        if (bridge.isInterestEnabled(address(dai)) == false) {
             bridge.initializeInterest(address(dai), _minCashThreshold, _minInterestPaid, gnosisInterestReceiver);
-        }
-        else {
+        } else {
             vm.expectRevert(bytes("Interest already enabled"));
             bridge.initializeInterest(address(dai), _minCashThreshold, _minInterestPaid, gnosisInterestReceiver);
         }
 
-        vm.stopPrank();
-    }
-
-    function testDisableInterest() public {
-        vm.startPrank(bridgeOwner);
-        bridge.disableInterest(address(dai));
         vm.stopPrank();
     }
 
@@ -208,7 +289,43 @@ contract XDaiForeignBridgeTest is SetupTest {
 
     function testRefillBridge() public {
         uint256 initialBalance = dai.balanceOf(bridgeAddress);
+        uint256 initialInvested = bridge.investedAmount(address(dai));
+        uint256 initialCollectable = bridge.interestAmount(address(dai));
+
+        // config change to force valid refill state
+        vm.prank(bridgeOwner);
+        bridge.setMinCashThreshold(address(dai), initialBalance + 1000 ether);
+        //refill
         bridge.refillBridge();
-        assertGt(dai.balanceOf(bridgeAddress), initialBalance);
+
+        uint256 afterBalance = dai.balanceOf(bridgeAddress);
+        uint256 afterInvested = bridge.investedAmount(address(dai));
+        uint256 afterCollectable = bridge.interestAmount(address(dai));
+
+        assertEq(afterBalance, initialBalance + 1000 ether);
     }
+    /*
+    function testPayInterestAndThenInvest() public {
+        uint256 initialBalance = dai.balanceOf(bridgeAddress);
+        uint256 initialInvested = bridge.investedAmount(address(dai));
+        uint256 initialCollectable = bridge.interestAmount(address(dai));
+
+        assertGt(initialCollectable, bridge.minInterestPaid(address(dai)));
+        bridge.payInterest(address(dai));
+        uint256 duringBalance = dai.balanceOf(bridgeAddress);
+        assertEq(initialCollectable, duringBalance - initialBalance);
+        bridge.investDai();
+
+        uint256 afterBalance = dai.balanceOf(bridgeAddress);
+        uint256 afterInvested = bridge.investedAmount(address(dai));
+        uint256 afterCollectable = bridge.interestAmount(address(dai));
+        if (initialBalance >= bridge.minCashThreshold(address(dai))) {
+            assertGe(initialBalance, afterBalance);
+        } else {
+            assertLt(initialBalance, afterBalance);
+        }
+        assertGt(afterInvested, initialInvested);
+        assertEq(afterCollectable, 0);
+    }
+    */
 }
