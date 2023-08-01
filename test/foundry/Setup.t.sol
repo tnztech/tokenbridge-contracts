@@ -2,8 +2,8 @@
 pragma solidity ^0.8.19;
 
 import "forge-std/Test.sol";
-import 'forge-std/console.sol';
-import 'forge-std/interfaces/IERC20.sol';
+import "forge-std/console.sol";
+import "forge-std/interfaces/IERC20.sol";
 import "./interfaces/ISavingsDai.sol";
 import "./interfaces/IEternalStorageProxy.sol";
 import "./interfaces/IXDaiForeignBridge.sol";
@@ -30,7 +30,7 @@ contract SetupTest is Test {
     function setUp() public payable {
 
         console.log("chainId %s",block.chainid);
-        console.log("block %s",block.number );
+        console.log("block %s",block.number);
 
         sDAI = ISavingsDai(0x83F20F44975D03b1b09e64809B757c47f942BEeA);
         dai = IERC20(0x6B175474E89094C44Da98b954EedeAC495271d0F);
