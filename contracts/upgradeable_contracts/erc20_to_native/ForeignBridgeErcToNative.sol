@@ -44,7 +44,7 @@ contract ForeignBridgeErcToNative is ERC20Bridge, OtherSideBridgeStorage {
      */
     function claimTokens(address _token, address _to) external onlyIfUpgradeabilityOwner {
         // Since bridged tokens are locked at this contract, it is not allowed to claim them with the use of claimTokens function
-        require(_token != address(erc20token()));
+        require(_token != address(erc20token()), "Bridged Token is disallowed");
         claimValues(_token, _to);
     }
 
@@ -62,11 +62,11 @@ contract ForeignBridgeErcToNative is ERC20Bridge, OtherSideBridgeStorage {
     }
 
     function relayTokens(address _receiver, uint256 _amount) public {
-        require(_receiver != bridgeContractOnOtherSide());
-        require(_receiver != address(0));
-        require(_receiver != address(this));
-        require(_amount > 0);
-        require(withinLimit(_amount));
+        require(_receiver != bridgeContractOnOtherSide(), "Relayed to Bridge address");
+        require(_receiver != address(0), "Relayed to Null address");
+        require(_receiver != address(this), "Relayed to this address");
+        require(_amount > 0, "Relayed zero funds");
+        require(withinLimit(_amount), "Exceeds bridge daily limit");
 
         addTotalSpentPerDay(getCurrentDay(), _amount);
 

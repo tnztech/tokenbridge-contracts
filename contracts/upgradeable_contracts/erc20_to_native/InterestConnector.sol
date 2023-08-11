@@ -130,7 +130,8 @@ contract InterestConnector is Ownable, ERC20Bridge {
     }
 
     /**
-     * @dev Pays collected interest for the specific underlying token to _reveicer contract on Gnosis Chain
+     * @dev Pays collected interest for the specific underlying token to _reveicer contract on Gnosis Chain 
+     *      and reinvests amount claimed above the minCashThreshold.
      * Requires interest for the given token to be enabled.
      * @param _token address of the token contract.
      */
@@ -181,7 +182,7 @@ contract InterestConnector is Ownable, ERC20Bridge {
     }
 
     /**
-     * @dev Internal function for transferring interest. Deprecated
+     * @dev Internal function for transferring interest. Deprecated 
      * Calls a callback on the receiver, if it is a contract.
      * @param _token address of the underlying token contract.
      * @param _amount amount of collected tokens that should be sent.

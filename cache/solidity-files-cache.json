@@ -2792,7 +2792,7 @@
       }
     },
     "contracts/mocks/XDaiForeignBridgeMock.sol": {
-      "lastModificationDate": 1690888590748,
+      "lastModificationDate": 1689789348230,
       "contentHash": "cd3a39de77491952acfafa2265551a3b",
       "sourceName": "contracts/mocks/XDaiForeignBridgeMock.sol",
       "solcConfig": {
@@ -6051,7 +6051,7 @@
       }
     },
     "contracts/upgradeable_contracts/erc20_to_native/CompoundConnector.sol": {
-      "lastModificationDate": 1688161539684,
+      "lastModificationDate": 1689784350814,
       "contentHash": "06ae3cd0373eda50964ebdb00e1ff868",
       "sourceName": "contracts/upgradeable_contracts/erc20_to_native/CompoundConnector.sol",
       "solcConfig": {
@@ -6228,8 +6228,8 @@
       }
     },
     "contracts/upgradeable_contracts/erc20_to_native/ForeignBridgeErcToNative.sol": {
-      "lastModificationDate": 1690888590748,
-      "contentHash": "c6848c139b0c682325ca930b4b6c9d06",
+      "lastModificationDate": 1691766570023,
+      "contentHash": "4958a382f7eaf08e7ee1bbe52f3ffe73",
       "sourceName": "contracts/upgradeable_contracts/erc20_to_native/ForeignBridgeErcToNative.sol",
       "solcConfig": {
         "settings": {
@@ -6370,8 +6370,8 @@
       }
     },
     "contracts/upgradeable_contracts/erc20_to_native/InterestConnector.sol": {
-      "lastModificationDate": 1690888590748,
-      "contentHash": "a6595747c9ea50e5d6bbbd6500892568",
+      "lastModificationDate": 1691766909544,
+      "contentHash": "cdec02cc975d637928372bb4e89f011d",
       "sourceName": "contracts/upgradeable_contracts/erc20_to_native/InterestConnector.sol",
       "solcConfig": {
         "settings": {
@@ -6487,7 +6487,7 @@
       }
     },
     "contracts/upgradeable_contracts/erc20_to_native/SavingsDaiConnector.sol": {
-      "lastModificationDate": 1690888590748,
+      "lastModificationDate": 1690817814664,
       "contentHash": "aef8c170c05b3a5276f4deee8e666933",
       "sourceName": "contracts/upgradeable_contracts/erc20_to_native/SavingsDaiConnector.sol",
       "solcConfig": {
@@ -6558,8 +6558,8 @@
       }
     },
     "contracts/upgradeable_contracts/erc20_to_native/XDaiForeignBridge.sol": {
-      "lastModificationDate": 1690888590748,
-      "contentHash": "48120395d1a39c5350a200be9e94c1f2",
+      "lastModificationDate": 1691766250373,
+      "contentHash": "4cc30606ad2c45dd563a2cf0d009301a",
       "sourceName": "contracts/upgradeable_contracts/erc20_to_native/XDaiForeignBridge.sol",
       "solcConfig": {
         "settings": {
@@ -6636,7 +6636,7 @@
       }
     },
     "lib/forge-std/lib/ds-test/src/test.sol": {
-      "lastModificationDate": 1690891387367,
+      "lastModificationDate": 1690302600954,
       "contentHash": "9febff9d09f18af5306669dc276c4c43",
       "sourceName": "lib/forge-std/lib/ds-test/src/test.sol",
       "solcConfig": {
@@ -6672,13 +6672,13 @@
       "versionRequirement": ">=0.5.0",
       "artifacts": {
         "DSTest": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "test.sol/DSTest.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "test.sol/DSTest.json"
         }
       }
     },
     "lib/forge-std/src/Base.sol": {
-      "lastModificationDate": 1690891386027,
-      "contentHash": "ee13c050b1914464f1d3f90cde90204b",
+      "lastModificationDate": 1690307113771,
+      "contentHash": "a7b0f318bb8b7fbfee1b80415a6fb020",
       "sourceName": "lib/forge-std/src/Base.sol",
       "solcConfig": {
         "settings": {
@@ -6713,21 +6713,21 @@
         "lib/forge-std/src/StdStorage.sol",
         "lib/forge-std/src/Vm.sol"
       ],
-      "versionRequirement": ">=0.6.2, <0.9.0",
+      "versionRequirement": ">=0.4.22, <0.9.0",
       "artifacts": {
         "CommonBase": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "Base.sol/CommonBase.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "Base.sol/CommonBase.json"
         },
         "ScriptBase": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "Base.sol/ScriptBase.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "Base.sol/ScriptBase.json"
         },
         "TestBase": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "Base.sol/TestBase.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "Base.sol/TestBase.json"
         }
       }
     },
     "lib/forge-std/src/StdAssertions.sol": {
-      "lastModificationDate": 1690891386027,
+      "lastModificationDate": 1690302600704,
       "contentHash": "6cc2858240bcd443debbbf075490e325",
       "sourceName": "lib/forge-std/src/StdAssertions.sol",
       "solcConfig": {
@@ -6766,13 +6766,13 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "StdAssertions": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "StdAssertions.sol/StdAssertions.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "StdAssertions.sol/StdAssertions.json"
         }
       }
     },
     "lib/forge-std/src/StdChains.sol": {
-      "lastModificationDate": 1690891387379,
-      "contentHash": "aff0685683a41d8e314d64aef646fe6f",
+      "lastModificationDate": 1690307070348,
+      "contentHash": "5e4bfcdc300836b167042a6b49870ead",
       "sourceName": "lib/forge-std/src/StdChains.sol",
       "solcConfig": {
         "settings": {
@@ -6806,16 +6806,16 @@
       "imports": [
         "lib/forge-std/src/Vm.sol"
       ],
-      "versionRequirement": ">=0.6.2, <0.9.0",
+      "versionRequirement": ">=0.4.22, <0.9.0",
       "artifacts": {
         "StdChains": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "StdChains.sol/StdChains.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "StdChains.sol/StdChains.json"
         }
       }
     },
     "lib/forge-std/src/StdCheats.sol": {
-      "lastModificationDate": 1690891386027,
-      "contentHash": "27745bb24c5568c75c3043277ee18bcb",
+      "lastModificationDate": 1690307118561,
+      "contentHash": "5de5e69314932d69d42ee7e2c0715c61",
       "sourceName": "lib/forge-std/src/StdCheats.sol",
       "solcConfig": {
         "settings": {
@@ -6850,18 +6850,18 @@
         "lib/forge-std/src/StdStorage.sol",
         "lib/forge-std/src/Vm.sol"
       ],
-      "versionRequirement": ">=0.6.2, <0.9.0",
+      "versionRequirement": ">=0.4.22, <0.9.0",
       "artifacts": {
         "StdCheats": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "StdCheats.sol/StdCheats.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "StdCheats.sol/StdCheats.json"
         },
         "StdCheatsSafe": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "StdCheats.sol/StdCheatsSafe.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "StdCheats.sol/StdCheatsSafe.json"
         }
       }
     },
     "lib/forge-std/src/StdError.sol": {
-      "lastModificationDate": 1690891386027,
+      "lastModificationDate": 1690302600704,
       "contentHash": "64c896e1276a291776e5ea5aecb3870a",
       "sourceName": "lib/forge-std/src/StdError.sol",
       "solcConfig": {
@@ -6897,12 +6897,12 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "stdError": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "StdError.sol/stdError.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "StdError.sol/stdError.json"
         }
       }
     },
     "lib/forge-std/src/StdInvariant.sol": {
-      "lastModificationDate": 1690891386027,
+      "lastModificationDate": 1690302600704,
       "contentHash": "6d12d54c05754ad4e03066726dca3a84",
       "sourceName": "lib/forge-std/src/StdInvariant.sol",
       "solcConfig": {
@@ -6938,12 +6938,12 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "StdInvariant": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "StdInvariant.sol/StdInvariant.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "StdInvariant.sol/StdInvariant.json"
         }
       }
     },
     "lib/forge-std/src/StdJson.sol": {
-      "lastModificationDate": 1690891386027,
+      "lastModificationDate": 1690302600704,
       "contentHash": "2e1d13674e152408867795362d833c24",
       "sourceName": "lib/forge-std/src/StdJson.sol",
       "solcConfig": {
@@ -6981,12 +6981,12 @@
       "versionRequirement": ">=0.6.0, <0.9.0",
       "artifacts": {
         "stdJson": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "StdJson.sol/stdJson.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "StdJson.sol/stdJson.json"
         }
       }
     },
     "lib/forge-std/src/StdMath.sol": {
-      "lastModificationDate": 1690891386027,
+      "lastModificationDate": 1690302600704,
       "contentHash": "9da8f453eba6bb98f3d75bc6822bfb29",
       "sourceName": "lib/forge-std/src/StdMath.sol",
       "solcConfig": {
@@ -7022,12 +7022,12 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "stdMath": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "StdMath.sol/stdMath.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "StdMath.sol/stdMath.json"
         }
       }
     },
     "lib/forge-std/src/StdStorage.sol": {
-      "lastModificationDate": 1690891386027,
+      "lastModificationDate": 1690302600704,
       "contentHash": "4fc0ff0cb196a405e5a4c9fa1c6acccb",
       "sourceName": "lib/forge-std/src/StdStorage.sol",
       "solcConfig": {
@@ -7065,15 +7065,15 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "stdStorage": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "StdStorage.sol/stdStorage.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "StdStorage.sol/stdStorage.json"
         },
         "stdStorageSafe": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "StdStorage.sol/stdStorageSafe.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "StdStorage.sol/stdStorageSafe.json"
         }
       }
     },
     "lib/forge-std/src/StdStyle.sol": {
-      "lastModificationDate": 1690891386027,
+      "lastModificationDate": 1690302600704,
       "contentHash": "6281165a12aa639705c691fccefd855e",
       "sourceName": "lib/forge-std/src/StdStyle.sol",
       "solcConfig": {
@@ -7111,12 +7111,12 @@
       "versionRequirement": ">=0.4.22, <0.9.0",
       "artifacts": {
         "StdStyle": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "StdStyle.sol/StdStyle.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "StdStyle.sol/StdStyle.json"
         }
       }
     },
     "lib/forge-std/src/StdUtils.sol": {
-      "lastModificationDate": 1690891386027,
+      "lastModificationDate": 1690302600704,
       "contentHash": "3ce83748fd76644688f916c9cced545b",
       "sourceName": "lib/forge-std/src/StdUtils.sol",
       "solcConfig": {
@@ -7155,12 +7155,12 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "StdUtils": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "StdUtils.sol/StdUtils.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "StdUtils.sol/StdUtils.json"
         }
       }
     },
     "lib/forge-std/src/Test.sol": {
-      "lastModificationDate": 1690891387379,
+      "lastModificationDate": 1690302600704,
       "contentHash": "c67db2c47c2e757cc33d38d6db0b1562",
       "sourceName": "lib/forge-std/src/Test.sol",
       "solcConfig": {
@@ -7214,13 +7214,13 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "Test": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "Test.sol/Test.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "Test.sol/Test.json"
         }
       }
     },
     "lib/forge-std/src/Vm.sol": {
-      "lastModificationDate": 1690891386027,
-      "contentHash": "b098c2721502365797aae8d0ee1babb8",
+      "lastModificationDate": 1690307094279,
+      "contentHash": "285ffa8343fa24ed949eaa154d32eda6",
       "sourceName": "lib/forge-std/src/Vm.sol",
       "solcConfig": {
         "settings": {
@@ -7252,18 +7252,18 @@
         }
       },
       "imports": [],
-      "versionRequirement": ">=0.6.2, <0.9.0",
+      "versionRequirement": ">=0.4.22, <0.9.0",
       "artifacts": {
         "Vm": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "Vm.sol/Vm.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "Vm.sol/Vm.json"
         },
         "VmSafe": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "Vm.sol/VmSafe.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "Vm.sol/VmSafe.json"
         }
       }
     },
     "lib/forge-std/src/console.sol": {
-      "lastModificationDate": 1690891386027,
+      "lastModificationDate": 1690302600704,
       "contentHash": "100b8a33b917da1147740d7ab8b0ded3",
       "sourceName": "lib/forge-std/src/console.sol",
       "solcConfig": {
@@ -7299,12 +7299,12 @@
       "versionRequirement": ">=0.4.22, <0.9.0",
       "artifacts": {
         "console": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "forge-std/src/console.sol/console.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "console.sol/console.json"
         }
       }
     },
     "lib/forge-std/src/console2.sol": {
-      "lastModificationDate": 1690891386027,
+      "lastModificationDate": 1690302600704,
       "contentHash": "491ca717c1915995e78cc361485a3067",
       "sourceName": "lib/forge-std/src/console2.sol",
       "solcConfig": {
@@ -7340,12 +7340,12 @@
       "versionRequirement": ">=0.4.22, <0.9.0",
       "artifacts": {
         "console2": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "console2.sol/console2.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "console2.sol/console2.json"
         }
       }
     },
     "lib/forge-std/src/interfaces/IERC20.sol": {
-      "lastModificationDate": 1690891386027,
+      "lastModificationDate": 1690302600704,
       "contentHash": "8099161d518e5862a76750349d58e801",
       "sourceName": "lib/forge-std/src/interfaces/IERC20.sol",
       "solcConfig": {
@@ -7381,12 +7381,12 @@
       "versionRequirement": ">=0.6.2",
       "artifacts": {
         "IERC20": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "IERC20.sol/IERC20.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "IERC20.sol/IERC20.json"
         }
       }
     },
     "lib/forge-std/src/interfaces/IMulticall3.sol": {
-      "lastModificationDate": 1690891386027,
+      "lastModificationDate": 1690302600704,
       "contentHash": "7b131ca1ca32ef6378b7b9ad5488b901",
       "sourceName": "lib/forge-std/src/interfaces/IMulticall3.sol",
       "solcConfig": {
@@ -7422,12 +7422,12 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "IMulticall3": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "IMulticall3.sol/IMulticall3.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "IMulticall3.sol/IMulticall3.json"
         }
       }
     },
     "lib/forge-std/src/safeconsole.sol": {
-      "lastModificationDate": 1690891386027,
+      "lastModificationDate": 1690302600704,
       "contentHash": "ac3b1bf5a444db5db3656021830258a8",
       "sourceName": "lib/forge-std/src/safeconsole.sol",
       "solcConfig": {
@@ -7463,7 +7463,7 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "safeconsole": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "safeconsole.sol/safeconsole.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "safeconsole.sol/safeconsole.json"
         }
       }
     },
@@ -7902,8 +7902,8 @@
       }
     },
     "test/foundry/Setup.t.sol": {
-      "lastModificationDate": 1690892616126,
-      "contentHash": "ee3b86edd28f005bc994ec586afcd720",
+      "lastModificationDate": 1691424510107,
+      "contentHash": "d5aa29ac548fb6e41e5c8435cdb5c602",
       "sourceName": "test/foundry/Setup.t.sol",
       "solcConfig": {
         "settings": {
@@ -7961,13 +7961,13 @@
       "versionRequirement": "^0.8.19",
       "artifacts": {
         "SetupTest": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "Setup.t.sol/SetupTest.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "Setup.t.sol/SetupTest.json"
         }
       }
     },
     "test/foundry/XDaiForeignBridge.t.sol": {
-      "lastModificationDate": 1690888590748,
-      "contentHash": "26e85817623d37b330118ff1a3d57c40",
+      "lastModificationDate": 1691424526598,
+      "contentHash": "1507cb8cb7ee52bb8867a45a632598e1",
       "sourceName": "test/foundry/XDaiForeignBridge.t.sol",
       "solcConfig": {
         "settings": {
@@ -8026,12 +8026,12 @@
       "versionRequirement": "^0.8.19",
       "artifacts": {
         "XDaiForeignBridgeTest": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "XDaiForeignBridge.t.sol/XDaiForeignBridgeTest.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "XDaiForeignBridge.t.sol/XDaiForeignBridgeTest.json"
         }
       }
     },
     "test/foundry/interfaces/IEternalStorageProxy.sol": {
-      "lastModificationDate": 1690888590748,
+      "lastModificationDate": 1690303517425,
       "contentHash": "888b93e855c288650c69f377a4407808",
       "sourceName": "test/foundry/interfaces/IEternalStorageProxy.sol",
       "solcConfig": {
@@ -8067,12 +8067,12 @@
       "versionRequirement": "^0.8.10",
       "artifacts": {
         "IEternalStorageProxy": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "IEternalStorageProxy.sol/IEternalStorageProxy.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "IEternalStorageProxy.sol/IEternalStorageProxy.json"
         }
       }
     },
     "test/foundry/interfaces/ISavingsDai.sol": {
-      "lastModificationDate": 1690888590748,
+      "lastModificationDate": 1690303501464,
       "contentHash": "0403b923c6d6f133f44a0d88a426b037",
       "sourceName": "test/foundry/interfaces/ISavingsDai.sol",
       "solcConfig": {
@@ -8108,12 +8108,12 @@
       "versionRequirement": "^0.8.10",
       "artifacts": {
         "ISavingsDai": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "interfaces/ISavingsDai.sol/ISavingsDai.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "ISavingsDai.sol/ISavingsDai.json"
         }
       }
     },
     "test/foundry/interfaces/IXDaiForeignBridge.sol": {
-      "lastModificationDate": 1690888590748,
+      "lastModificationDate": 1690568289616,
       "contentHash": "4710a22c94326d0425bfe691db153f5a",
       "sourceName": "test/foundry/interfaces/IXDaiForeignBridge.sol",
       "solcConfig": {
@@ -8149,7 +8149,7 @@
       "versionRequirement": "^0.8.10",
       "artifacts": {
         "IXDaiForeignBridge": {
-          "0.8.19+commit.7dd6d404.Linux.gcc": "IXDaiForeignBridge.sol/IXDaiForeignBridge.json"
+          "0.8.21+commit.d9974bed.Linux.gcc": "IXDaiForeignBridge.sol/IXDaiForeignBridge.json"
         }
       }
     }

@@ -12,9 +12,9 @@ import "./interfaces/IXDaiForeignBridge.sol";
 
 contract SetupTest is Test {
 
-    address public initializer = address(9);
-    address public alice = address(10);
-    address public bob = address(11);
+    address public initializer = address(11);
+    address public alice = address(12);
+    address public bob = address(13);
     address public bridgeOwner = 0x42F38ec5A75acCEc50054671233dfAC9C0E7A3F6;
     address public gnosisInterestReceiver = 0xABCDEF00aBC0352436A70adDbF1bE34f3ea11016;
     
@@ -37,7 +37,7 @@ contract SetupTest is Test {
         bridgeProxy = IEternalStorageProxy(bridgeAddress);
         bridge = IXDaiForeignBridge(bridgeAddress);
         initialImpl = IXDaiForeignBridge(bridgeProxy.implementation());
-        newImpl = IXDaiForeignBridge(vm.envAddress('NEW_IMPLEMENTATION'));
+        newImpl = IXDaiForeignBridge(vm.envAddress("NEW_IMPLEMENTATION"));
 
         uint size;
         address _a = address(newImpl);
