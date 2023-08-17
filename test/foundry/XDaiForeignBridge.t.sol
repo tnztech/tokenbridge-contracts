@@ -19,11 +19,11 @@ contract XDaiForeignBridgeTest is SetupTest {
     event RequiredBlockConfirmationChanged(uint256 requiredBlockConfirmations);
     event UserRequestForAffirmation(address recipient, uint256 value);
 
-    function testMetadata() public {
+    function invariantMetadata() public {
         assertEq(address(sDAI.dai()), address(dai));
         assertEq(address(bridge.erc20token()), address(dai));
-        assertEq(alice, address(12));
-        assertEq(bob, address(13));
+        assertEq(alice, address(10));
+        assertEq(bob, address(11));
     }
 
     /*//////////////////////////////////////////////////////////////
@@ -304,8 +304,12 @@ contract XDaiForeignBridgeTest is SetupTest {
 
         assertEq(afterBalance, initialBalance + 1000 ether);
     }
-    /*
-    function testPayInterestAndThenInvest() public {
+    
+    function testPayInterestAndThenInvest(uint256 minCashThreshold) public {
+
+        vm.assume(minCashThreshold > 100 ether);
+        setMinCashThreshold(address(dai), minCashThreshold);
+
         uint256 initialBalance = dai.balanceOf(bridgeAddress);
         uint256 initialInvested = bridge.investedAmount(address(dai));
         uint256 initialCollectable = bridge.interestAmount(address(dai));
@@ -313,8 +317,16 @@ contract XDaiForeignBridgeTest is SetupTest {
         assertGt(initialCollectable, bridge.minInterestPaid(address(dai)));
         bridge.payInterest(address(dai));
         uint256 duringBalance = dai.balanceOf(bridgeAddress);
-        assertEq(initialCollectable, duringBalance - initialBalance);
-        bridge.investDai();
+        uint256 duringInvested = bridge.investedAmount(address(dai));
+        assertEq(initialCollectable, duringBalance - initialBalance + duringInvested - initialInvested);
+        if (duringBalance > bridge.minCashThreshold(address(dai))){
+            bridge.investDai();
+        }
+        else{
+            vm.expectRevert("Balance too Low");
+            bridge.investDai();
+        }
+
 
         uint256 afterBalance = dai.balanceOf(bridgeAddress);
         uint256 afterInvested = bridge.investedAmount(address(dai));
@@ -324,8 +336,8 @@ contract XDaiForeignBridgeTest is SetupTest {
         } else {
             assertLt(initialBalance, afterBalance);
         }
-        assertGt(afterInvested, initialInvested);
+        assertGe(afterInvested, initialInvested);
         assertEq(afterCollectable, 0);
     }
-    */
+    
 }
