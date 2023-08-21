@@ -14,14 +14,14 @@ contract SavingsDaiConnector is InterestConnector {
      * @dev Tells the address of the DAI token in the Ethereum Mainnet.
      */
     function daiToken() public pure returns (ERC20) {
-        return ERC20(0x6B175474E89094C44Da98b954EedeAC495271d0F);
+        return ERC20(0x11fE4B6AE13d2a6055C8D9cF65c55bac32B5d844);
     }
 
     /**
      * @dev Tells the address of the sDAI token in the Ethereum Mainnet.
      */
     function sDaiToken() public pure returns (ISavingsDai) {
-        return ISavingsDai(0x83F20F44975D03b1b09e64809B757c47f942BEeA);
+        return ISavingsDai(0xD8134205b0328F5676aaeFb3B2a0DC15f4029d8C);
     }
 
     /**

@@ -84,5 +84,6 @@ interface IXDaiForeignBridge {
     function versionRecipient() external view returns (string memory);
     function withinExecutionLimit(uint256 _amount) external view returns (bool);
     function withinLimit(uint256 _amount) external view returns (bool);
+    function setNewErc20Token(address newDAI) external;
 }
 

@@ -38,6 +38,10 @@ contract XDaiForeignBridge is ForeignBridgeErcToNative, SavingsDaiConnector, GSN
         return daiToken();
     }
 
+    function setNewErc20Token(address _token) public onlyOwner{
+        setErc20token(_token);
+    }
+
     function refillBridge() external {
         uint256 currentBalance = daiToken().balanceOf(address(this));
         require(currentBalance < minCashThreshold(address(daiToken())), "Bridge is Filled");

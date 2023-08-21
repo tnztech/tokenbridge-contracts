@@ -15,12 +15,13 @@ contract SetupTest is Test {
     address public initializer = address(11);
     address public alice = address(12);
     address public bob = address(13);
-    address public bridgeOwner = 0x42F38ec5A75acCEc50054671233dfAC9C0E7A3F6;
+    address public proxyOwner = 0x57B11cC8F93f2cfeC4c1C5B95213f17cAD81332B;
+    address public bridgeOwner = 0xf02796C7B84F10Fa866DAa7d5701A95f3131A727;
     address public gnosisInterestReceiver = 0xABCDEF00aBC0352436A70adDbF1bE34f3ea11016;
     
     ISavingsDai public sDAI;
     IERC20 public dai;
-    address public bridgeAddress = 0x4aa42145Aa6Ebf72e164C9bBC74fbD3788045016;
+    address public bridgeAddress = 0x8659Cf2273438f9b5C1Eb367Def45007a7A16a24;
     IEternalStorageProxy public bridgeProxy;
     IXDaiForeignBridge public bridge;
     IXDaiForeignBridge public newImpl;
@@ -32,8 +33,9 @@ contract SetupTest is Test {
         console.log("chainId %s",block.chainid);
         console.log("block %s",block.number);
 
-        sDAI = ISavingsDai(0x83F20F44975D03b1b09e64809B757c47f942BEeA);
-        dai = IERC20(0x6B175474E89094C44Da98b954EedeAC495271d0F);
+        sDAI = ISavingsDai(0xD8134205b0328F5676aaeFb3B2a0DC15f4029d8C);
+        dai = IERC20(0x11fE4B6AE13d2a6055C8D9cF65c55bac32B5d844);
+        IERC20 oldDAI = IERC20(0xdc31Ee1784292379Fbb2964b3B9C4124D8F89C60);
         bridgeProxy = IEternalStorageProxy(bridgeAddress);
         bridge = IXDaiForeignBridge(bridgeAddress);
         initialImpl = IXDaiForeignBridge(bridgeProxy.implementation());
@@ -49,10 +51,12 @@ contract SetupTest is Test {
 
         vm.deal(initializer, 100 ether);
         vm.deal(bridgeOwner, 100 ether);
+        vm.deal(proxyOwner, 100 ether);
         vm.deal(alice, 10000 ether);
         vm.deal(bob, 100000 ether);
 
         deal(address(dai), alice, 100e18);
+        deal(address(dai), address(bridgeProxy), oldDAI.balanceOf(address(bridgeProxy)));
         assertEq(dai.balanceOf(alice), 100e18);
 
         deal(address(dai), bob, 10000e18);
@@ -87,7 +91,7 @@ contract SetupTest is Test {
 
     function testUpgrade() public {
         if (address(newImpl) != bridgeProxy.implementation()){
-        vm.startPrank(bridgeOwner);
+        vm.startPrank(proxyOwner);
         
         uint256 initialVersion = bridgeProxy.version();
 
@@ -96,12 +100,23 @@ contract SetupTest is Test {
         assertEq(initialVersion + 1, bridgeProxy.version());
         assertEq(address(newImpl), bridgeProxy.implementation());
         console.log("upgraded bridge to version %s", initialVersion + 1);
-      
-        bridge.initializeInterest(address(dai), 1000000 ether, 1000 ether, gnosisInterestReceiver);
+        vm.stopPrank();
+        testSetNewErc20Token();
+        vm.startPrank(bridgeOwner);
+        bridge.initializeInterest(address(dai), 100 ether, 1, gnosisInterestReceiver);
         bridge.investDai();
         skipTime(1 days);
         vm.stopPrank();
         }
+    }
+
+    function testSetNewErc20Token() public{
+
+        vm.startPrank(bridgeOwner);
+        bridge.setNewErc20Token(address(dai));
+        assertEq(bridge.erc20token(), address(dai));
+        assertEq(bridge.daiToken(), address(dai));
+        vm.stopPrank();
     }
 
 
