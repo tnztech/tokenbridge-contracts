@@ -65,8 +65,11 @@ contract SetupTest is Test {
         /*//////////////////////////////////////////////////////////////
                                 DEPLOYMENTS
         //////////////////////////////////////////////////////////////*/
-
-        testUpgrade();
+        uint256 initialInvested = bridge.investedAmount(address(dai));
+        console.log("initially invested amount: %e, %s",initialInvested, block.timestamp);
+        upgrade();
+        uint256 afterInvested = bridge.investedAmount(address(dai));
+        console.log("after invested amount: %e, %s",afterInvested, block.timestamp);
 
     }
 
@@ -89,7 +92,7 @@ contract SetupTest is Test {
                         UPGRADING PROXIES
     //////////////////////////////////////////////////////////////*/
 
-    function testUpgrade() public {
+    function upgrade() public {
         if (address(newImpl) != bridgeProxy.implementation()){
         vm.startPrank(proxyOwner);
         
@@ -103,7 +106,7 @@ contract SetupTest is Test {
         vm.stopPrank();
         testSetNewErc20Token();
         vm.startPrank(bridgeOwner);
-        bridge.initializeInterest(address(dai), 100 ether, 1, gnosisInterestReceiver);
+        bridge.initializeInterest(address(dai), 100 ether, 1000000, gnosisInterestReceiver);
         bridge.investDai();
         skipTime(1 days);
         vm.stopPrank();

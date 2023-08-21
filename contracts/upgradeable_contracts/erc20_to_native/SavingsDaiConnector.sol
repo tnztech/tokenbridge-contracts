@@ -32,7 +32,7 @@ contract SavingsDaiConnector is InterestConnector {
     function interestAmount(address _token) public view returns (uint256) {
         uint256 underlyingBalance = sDaiToken().maxWithdraw(address(this));
         // 1 DAI is reserved for possible truncation/round errors
-        uint256 invested = investedAmount(_token) + 1 ether;
+        uint256 invested = investedAmount(_token) + 10000000;
         return underlyingBalance > invested ? underlyingBalance - invested : 0;
     }
 
