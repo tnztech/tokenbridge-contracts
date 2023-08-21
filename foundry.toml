@@ -5,6 +5,9 @@ script = 'script'
 out = 'out'
 libs = ['lib']
 remappings = []
+optimizer = true
+optimizer-runs = 10_000
+solc-version = "0.4.24"
 
 [rpc_endpoints]
 mainnet = "${RPC_MAINNET}"
@@ -24,6 +27,7 @@ arbitrum={key="${ETHERSCAN_API_KEY_ARBITRUM}",chainId=42161}
 fantom={key="${ETHERSCAN_API_KEY_FANTOM}",chainId=250}
 gnosis={key="${ETHERSCAN_API_KEY_GNOSIS}",chainId=100}
 chiado={key="${ETHERSCAN_API_KEY_GNOSIS}",chainId=10200}
+goerli={key="${ETHERSCAN_API_KEY_MAINNET}",chainId=5}
 
 [fuzz]
 runs=1000

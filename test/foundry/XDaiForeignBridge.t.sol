@@ -31,7 +31,7 @@ contract XDaiForeignBridgeTest is SetupTest {
     //////////////////////////////////////////////////////////////*/
 
     function testFuzzRefillBridge(uint256 minCashThreshold) public {
-        vm.assume(minCashThreshold > 0);
+        vm.assume(minCashThreshold > 0 );
         setMinCashThreshold(address(dai), minCashThreshold);
 
         uint256 initialBalance = dai.balanceOf(bridgeAddress);
