@@ -32,7 +32,6 @@ contract ERC20Bridge is BasicForeignBridge {
         require(_receiver != address(this), "Receiver can't be the Bridge");
         require(_amount > 0, "Relayed zero tokens");
         require(withinLimit(_amount), "Relayed above limit");
-        require(erc20token().balanceOf(address(this)) > _amount , "Not enough Balance");
         addTotalSpentPerDay(getCurrentDay(), _amount);
         emit UserRequestForAffirmation(_receiver, _amount);
     }

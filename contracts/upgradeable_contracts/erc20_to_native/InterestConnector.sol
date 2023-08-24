@@ -145,7 +145,7 @@ contract InterestConnector is Ownable, ERC20Bridge {
         uint256 minCash = minCashThreshold(_token);
         if (balance >= minCash) {
             _setInvestedAmount(_token, investedAmount(_token).add(interest));
-        } else if (balance + interest >= minCash && minCash + interest - balance >= minInterestPaid(_token)) {
+        } else if (balance + interest > minCash) {
             _safeWithdrawTokens(_token, minCash - balance);
             _setInvestedAmount(_token, investedAmount(_token).add(balance + interest - minCash));
         } else {
@@ -262,7 +262,7 @@ contract InterestConnector is Ownable, ERC20Bridge {
     }
 
     /**
-     * @dev Internal function for setting lower limit for paid interest amount.
+     * @dev Internal function for setting lower limit for paid interest amount. Must be lower than DAILY_LIMIT and MAX_PER_TX
      * @param _token address of the token contract.
      * @param _minInterestPaid minimum amount of interest paid in a single call.
      */

@@ -8,7 +8,6 @@ import "../../interfaces/ISavingsDai.sol";
  * @dev This contract allows to partially deposit locked Dai tokens into the Maker DSR using the sDAI ERC4626 vault.
  */
 contract SavingsDaiConnector is InterestConnector {
-    uint256 internal constant SUCCESS = 0;
 
     /**
      * @dev Tells the address of the DAI token in the Ethereum Mainnet.
