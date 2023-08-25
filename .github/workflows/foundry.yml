@@ -1,0 +1,27 @@
+name: tokenbridge-contracts
+
+variables: PRIVATE_KEY:0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d
+  TENDERLY_FORK_URL:https://rpc.tenderly.co/fork/e185a3ab-4213-4f53-8aed-36d3745c12e6
+
+on: [push]
+
+jobs:
+  check:
+    name: Foundry project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+
+      - id: deployment
+        name: Deploy to Tenderly Fork
+        run: |
+          DEPLOYED_TO=$(jq -r '.deployedTo' <<< $(forge create --rpc-url "$TENDERLY_FORK_URL" --private-key $PRIVATE_KEY --json --optimize XDaiForeignBridge))
+          echo "NEW_IMPLEMENTATION=$DEPLOYED_TO" >> "$GITHUB_ENV"
+
+      - name: Run test on fork
+        run: forge test --fork-url "$TENDERLY_FORK_URL" -vvv
