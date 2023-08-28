@@ -131,26 +131,18 @@ contract InterestConnector is Ownable, ERC20Bridge {
 
     /**
      * @dev Pays collected interest for the specific underlying token to _reveicer contract on Gnosis Chain 
-     *      and reinvests amount claimed above the minCashThreshold.
+     *      and reinvests amount claimed.
      * Requires interest for the given token to be enabled.
      * @param _token address of the token contract.
      */
-    function payInterest(address _token) external interestEnabled(_token) {
-        address receiver = interestReceiver(_token);
-        require(receiver != address(0), "Receiver not set");
-        uint256 interest = interestAmount(_token);
+    function payInterest(address _token, uint256 _amount) external interestEnabled(_token) {
+        require(_token == address(erc20token()), "Not bridge Token");
+        uint256 claimable = interestAmount(_token);
+        uint256 interest = (_amount < claimable) ? _amount : claimable;
         require(interest >= minInterestPaid(_token), "Collectable interest too low");
 
-        uint256 balance = _selfBalance(_token);
-        uint256 minCash = minCashThreshold(_token);
-        if (balance >= minCash) {
-            _setInvestedAmount(_token, investedAmount(_token).add(interest));
-        } else if (balance + interest > minCash) {
-            _safeWithdrawTokens(_token, minCash - balance);
-            _setInvestedAmount(_token, investedAmount(_token).add(balance + interest - minCash));
-        } else {
-            _safeWithdrawTokens(_token, interest);
-        }
+        _setInvestedAmount(_token, investedAmount(_token).add(interest));
+        address receiver = interestReceiver(_token);
         _relayInterest(receiver, interest);
         emit PaidInterest(_token, receiver, interest);
     }

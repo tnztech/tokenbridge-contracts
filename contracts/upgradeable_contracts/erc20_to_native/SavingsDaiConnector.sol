@@ -5,7 +5,8 @@ import "../../interfaces/ISavingsDai.sol";
 
 /**
  * @title SavingsDaiConnector
- * @dev This contract allows to partially deposit locked Dai tokens into the Maker DSR using the sDAI ERC4626 vault.
+ * @dev This contract allows to partially deposit locked Dai tokens into the Maker DSR using the sDAI ERC4626 vault. 
+ * @dev This must never be deployed standalone and only as an interface to interact with the SavingsDAI from the InterestConnector
  */
 contract SavingsDaiConnector is InterestConnector {
 
@@ -29,6 +30,7 @@ contract SavingsDaiConnector is InterestConnector {
      * @return total amount of interest that can be withdrawn now.
      */
     function interestAmount(address _token) public view returns (uint256) {
+        require(_token == address(daiToken()), "Not DAI");
         uint256 underlyingBalance = sDaiToken().maxWithdraw(address(this));
         // 1 DAI is reserved for possible truncation/round errors
         uint256 invested = investedAmount(_token) + 1 ether;
@@ -77,4 +79,5 @@ contract SavingsDaiConnector is InterestConnector {
         (_token);
         return sDaiToken().previewWithdraw(_amount);
     }
+
 }

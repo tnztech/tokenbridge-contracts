@@ -59,7 +59,7 @@ contract XDaiForeignBridge is ForeignBridgeErcToNative, SavingsDaiConnector, GSN
         // Since bridged tokens are locked at this contract, it is not allowed to claim them with the use of claimTokens function
         address bridgedToken = address(daiToken());
         require(_token != address(bridgedToken), "Can't claim DAI");
-        require(_token != address(sDaiToken()) || !isInterestEnabled(bridgedToken), "sDAI interest is Enabled");
+        require(_token != address(sDaiToken()) || !isInterestEnabled(bridgedToken), "Can't claim sDAI");
         claimValues(_token, _to);
     }
 
