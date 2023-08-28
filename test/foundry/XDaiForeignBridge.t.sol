@@ -19,7 +19,7 @@ contract XDaiForeignBridgeTest is SetupTest {
     event RequiredBlockConfirmationChanged(uint256 requiredBlockConfirmations);
     event UserRequestForAffirmation(address recipient, uint256 value);
 
-    function invariantMetadata() public {
+    function testMetadata() public {
         assertEq(address(sDAI.dai()), address(dai));
         assertEq(address(bridge.erc20token()), address(dai));
         assertEq(alice, address(10));
