@@ -7894,8 +7894,8 @@
       }
     },
     "test/foundry/XDaiForeignBridge.t.sol": {
-      "lastModificationDate": 1693222589475,
-      "contentHash": "00b16dd8bc293efa851b67dafc46132c",
+      "lastModificationDate": 1693230629498,
+      "contentHash": "6cee7062f539330e607ff5ce9fc4787e",
       "sourceName": "test/foundry/XDaiForeignBridge.t.sol",
       "solcConfig": {
         "settings": {

@@ -22,8 +22,8 @@ contract XDaiForeignBridgeTest is SetupTest {
     function testMetadata() public {
         assertEq(address(sDAI.dai()), address(dai));
         assertEq(address(bridge.erc20token()), address(dai));
-        assertEq(alice, address(10));
-        assertEq(bob, address(11));
+        assertEq(alice, address(12));
+        assertEq(bob, address(13));
     }
 
     /*//////////////////////////////////////////////////////////////
@@ -109,13 +109,14 @@ contract XDaiForeignBridgeTest is SetupTest {
 
         uint256 initialBalance = dai.balanceOf(bridgeAddress);
         uint256 initialInvested = bridge.investedAmount(token);
-        uint256 initialCollectable = (bridge.interestAmount(token) > amount) ? amount : bridge.interestAmount(token);
-        uint256 initialWithdrawable = bridge.previewWithdraw(token, initialCollectable);
+        uint256 initialCollectable = bridge.interestAmount(token);
+        uint256 claimed = (initialCollectable > amount) ? amount : initialCollectable;
+        uint256 initialWithdrawable = bridge.previewWithdraw(token, claimed);
         console.log("Bal:%e Inv:%e Col:%e", initialBalance, initialInvested, initialCollectable);
-        if (initialCollectable >= minInterestPaid) {
+        if (claimed >= minInterestPaid) {
             vm.expectEmit();
-            emit UserRequestForAffirmation(gnosisInterestReceiver, initialCollectable);
-            bridge.payInterest(token, initialCollectable);
+            emit UserRequestForAffirmation(gnosisInterestReceiver, claimed);
+            bridge.payInterest(token, claimed);
 
             uint256 afterBalance = dai.balanceOf(bridgeAddress);
             uint256 afterInvested = bridge.investedAmount(token);
@@ -131,7 +132,7 @@ contract XDaiForeignBridgeTest is SetupTest {
         console.log("initWith:%e afterWith:%e", initialWithdrawable, afterWithdrawable);
         } else {
             vm.expectRevert(bytes("Collectable interest too low"));
-            bridge.payInterest(token, initialCollectable);
+            bridge.payInterest(token, claimed);
         }
     }
 
