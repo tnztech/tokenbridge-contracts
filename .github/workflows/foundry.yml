@@ -2,6 +2,15 @@ name: foundry-test
 
 on: [push]
 
+env:
+  PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+  TENDERLY_FORK: ${{ secrets.TENDERLY_FORK }}
+  RPC_MAINNET: ${{ vars.RPC_MAINNET }}
+  RPC_GNOSIS: ${{ vars.RPC_GNOSIS }}
+  ETHERSCAN_API_KEY_MAINNET: ${{ vars.ETHERSCAN_API_KEY_MAINNET }}
+  ETHERSCAN_API_KEY_GNOSIS: ${{ vars.ETHERSCAN_API_KEY_GNOSIS }}
+  VERIFIER_URL: ${{ vars.VERIFIER_URL }}
+
 jobs:
   check:
     name: Foundry project
