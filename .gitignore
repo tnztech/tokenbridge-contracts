@@ -13,4 +13,4 @@ deploy/*.env*
 .vscode
 .env
 out
-cache
+cache/

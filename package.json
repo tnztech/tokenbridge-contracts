@@ -16,8 +16,10 @@
     "lint:sol:prettier:fix": "prettier --write \"contracts/**/*.sol\"",
     "watch-tests": "./node_modules/.bin/nodemon ./node_modules/.bin/truffle test --network test",
     "coverage": "SOLIDITY_COVERAGE=true npm run test",
-    "foundry-test": "./test/foundry/foundrySetup.sh",
-    "foundry-fork": "./test/foundry/forkSetup.sh"
+    "fork": "./test/foundry/forkSetup.sh",
+    "fork-test": "./test/foundry/foundrySetup.sh",
+    "production-test": "./test/foundry/production-test.sh",
+    "deploy":"./deploy.sh"
   },
   "author": "POA network",
   "license": "GPLv3",

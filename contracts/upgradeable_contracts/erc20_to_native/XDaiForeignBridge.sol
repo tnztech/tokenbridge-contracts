@@ -38,10 +38,9 @@ contract XDaiForeignBridge is ForeignBridgeErcToNative, SavingsDaiConnector, GSN
         return daiToken();
     }
 
-    function setNewErc20Token(address _token) public onlyOwner{
-        setErc20token(_token);
-    }
-
+    /**
+     * @dev Withdraws DAI from sDAI vault to the bridge up to min cash threshold
+     */
     function refillBridge() external {
         uint256 currentBalance = daiToken().balanceOf(address(this));
         uint256 minThreshold = minCashThreshold(address(daiToken()));
@@ -50,6 +49,9 @@ contract XDaiForeignBridge is ForeignBridgeErcToNative, SavingsDaiConnector, GSN
         _withdraw(address(daiToken()), withdrawAmount);
     }
 
+    /**
+     * @dev Invests the DAI into the sDAI Vault.
+     */
     function investDai() external {
         invest(address(daiToken()));
     }

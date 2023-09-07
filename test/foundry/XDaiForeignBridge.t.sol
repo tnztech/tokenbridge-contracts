@@ -31,7 +31,7 @@ contract XDaiForeignBridgeTest is SetupTest {
     //////////////////////////////////////////////////////////////*/
 
     function testFuzzRefillBridge(uint256 minCashThreshold) public {
-        vm.assume(minCashThreshold > 0 );
+        vm.assume(minCashThreshold > 0);
         setMinCashThreshold(address(dai), minCashThreshold);
 
         uint256 initialBalance = dai.balanceOf(bridgeAddress);
@@ -124,12 +124,12 @@ contract XDaiForeignBridgeTest is SetupTest {
             uint256 afterWithdrawable = bridge.previewWithdraw(token, afterCollectable);
             assertGe(initialCollectable, initialWithdrawable);
             assertLt(afterCollectable, initialCollectable);
-            assertLe(afterWithdrawable, initialWithdrawable);
+            assertLe(afterWithdrawable, bridge.previewWithdraw(token, initialCollectable));
             assertEq(afterBalance, initialBalance);
             assertGt(afterInvested, initialInvested);
-            assertEq(afterInvested, initialInvested + initialCollectable);         
-        console.log("Bal:%e Inv:%e Col:%e", afterBalance, afterInvested, afterCollectable);
-        console.log("initWith:%e afterWith:%e", initialWithdrawable, afterWithdrawable);
+            assertEq(afterInvested, initialInvested + claimed);
+            console.log("Bal:%e Inv:%e Col:%e", afterBalance, afterInvested, afterCollectable);
+            console.log("initWith:%e afterWith:%e", initialWithdrawable, afterWithdrawable);
         } else {
             vm.expectRevert(bytes("Collectable interest too low"));
             bridge.payInterest(token, claimed);
@@ -298,28 +298,28 @@ contract XDaiForeignBridgeTest is SetupTest {
 
         assertEq(afterBalance, initialBalance + 1000 ether);
     }
-    
-    function testPayInterestAndThenInvest() public {
 
-        skipTime(5 hours);
+    function testPayInterestAndThenInvest(uint256 minCashThreshold) public {
+        vm.assume(minCashThreshold > 100 ether);
+        setMinCashThreshold(address(dai), minCashThreshold);
+
         uint256 initialBalance = dai.balanceOf(bridgeAddress);
         uint256 initialInvested = bridge.investedAmount(address(dai));
         uint256 initialCollectable = bridge.interestAmount(address(dai));
-        console.log("%e %e",initialInvested,initialCollectable);
+
         assertGt(initialCollectable, bridge.minInterestPaid(address(dai)));
         bridge.payInterest(address(dai), 10000000 ether);
         uint256 duringBalance = dai.balanceOf(bridgeAddress);
         uint256 duringInvested = bridge.investedAmount(address(dai));
         assertEq(initialCollectable, duringBalance - initialBalance + duringInvested - initialInvested);
-        if (duringBalance > minCashThreshold){
-            if (sDAI.previewDeposit(duringBalance - minCashThreshold) > 0)
+        if (duringBalance > minCashThreshold) {
+            if (sDAI.previewDeposit(duringBalance - minCashThreshold) > 0) {
                 bridge.investDai();
-        }
-        else{
+            }
+        } else {
             vm.expectRevert("Balance too Low");
             bridge.investDai();
         }
-
 
         uint256 afterBalance = dai.balanceOf(bridgeAddress);
         uint256 afterInvested = bridge.investedAmount(address(dai));
@@ -332,5 +332,39 @@ contract XDaiForeignBridgeTest is SetupTest {
         assertGe(afterInvested, initialInvested);
         assertEq(afterCollectable, 0);
     }
-    
+
+    function testNullReceiverAndAccumulatedInterestAfterBeingChosen() public {
+        address DAI = address(dai);
+
+        setInterestReceiver(DAI, address(0));
+        assertEq(bridge.interestReceiver(DAI), address(0));
+
+        uint256 initialInvested = bridge.investedAmount(DAI);
+        uint256 initialCollectable = bridge.interestAmount(DAI);
+        assertGt(initialCollectable, 0);
+        assertGt(initialInvested, 0);
+
+        skipTime(1 days);
+
+        uint256 skipInvested = bridge.investedAmount(DAI);
+        uint256 skipCollectable = bridge.interestAmount(DAI);
+        assertEq(skipInvested, initialInvested);
+        assertGt(skipCollectable, initialCollectable);
+
+        vm.expectRevert("Receiver can't be Null");
+        bridge.payInterest(DAI, 10000000 ether);
+
+        uint256 afterInvested = bridge.investedAmount(DAI);
+        uint256 afterCollectable = bridge.interestAmount(DAI);
+        assertEq(afterInvested, skipInvested);
+        assertEq(afterCollectable, skipCollectable);
+
+        setInterestReceiver(DAI, address(99));
+        bridge.payInterest(DAI, 10000000 ether);
+
+        uint256 finalInvested = bridge.investedAmount(DAI);
+        uint256 finalCollectable = bridge.interestAmount(DAI);
+        assertGt(finalInvested, initialInvested);
+        assertEq(finalCollectable, 0);
+    }
 }
