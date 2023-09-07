@@ -724,6 +724,7 @@
     },
     "contracts/gsn/token_paymaster/TokenPaymaster.sol": {
       "lastModificationDate": 1692287293689,
+      "lastModificationDate": 1692287293689,
       "contentHash": "0c6dca607f9e87dfa1d24201c074d50c",
       "sourceName": "contracts/gsn/token_paymaster/TokenPaymaster.sol",
       "solcConfig": {
@@ -2712,6 +2713,7 @@
     },
     "contracts/mocks/UniswapRouterMock.sol": {
       "lastModificationDate": 1692287293693,
+      "lastModificationDate": 1692287293693,
       "contentHash": "ea6c1e4278772b68e57ed4418a62d25d",
       "sourceName": "contracts/mocks/UniswapRouterMock.sol",
       "solcConfig": {
@@ -2792,6 +2794,7 @@
       }
     },
     "contracts/mocks/XDaiForeignBridgeMock.sol": {
+      "lastModificationDate": 1692287402177,
       "lastModificationDate": 1692287402177,
       "contentHash": "cd3a39de77491952acfafa2265551a3b",
       "sourceName": "contracts/mocks/XDaiForeignBridgeMock.sol",
@@ -4086,6 +4089,7 @@
       }
     },
     "contracts/upgradeable_contracts/GSNForeignERC20Bridge.sol": {
+      "lastModificationDate": 1692287293693,
       "lastModificationDate": 1692287293693,
       "contentHash": "8f0cae009589d5243b85464287727ca4",
       "sourceName": "contracts/upgradeable_contracts/GSNForeignERC20Bridge.sol",
@@ -6229,6 +6233,7 @@
     },
     "contracts/upgradeable_contracts/erc20_to_native/ForeignBridgeErcToNative.sol": {
       "lastModificationDate": 1692287402177,
+      "lastModificationDate": 1692287402177,
       "contentHash": "4958a382f7eaf08e7ee1bbe52f3ffe73",
       "sourceName": "contracts/upgradeable_contracts/erc20_to_native/ForeignBridgeErcToNative.sol",
       "solcConfig": {
@@ -6679,6 +6684,8 @@
     "lib/forge-std/src/Base.sol": {
       "lastModificationDate": 1692635547684,
       "contentHash": "ee13c050b1914464f1d3f90cde90204b",
+      "lastModificationDate": 1692635547684,
+      "contentHash": "ee13c050b1914464f1d3f90cde90204b",
       "sourceName": "lib/forge-std/src/Base.sol",
       "solcConfig": {
         "settings": {
@@ -6713,6 +6720,7 @@
         "lib/forge-std/src/StdStorage.sol",
         "lib/forge-std/src/Vm.sol"
       ],
+      "versionRequirement": ">=0.6.2, <0.9.0",
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "CommonBase": {
@@ -6773,6 +6781,8 @@
     "lib/forge-std/src/StdChains.sol": {
       "lastModificationDate": 1692635549116,
       "contentHash": "aff0685683a41d8e314d64aef646fe6f",
+      "lastModificationDate": 1692635549116,
+      "contentHash": "aff0685683a41d8e314d64aef646fe6f",
       "sourceName": "lib/forge-std/src/StdChains.sol",
       "solcConfig": {
         "settings": {
@@ -6807,6 +6817,7 @@
         "lib/forge-std/src/Vm.sol"
       ],
       "versionRequirement": ">=0.6.2, <0.9.0",
+      "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "StdChains": {
           "0.8.21+commit.d9974bed.Linux.gcc": "StdChains.sol/StdChains.json"
@@ -6814,6 +6825,8 @@
       }
     },
     "lib/forge-std/src/StdCheats.sol": {
+      "lastModificationDate": 1692635549116,
+      "contentHash": "27745bb24c5568c75c3043277ee18bcb",
       "lastModificationDate": 1692635549116,
       "contentHash": "27745bb24c5568c75c3043277ee18bcb",
       "sourceName": "lib/forge-std/src/StdCheats.sol",
@@ -6850,6 +6863,7 @@
         "lib/forge-std/src/StdStorage.sol",
         "lib/forge-std/src/Vm.sol"
       ],
+      "versionRequirement": ">=0.6.2, <0.9.0",
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "StdCheats": {
@@ -6944,6 +6958,7 @@
     },
     "lib/forge-std/src/StdJson.sol": {
       "lastModificationDate": 1692635547684,
+      "lastModificationDate": 1692635547684,
       "contentHash": "2e1d13674e152408867795362d833c24",
       "sourceName": "lib/forge-std/src/StdJson.sol",
       "solcConfig": {
@@ -7028,6 +7043,7 @@
     },
     "lib/forge-std/src/StdStorage.sol": {
       "lastModificationDate": 1692635547684,
+      "lastModificationDate": 1692635547684,
       "contentHash": "4fc0ff0cb196a405e5a4c9fa1c6acccb",
       "sourceName": "lib/forge-std/src/StdStorage.sol",
       "solcConfig": {
@@ -7074,6 +7090,7 @@
     },
     "lib/forge-std/src/StdStyle.sol": {
       "lastModificationDate": 1692635547684,
+      "lastModificationDate": 1692635547684,
       "contentHash": "6281165a12aa639705c691fccefd855e",
       "sourceName": "lib/forge-std/src/StdStyle.sol",
       "solcConfig": {
@@ -7116,6 +7133,7 @@
       }
     },
     "lib/forge-std/src/StdUtils.sol": {
+      "lastModificationDate": 1692635547684,
       "lastModificationDate": 1692635547684,
       "contentHash": "3ce83748fd76644688f916c9cced545b",
       "sourceName": "lib/forge-std/src/StdUtils.sol",
@@ -7160,6 +7178,7 @@
       }
     },
     "lib/forge-std/src/Test.sol": {
+      "lastModificationDate": 1692635549116,
       "lastModificationDate": 1692635549116,
       "contentHash": "c67db2c47c2e757cc33d38d6db0b1562",
       "sourceName": "lib/forge-std/src/Test.sol",
@@ -7221,6 +7240,8 @@
     "lib/forge-std/src/Vm.sol": {
       "lastModificationDate": 1692635549120,
       "contentHash": "b098c2721502365797aae8d0ee1babb8",
+      "lastModificationDate": 1692635549120,
+      "contentHash": "b098c2721502365797aae8d0ee1babb8",
       "sourceName": "lib/forge-std/src/Vm.sol",
       "solcConfig": {
         "settings": {
@@ -7252,6 +7273,7 @@
         }
       },
       "imports": [],
+      "versionRequirement": ">=0.6.2, <0.9.0",
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "Vm": {

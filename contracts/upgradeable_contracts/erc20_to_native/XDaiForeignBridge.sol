@@ -44,8 +44,9 @@ contract XDaiForeignBridge is ForeignBridgeErcToNative, SavingsDaiConnector, GSN
 
     function refillBridge() external {
         uint256 currentBalance = daiToken().balanceOf(address(this));
-        require(currentBalance < minCashThreshold(address(daiToken())), "Bridge is Filled");
-        uint256 withdrawAmount = minCashThreshold(address(daiToken())) - currentBalance;
+        uint256 minThreshold = minCashThreshold(address(daiToken()));
+        require(currentBalance < minThreshold, "Bridge is Filled");
+        uint256 withdrawAmount = minThreshold - currentBalance;
         _withdraw(address(daiToken()), withdrawAmount);
     }
 
@@ -62,7 +63,7 @@ contract XDaiForeignBridge is ForeignBridgeErcToNative, SavingsDaiConnector, GSN
         // Since bridged tokens are locked at this contract, it is not allowed to claim them with the use of claimTokens function
         address bridgedToken = address(daiToken());
         require(_token != address(bridgedToken), "Can't claim DAI");
-        require(_token != address(sDaiToken()) || !isInterestEnabled(bridgedToken), "sDAI interest is Enabled");
+        require(_token != address(sDaiToken()) || !isInterestEnabled(bridgedToken), "Can't claim sDAI");
         claimValues(_token, _to);
     }
 

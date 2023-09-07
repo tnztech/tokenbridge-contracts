@@ -19,11 +19,11 @@ contract XDaiForeignBridgeTest is SetupTest {
     event RequiredBlockConfirmationChanged(uint256 requiredBlockConfirmations);
     event UserRequestForAffirmation(address recipient, uint256 value);
 
-    function invariantMetadata() public {
+    function testMetadata() public {
         assertEq(address(sDAI.dai()), address(dai));
         assertEq(address(bridge.erc20token()), address(dai));
-        assertEq(alice, address(10));
-        assertEq(bob, address(11));
+        assertEq(alice, address(12));
+        assertEq(bob, address(13));
     }
 
     /*//////////////////////////////////////////////////////////////
@@ -98,23 +98,25 @@ contract XDaiForeignBridgeTest is SetupTest {
         }
     }
 
-    function testPayInterest(uint256 minCashThreshold, uint256 minInterestPaid) public {
+    function testPayInterest(uint256 minCashThreshold, uint256 minInterestPaid, uint256 amount) public {
         address token = address(dai);
 
         vm.assume(minCashThreshold > 100 ether);
         vm.assume(minInterestPaid > 100 ether);
+        vm.assume(amount > 0);
         setMinCashThreshold(token, minCashThreshold);
         setMinInterestPaid(token, minInterestPaid);
 
         uint256 initialBalance = dai.balanceOf(bridgeAddress);
         uint256 initialInvested = bridge.investedAmount(token);
         uint256 initialCollectable = bridge.interestAmount(token);
-        uint256 initialWithdrawable = bridge.previewWithdraw(token, initialCollectable);
+        uint256 claimed = (initialCollectable > amount) ? amount : initialCollectable;
+        uint256 initialWithdrawable = bridge.previewWithdraw(token, claimed);
         console.log("Bal:%e Inv:%e Col:%e", initialBalance, initialInvested, initialCollectable);
-        if (initialCollectable >= minInterestPaid) {
+        if (claimed >= minInterestPaid) {
             vm.expectEmit();
-            emit UserRequestForAffirmation(gnosisInterestReceiver, initialCollectable);
-            bridge.payInterest(token);
+            emit UserRequestForAffirmation(gnosisInterestReceiver, claimed);
+            bridge.payInterest(token, claimed);
 
             uint256 afterBalance = dai.balanceOf(bridgeAddress);
             uint256 afterInvested = bridge.investedAmount(token);
@@ -123,32 +125,24 @@ contract XDaiForeignBridgeTest is SetupTest {
             assertGe(initialCollectable, initialWithdrawable);
             assertLt(afterCollectable, initialCollectable);
             assertLe(afterWithdrawable, initialWithdrawable);
-            if (initialBalance >= minCashThreshold) {
-                assertEq(afterBalance, initialBalance);
-                assertGt(afterInvested, initialInvested);
-                assertEq(afterInvested, initialInvested + initialCollectable);
-            } else if (initialBalance + initialCollectable >= minCashThreshold) {
-                assertGe(afterBalance, initialBalance);
-                assertGe(afterInvested, initialInvested);
-                if (minCashThreshold + initialCollectable - initialBalance >= bridge.minInterestPaid(token)) {
-                    assertEq(afterInvested, initialInvested + initialCollectable + initialBalance - minCashThreshold);
-                    assertEq(afterBalance - initialBalance, minCashThreshold - initialBalance);
-                }
-                else{
-                    assertEq(afterInvested, initialInvested);
-                }
-            } else {
-                assertGt(afterBalance, initialBalance);
-                assertEq(afterBalance, initialBalance + initialCollectable);
-                assertEq(afterInvested, initialInvested);
-            }
-            
+            assertEq(afterBalance, initialBalance);
+            assertGt(afterInvested, initialInvested);
+            assertEq(afterInvested, initialInvested + initialCollectable);         
         console.log("Bal:%e Inv:%e Col:%e", afterBalance, afterInvested, afterCollectable);
         console.log("initWith:%e afterWith:%e", initialWithdrawable, afterWithdrawable);
         } else {
             vm.expectRevert(bytes("Collectable interest too low"));
-            bridge.payInterest(token);
+            bridge.payInterest(token, claimed);
         }
+    }
+
+    function testPayInterestToWrongToken() public {
+        address comp = 0xc00e94Cb662C3520282E6f5717214004A7f26888;
+        vm.startPrank(bridgeOwner);
+        vm.expectRevert("Token not supported");
+        bridge.initializeInterest(comp, 100 ether, 1 ether, address(1));
+        vm.expectRevert("Interest not Enabled");
+        bridge.payInterest(comp, 1000);
     }
 
     function testDisableInterest() public {
@@ -313,12 +307,13 @@ contract XDaiForeignBridgeTest is SetupTest {
         uint256 initialCollectable = bridge.interestAmount(address(dai));
         console.log("%e %e",initialInvested,initialCollectable);
         assertGt(initialCollectable, bridge.minInterestPaid(address(dai)));
-        bridge.payInterest(address(dai));
+        bridge.payInterest(address(dai), 10000000 ether);
         uint256 duringBalance = dai.balanceOf(bridgeAddress);
         uint256 duringInvested = bridge.investedAmount(address(dai));
         assertEq(initialCollectable, duringBalance - initialBalance + duringInvested - initialInvested);
-        if (duringBalance > bridge.minCashThreshold(address(dai))){
-            bridge.investDai();
+        if (duringBalance > minCashThreshold){
+            if (sDAI.previewDeposit(duringBalance - minCashThreshold) > 0)
+                bridge.investDai();
         }
         else{
             vm.expectRevert("Balance too Low");
@@ -329,10 +324,10 @@ contract XDaiForeignBridgeTest is SetupTest {
         uint256 afterBalance = dai.balanceOf(bridgeAddress);
         uint256 afterInvested = bridge.investedAmount(address(dai));
         uint256 afterCollectable = bridge.interestAmount(address(dai));
-        if (initialBalance >= bridge.minCashThreshold(address(dai))) {
+        if (duringBalance > bridge.minCashThreshold(address(dai))) {
             assertGe(initialBalance, afterBalance);
         } else {
-            assertLt(initialBalance, afterBalance);
+            assertEq(initialBalance, afterBalance);
         }
         assertGe(afterInvested, initialInvested);
         assertEq(afterCollectable, 0);
