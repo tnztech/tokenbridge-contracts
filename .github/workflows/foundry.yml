@@ -1,0 +1,39 @@
+name: foundry-test
+
+on: [push]
+
+env:
+  PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+  TENDERLY_FORK: ${{ secrets.TENDERLY_FORK }}
+  RPC_MAINNET: ${{ vars.RPC_MAINNET }}
+  RPC_GNOSIS: ${{ vars.RPC_GNOSIS }}
+  ETHERSCAN_API_KEY_MAINNET: ${{ vars.ETHERSCAN_API_KEY_MAINNET }}
+  ETHERSCAN_API_KEY_GNOSIS: ${{ vars.ETHERSCAN_API_KEY_GNOSIS }}
+  VERIFIER_URL: ${{ vars.VERIFIER_URL }}
+
+jobs:
+  check:
+    name: Foundry project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+
+      - name: Yarn install
+        run: yarn
+
+      - name: Install Foundry Dependencies
+        run: forge install
+
+      - id: deployment
+        name: Deploy to Tenderly Fork
+        run: |
+          DEPLOYED_TO=$(jq -r '.deployedTo' <<< $(forge create --rpc-url "https://${{ secrets.TENDERLY_FORK }}" --private-key ${{ secrets.PRIVATE_KEY }} --json --optimize XDaiForeignBridge))
+          echo "NEW_IMPLEMENTATION=$DEPLOYED_TO" >> "$GITHUB_ENV"
+
+      - name: Run test on fork
+        run: forge test --fork-url "https://${{ secrets.TENDERLY_FORK }}" -vvv

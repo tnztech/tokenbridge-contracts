@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3.8"
 services:
   bridge-contracts:
     build: .
@@ -10,3 +10,13 @@ services:
       dockerfile: Dockerfile.dev
     command: "true"
     env_file: ./deploy/.env
+  foundry:
+    build:
+      context: .
+      dockerfile: Dockerfile.foundry
+    command: "true"
+    env_file: .env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+     - 8545:8545
