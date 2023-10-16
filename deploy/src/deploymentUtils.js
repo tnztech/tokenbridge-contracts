@@ -23,7 +23,7 @@ const {
 } = require('./web3')
 const verifier = require('./utils/verifier')
 
-async function deployContract(contractJson, args, { from, network, nonce }) {
+async function deployContract(contractJson, args, { from, network, nonce, chainId }) {
   let web3
   let url
   let gasPrice
@@ -41,6 +41,7 @@ async function deployContract(contractJson, args, { from, network, nonce }) {
     gasPrice = HOME_DEPLOYMENT_GAS_PRICE
     apiUrl = HOME_EXPLORER_URL
     apiKey = HOME_EXPLORER_API_KEY
+
   }
   const options = {
     from
@@ -49,7 +50,8 @@ async function deployContract(contractJson, args, { from, network, nonce }) {
   const result = await instance
     .deploy({
       data: contractJson.bytecode,
-      arguments: args
+      arguments: args,
+
     })
     .encodeABI()
   const tx = await sendRawTx({
@@ -58,7 +60,8 @@ async function deployContract(contractJson, args, { from, network, nonce }) {
     to: null,
     privateKey: deploymentPrivateKey,
     url,
-    gasPrice
+    gasPrice,
+    chainId
   })
   if (Web3Utils.hexToNumber(tx.status) !== 1 && !tx.contractAddress) {
     throw new Error('Tx failed')
@@ -91,13 +94,14 @@ async function sendRawTxForeign(options) {
   })
 }
 
-async function sendRawTx({ data, nonce, to, privateKey, url, gasPrice, value }) {
+async function sendRawTx({ data, nonce, to, privateKey, url, gasPrice, value, chainId }) {
   try {
     const txToEstimateGas = {
       from: privateKeyToAddress(Web3Utils.bytesToHex(privateKey)),
       value,
       to,
-      data
+      data,
+      chainId
     }
     const estimatedGas = BigNumber(await sendNodeRequest(url, 'eth_estimateGas', txToEstimateGas))
 
@@ -121,7 +125,8 @@ async function sendRawTx({ data, nonce, to, privateKey, url, gasPrice, value }) 
       gasLimit: Web3Utils.toHex(gas),
       to,
       data,
-      value
+      value,
+      chainId
     }
 
     const tx = new Tx(rawTx)
@@ -193,7 +198,7 @@ function logValidatorsAndRewardAccounts(validators, rewards) {
   })
 }
 
-async function upgradeProxy({ proxy, implementationAddress, version, nonce, url }) {
+async function upgradeProxy({ proxy, implementationAddress, version, nonce, url, chainId }) {
   const data = await proxy.methods.upgradeTo(version, implementationAddress).encodeABI()
   const sendTx = getSendTxMethod(url)
   const result = await sendTx({
@@ -201,7 +206,8 @@ async function upgradeProxy({ proxy, implementationAddress, version, nonce, url 
     nonce,
     to: proxy.options.address,
     privateKey: deploymentPrivateKey,
-    url
+    url,
+    chainId
   })
   if (result.status) {
     assert.strictEqual(Web3Utils.hexToNumber(result.status), 1, 'Transaction Failed')
@@ -210,7 +216,7 @@ async function upgradeProxy({ proxy, implementationAddress, version, nonce, url 
   }
 }
 
-async function transferProxyOwnership({ proxy, newOwner, nonce, url }) {
+async function transferProxyOwnership({ proxy, newOwner, nonce, url, chainId }) {
   const data = await proxy.methods.transferProxyOwnership(newOwner).encodeABI()
   const sendTx = getSendTxMethod(url)
   const result = await sendTx({
@@ -218,7 +224,8 @@ async function transferProxyOwnership({ proxy, newOwner, nonce, url }) {
     nonce,
     to: proxy.options.address,
     privateKey: deploymentPrivateKey,
-    url
+    url,
+    chainId
   })
   if (result.status) {
     assert.strictEqual(Web3Utils.hexToNumber(result.status), 1, 'Transaction Failed')
@@ -230,12 +237,14 @@ async function transferProxyOwnership({ proxy, newOwner, nonce, url }) {
 async function transferOwnership({ contract, newOwner, nonce, url }) {
   const data = await contract.methods.transferOwnership(newOwner).encodeABI()
   const sendTx = getSendTxMethod(url)
+  const chainId = url === HOME_RPC_URL? "0x27d8":"0xaa36a7"
   const result = await sendTx({
     data,
     nonce,
     to: contract.options.address,
     privateKey: deploymentPrivateKey,
-    url
+    url,
+    chainId
   })
   if (result.status) {
     assert.strictEqual(Web3Utils.hexToNumber(result.status), 1, 'Transaction Failed')
@@ -247,12 +256,15 @@ async function transferOwnership({ contract, newOwner, nonce, url }) {
 async function setBridgeContract({ contract, bridgeAddress, nonce, url }) {
   const data = await contract.methods.setBridgeContract(bridgeAddress).encodeABI()
   const sendTx = getSendTxMethod(url)
+  const chainId = url === HOME_RPC_URL? "0x27d8":"0xaa36a7"
   const result = await sendTx({
     data,
     nonce,
     to: contract.options.address,
     privateKey: deploymentPrivateKey,
-    url
+    url,
+    chainId
+
   })
   if (result.status) {
     assert.strictEqual(Web3Utils.hexToNumber(result.status), 1, 'Transaction Failed')
@@ -269,7 +281,8 @@ async function initializeValidators({
   rewardAccounts,
   owner,
   nonce,
-  url
+  url,
+  chainId
 }) {
   let data
 
@@ -289,7 +302,9 @@ async function initializeValidators({
     nonce,
     to: contract.options.address,
     privateKey: deploymentPrivateKey,
-    url
+    url,
+    chainId
+
   })
   if (result.status) {
     assert.strictEqual(Web3Utils.hexToNumber(result.status), 1, 'Transaction Failed')
